@@ -1,0 +1,50 @@
+FROM ubuntu:hirsute
+
+ENV TZ=Pacific/Auckland
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update --quiet && \
+    apt-get install --quiet --assume-yes \
+        apt-utils \
+        tzdata \
+        perl \
+        wget \
+        gpg \
+        fig2dev \
+        libfontconfig1 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install TexLive with scheme-full
+RUN wget --no-check-certificate \
+        http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz && \
+    mkdir /install-tl-unx && \
+    tar -xvf install-tl-unx.tar.gz -C /install-tl-unx --strip-components=1 && \
+    echo "selected_scheme scheme-full" >> /install-tl-unx/texlive.profile && \
+    echo "tlpdbopt_install_docfiles 0" >> /install-tl-unx/texlive.profile && \
+    echo "tlpdbopt_install_srcfiles 0" >> /install-tl-unx/texlive.profile && \
+    /install-tl-unx/install-tl -profile /install-tl-unx/texlive.profile && \
+    rm -rf /install-tl-unx && \
+    rm -f install-tl-unx.tar.gz
+
+ENV PATH="/usr/local/texlive/2021/bin/x86_64-linux:${PATH}"
+
+# Now, at this point need to copy the vuwproject.sty, VUWlogo.png,
+# etc. files into the TEXMFLOCAL tree. See:
+# <https://tug.org/texlive/doc/texlive-en/texlive-en.html#x1-110002.3>.
+#
+# Instead of COPY, could use wget and fetch these files from an
+# HTTP-accessible source such as the ECS wiki or Gitlab Pages.
+# Ideally, these would be packaged on CTAN and installed as part of
+# the texlive distribution, above.
+COPY VUWlogo.png /usr/local/texlive/texmf-local/tex/latex/
+COPY vuwproject.sty /usr/local/texlive/texmf-local/tex/latex/
+# Update the filename database
+RUN mktexlsr
+
+ENV HOME /data
+WORKDIR /data
+
+VOLUME ["/data"]
+
+CMD ["bash"]

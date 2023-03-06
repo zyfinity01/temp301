@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install required packages
+      apt:
+        name:
+          - emacs
+          - gitlab-runner
+          - picocom
+        update_cache: yes
+    - name: Configure SSH access
+      # Change to allow ssh-public key access and disallow password
+      # authentication; copy ssh public keys to allow access
+    - name: Configure network interface
+      # Set WiFi
+#    - name: Install Python packages
+#      pip:
+#        name:
+#          - rshell
+#          - mpy-cross
+#          - esptool
+#          - pre-commit
+#          - pylint
+#          - black
+#        state: present

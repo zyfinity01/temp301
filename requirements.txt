@@ -1,0 +1,38 @@
+# For more information on the requirements.txt file, see:
+# PIP Requirements File Format
+# <https://pip.pypa.io/en/latest/reference/requirements-file-format/>
+
+# Python and MicroPython software development packages
+pre-commit == 2.19.0
+gitlint == 0.17.0
+yamllint == 1.26.3
+shellcheck-py == 0.8.0.1
+black == 22.3.0
+pylint == 2.13.4
+pylint-ignore == 2021.1024
+
+# MicroPython cross-complier
+# Note: mpy-cross version should match the target MicroPython version.
+mpy-cross == 1.14
+
+# ESP32 configuration and communication
+esptool == 4.1
+rshell == 0.0.31
+mpremote == 0.3.0
+pyserial == 3.5  # Used in util/micropython-hitl/pyboard.py
+
+# MQTT publisher and subscriber scripts
+paho-mqtt==1.6.1
+requests==2.27.1
+
+# Data recorder simulator (software/simulator) requirements
+configargparse == 1.5.3
+flask == 2.1.2
+flask-cors == 3.0.10
+flask-restful == 0.3.9
+
+# Web server
+django==4.0.5
+djangorestframework==3.13.1
+django-extensions==3.1.5
+drf-nested-routers==0.93.4

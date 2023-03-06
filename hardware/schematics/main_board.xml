@@ -1,0 +1,3515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>\\wsl$\Ubuntu-20.04\home\louis\engr489-project\hardware\schematics\main_board.kicad_sch</source>
+    <date>15/12/2021 3:43:30 PM</date>
+    <tool>Eeschema (6.0.0-rc1-255-gd64ae52042)</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>main_board.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>esp32_board.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>power_system.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="4" name="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>sdi-12.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="5" name="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>battery_fuel_gauge.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="6" name="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>rain_gauge_logger.kicad_sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="C100">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>ec254d45-b07c-4ead-8b60-d8e5f205e88c</tstamps>
+    </comp>
+    <comp ref="C101">
+      <value>10uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805KKX5R8BB106</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805KKX5R8BB106"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>964ee9a7-a460-44e1-89e3-ed5e7adf38f1</tstamps>
+    </comp>
+    <comp ref="C102">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>c417a097-3716-42e2-a277-85bd091132c6</tstamps>
+    </comp>
+    <comp ref="C103">
+      <value>10uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805KKX5R8BB106</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805KKX5R8BB106"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>90514dae-c258-49f0-8ea2-e8465b60870e</tstamps>
+    </comp>
+    <comp ref="C104">
+      <value>10uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805KKX5R8BB106</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805KKX5R8BB106"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>e89e487d-962c-468f-8748-4a78b03a2d87</tstamps>
+    </comp>
+    <comp ref="C105">
+      <value>10uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805KKX5R8BB106</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805KKX5R8BB106"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>e28785e6-23a6-4d97-8af1-f33c992f70f8</tstamps>
+    </comp>
+    <comp ref="C106">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>94f0775f-2871-46c7-bf3e-05b77cbf69f0</tstamps>
+    </comp>
+    <comp ref="D100">
+      <value>1N5819HW1-7-F</value>
+      <footprint>SODFL3700X115N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">1N5819HW1-7-F</field>
+        <field name="FOOTPRINT">Diode_SMD:D_SMA</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_1N5819" description=""/>
+      <property name="ALTIUM_VALUE" value="1N5819HW1-7-F"/>
+      <property name="FOOTPRINT" value="Diode_SMD:D_SMA"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>92d50662-a39e-4fa1-bb6f-cc8b44dd326d</tstamps>
+    </comp>
+    <comp ref="D101">
+      <value>RGBLED</value>
+      <footprint>LED_APTF1616SEEZGQBDC_SM</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">APTF1616SEEZGQBDC</field>
+        <field name="COMPONENTLINK1DESCRIPTION">DataSheet</field>
+        <field name="COMPONENTLINK2DESCRIPTION">Packaging</field>
+        <field name="MANUFACTURER">Kingbright</field>
+        <field name="MANUFACTURER PART NO">APTF1616SEEZGQBDC</field>
+        <field name="PACKAGE">SM</field>
+        <field name="ROHS">Y</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_LED_APTF1616SEEZGQBDC_SM" description="LED RGB WP154A4SEJ3VBDZGC/CA TH"/>
+      <property name="PACKAGE" value="SM"/>
+      <property name="POWER" value=""/>
+      <property name="TOLERANCE" value=""/>
+      <property name="TOPCODE" value=""/>
+      <property name="ROHS" value="Y"/>
+      <property name="MANUFACTURER" value="Kingbright"/>
+      <property name="MANUFACTURER PART NO" value="APTF1616SEEZGQBDC"/>
+      <property name="COMPONENTLINK1DESCRIPTION" value="DataSheet"/>
+      <property name="COMPONENTLINK1URL" value=""/>
+      <property name="PACKAGING" value=""/>
+      <property name="COMPONENTLINK2DESCRIPTION" value="Packaging"/>
+      <property name="COMPONENTLINK2URL" value=""/>
+      <property name="ALTIUM_VALUE" value="APTF1616SEEZGQBDC"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>91274633-6bf7-4cc5-ab5d-a7a0dd7245c8</tstamps>
+    </comp>
+    <comp ref="J100">
+      <value>USB_B_Micro</value>
+      <footprint>CON_1050170001</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">USB_B_Micro</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_USB_B_Micro" description=""/>
+      <property name="ALTIUM_VALUE" value="USB_B_Micro"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>c8d7a374-cd5e-44ac-b410-5396dbb56979</tstamps>
+    </comp>
+    <comp ref="J102">
+      <value>SDCARD</value>
+      <footprint>CON_MEM2075-00-140-01-A</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">MEM2075-00-140-01-A</field>
+        <field name="MANUFACTURER">GCT</field>
+        <field name="PARTREV">A</field>
+        <field name="STANDARD">Manufacturer recommendations</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_MEM2075-00-140-01-A" description=""/>
+      <property name="PARTREV" value="A"/>
+      <property name="MANUFACTURER" value="GCT"/>
+      <property name="STANDARD" value="Manufacturer recommendations"/>
+      <property name="ALTIUM_VALUE" value="MEM2075-00-140-01-A"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>3c87c8e9-ddf9-4c5e-aafb-cc1d2f78abf4</tstamps>
+    </comp>
+    <comp ref="J103">
+      <value>I2C</value>
+      <footprint>CON_NPTC041KFXC-RC_SM</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">NPTC041KFXC-RC</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_Conn_01x04" description=""/>
+      <property name="ALTIUM_VALUE" value="NPTC041KFXC-RC"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>004c30d9-3726-4058-8db0-bb836a778fc7</tstamps>
+    </comp>
+    <comp ref="J104">
+      <value>WIFI_EN</value>
+      <footprint>CON_NPTC041KFXC-RC_SM</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">NPTC041KFXC-RC</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_Conn_01x04" description=""/>
+      <property name="ALTIUM_VALUE" value="NPTC041KFXC-RC"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>dc05fe33-69eb-4ea0-b860-d8aaa13c1628</tstamps>
+    </comp>
+    <comp ref="J105">
+      <value>MODEM_A</value>
+      <footprint>CON_0878980826_SM</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">0878980826</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_Header 8H" description="Header, 8-Pin, Right Angle"/>
+      <property name="LATESTREVISIONDATE" value=""/>
+      <property name="LATESTREVISIONNOTE" value=""/>
+      <property name="PUBLISHER" value=""/>
+      <property name="ALTIUM_VALUE" value="0878980826"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>d7a161cc-643f-433a-8c8b-2a8c5217185d</tstamps>
+    </comp>
+    <comp ref="J106">
+      <value>MODEM_B</value>
+      <footprint>CON_0878980826_SM</footprint>
+      <libsource lib="main_board-altium-import" part="0_Header 8H" description="Header, 8-Pin, Right Angle"/>
+      <property name="LATESTREVISIONDATE" value=""/>
+      <property name="LATESTREVISIONNOTE" value=""/>
+      <property name="PUBLISHER" value=""/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>3325dcee-e044-4ae9-a82c-6bcc1829217a</tstamps>
+    </comp>
+    <comp ref="MH100">
+      <value>${TOPCODE}</value>
+      <footprint>HOLN_M3</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">M3</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_HOLE_NPTH" description="HOLE NON PLATED"/>
+      <property name="ALTIUM_VALUE" value="M3"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>f525c2ca-e7ba-4514-91bc-134c7eeb6847</tstamps>
+    </comp>
+    <comp ref="MH101">
+      <value>${TOPCODE}</value>
+      <footprint>HOLN_M3</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">M3</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_HOLE_NPTH" description="HOLE NON PLATED"/>
+      <property name="ALTIUM_VALUE" value="M3"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>b9a9d7d2-4f0b-4e9a-bedb-ef3db267ac8e</tstamps>
+    </comp>
+    <comp ref="MH103">
+      <value>${TOPCODE}</value>
+      <footprint>HOLN_M3</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">M3</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_HOLE_NPTH" description="HOLE NON PLATED"/>
+      <property name="ALTIUM_VALUE" value="M3"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>7cdf4dbf-2f70-4049-90fa-45b4b9d8d02b</tstamps>
+    </comp>
+    <comp ref="Q100">
+      <value>BC847</value>
+      <footprint>SOT95P240X130_123-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">BC847</field>
+        <field name="FOOTPRINT">Package_TO_SOT_SMD:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_BC847" description=""/>
+      <property name="ALTIUM_VALUE" value="BC847"/>
+      <property name="FOOTPRINT" value="Package_TO_SOT_SMD:SOT-23"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>d00eb34c-2567-48c9-a05e-31a38ffacbc9</tstamps>
+    </comp>
+    <comp ref="Q101">
+      <value>BC847</value>
+      <footprint>SOT95P240X130_123-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">BC847</field>
+        <field name="FOOTPRINT">Package_TO_SOT_SMD:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_BC847" description=""/>
+      <property name="ALTIUM_VALUE" value="BC847"/>
+      <property name="FOOTPRINT" value="Package_TO_SOT_SMD:SOT-23"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>68922338-a848-4dd0-84b7-a8a63bd059bd</tstamps>
+    </comp>
+    <comp ref="R100">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>daf9da28-0f62-4030-a96d-6aecd6fce210</tstamps>
+    </comp>
+    <comp ref="R101">
+      <value>470</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07470RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07470RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>f4600315-2859-4100-b700-20728bd6ae90</tstamps>
+    </comp>
+    <comp ref="R102">
+      <value>470</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07470RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07470RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>44fb6ff5-66a5-430f-a711-1c86b2b9bf27</tstamps>
+    </comp>
+    <comp ref="R103">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>8e54e158-76fc-4c8e-a3c6-1da9e699dd0f</tstamps>
+    </comp>
+    <comp ref="R104">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>c69efd68-b8d0-497d-ae25-5b69017e5c77</tstamps>
+    </comp>
+    <comp ref="R105">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>70f43e74-9fe6-4ce3-8013-09cc1375891c</tstamps>
+    </comp>
+    <comp ref="R106">
+      <value>100</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07100RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07100RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>66e429ab-5bfc-44d1-aa13-226f0a2b169d</tstamps>
+    </comp>
+    <comp ref="R107">
+      <value>100</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07100RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07100RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>8236a635-ccca-4db1-92ae-27ce5451df22</tstamps>
+    </comp>
+    <comp ref="SW100">
+      <value>Push_Button</value>
+      <footprint>SW_B3S-1000P_SM</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">DTSM-62K-S-V-T/R</field>
+        <field name="FOOTPRINT">OPL_Switch:SW4-SMD-6.0X6.0X5.0MM</field>
+        <field name="MPN">DTSM-62K-S-V-T/R(SN431)</field>
+        <field name="SKU">311020004</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_SMD-BUTTON-TOP-DHT-4235A_4P-4.2X3.2MM_" description=""/>
+      <property name="MPN" value="DTSM-62K-S-V-T/R(SN431)"/>
+      <property name="SKU" value="311020004"/>
+      <property name="ALTIUM_VALUE" value="DTSM-62K-S-V-T/R"/>
+      <property name="FOOTPRINT" value="OPL_Switch:SW4-SMD-6.0X6.0X5.0MM"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>855dd221-719d-4f13-a491-5af78b4e21ef</tstamps>
+    </comp>
+    <comp ref="TP100">
+      <value>RevPol</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RevPol</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_mirrored_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="RevPol"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>ee9d6224-5e30-47d6-b0c2-9df6218d6d54</tstamps>
+    </comp>
+    <comp ref="TP101">
+      <value>RevPol</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RevPol</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_mirrored_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="RevPol"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>180c5448-3d3e-49f1-b655-4a64a70b336b</tstamps>
+    </comp>
+    <comp ref="TP102">
+      <value>RevPol</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RevPol</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="RevPol"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>fb19e5c5-3acf-4ea1-afa6-c5d46f40644d</tstamps>
+    </comp>
+    <comp ref="TP103">
+      <value>RevPol</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RevPol</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_mirrored_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="RevPol"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>f53a99df-250f-4a1e-afbf-bad4642182eb</tstamps>
+    </comp>
+    <comp ref="TP104">
+      <value>RevPol</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RevPol</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="RevPol"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>bb8accc2-7fc6-4ae1-8ce2-396db33598fe</tstamps>
+    </comp>
+    <comp ref="TP105">
+      <value>RevPol</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RevPol</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="RevPol"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>854aceaf-679d-4f8f-a909-6b77b5655a3d</tstamps>
+    </comp>
+    <comp ref="TP106">
+      <value>RevPol</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RevPol</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="RevPol"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>52d46255-2988-456e-9707-eea6d5e482c0</tstamps>
+    </comp>
+    <comp ref="U100">
+      <value>CP2104</value>
+      <footprint>QFN50P400X400X90-25N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CP2104</field>
+        <field name="FOOTPRINT">Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_CP2104" description=""/>
+      <property name="ALTIUM_VALUE" value="CP2104"/>
+      <property name="FOOTPRINT" value="Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>42d37021-b389-4783-805d-b83ed1a0f3ee</tstamps>
+    </comp>
+    <comp ref="U101">
+      <value>ESP32-WROVER-B</value>
+      <footprint>IC_ESP32-WROVER</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">ESP32-WROVER-B</field>
+        <field name="FOOTPRINT">esp32-wrover:ESP32-WROVER</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_ESP32-WROVER" description=""/>
+      <property name="ALTIUM_VALUE" value="ESP32-WROVER-B"/>
+      <property name="FOOTPRINT" value="esp32-wrover:ESP32-WROVER"/>
+      <property name="Sheetname" value="esp32_board"/>
+      <property name="Sheetfile" value="esp32_board.kicad_sch"/>
+      <sheetpath names="/esp32_board/" tstamps="/34d3baf1-c1a6-463d-a7da-03fde565ea93/"/>
+      <tstamps>e4583a93-4738-49c4-82f9-aad1ffbe9bd8</tstamps>
+    </comp>
+    <comp ref="C300">
+      <value>22uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805MKX5R8BB226</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805MKX5R8BB226"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>9e58615c-92b8-45bb-84ed-001f427d2a1b</tstamps>
+    </comp>
+    <comp ref="C301">
+      <value>22uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805MKX5R8BB226</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805MKX5R8BB226"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>4159fad7-8e91-442e-90f2-55526902c45a</tstamps>
+    </comp>
+    <comp ref="C302">
+      <value>10uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805KKX5R8BB106</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805KKX5R8BB106"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>90c55946-f96a-4393-a762-855d95bd073d</tstamps>
+    </comp>
+    <comp ref="C303">
+      <value>10uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805KKX5R8BB106</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805KKX5R8BB106"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>5f7d5f52-567b-4f40-aee2-ea5bf6b2be0c</tstamps>
+    </comp>
+    <comp ref="C304">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>dece22cf-5001-44cd-9ca5-af884a2dd1f9</tstamps>
+    </comp>
+    <comp ref="C305">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>b14f1187-754d-4bba-9879-aa5b36309094</tstamps>
+    </comp>
+    <comp ref="C306">
+      <value>22uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805MKX5R8BB226</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805MKX5R8BB226"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>b490dd7d-6f2a-4467-a3bc-5bf7d1926b4a</tstamps>
+    </comp>
+    <comp ref="C307">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>9ca1288e-caef-4d97-bef8-628c0220e746</tstamps>
+    </comp>
+    <comp ref="C308">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>88afc865-1a22-430b-a29d-e6b7bf636602</tstamps>
+    </comp>
+    <comp ref="C309">
+      <value>22uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805MKX5R8BB226</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805MKX5R8BB226"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>b1fc1a39-b0b6-44c8-9873-4db13e482216</tstamps>
+    </comp>
+    <comp ref="C310">
+      <value>22uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805MKX5R8BB226</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805MKX5R8BB226"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>e0cb0367-9bd8-410a-add4-4bd011accd3c</tstamps>
+    </comp>
+    <comp ref="C311">
+      <value>100uF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>023a35f1-1853-40b9-be5b-91c845113536</tstamps>
+    </comp>
+    <comp ref="D300">
+      <value>1N5819HW1-7-F</value>
+      <footprint>SODFL3700X115N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">1N5819HW1-7-F</field>
+        <field name="FOOTPRINT">Diode_SMD:D_SMA</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_1N5819" description=""/>
+      <property name="ALTIUM_VALUE" value="1N5819HW1-7-F"/>
+      <property name="FOOTPRINT" value="Diode_SMD:D_SMA"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>fcfb0e66-04da-4039-97d3-1a751d2a550d</tstamps>
+    </comp>
+    <comp ref="D301">
+      <value>RED_LED</value>
+      <footprint>LED_19-217/B7C-ZL2N1B3X/3T_SM</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">19-217-R6C-AL1M2VY-3T</field>
+        <field name="FOOTPRINT">LED_SMD:LED_0603_1608Metric</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_LED" description=""/>
+      <property name="ALTIUM_VALUE" value="19-217-R6C-AL1M2VY-3T"/>
+      <property name="FOOTPRINT" value="LED_SMD:LED_0603_1608Metric"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>3d517e64-c57c-4b63-ac24-3a91be578050</tstamps>
+    </comp>
+    <comp ref="D302">
+      <value>CRS08</value>
+      <footprint>SODFL3500X98N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CRS08</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_D_Schottky" description=""/>
+      <property name="ALTIUM_VALUE" value="CRS08"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>c40555a2-76f6-47f6-8565-ddb5b88a8a7f</tstamps>
+    </comp>
+    <comp ref="D303">
+      <value>1N5819HW1-7-F</value>
+      <footprint>SODFL3700X115N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">1N5819HW1-7-F</field>
+        <field name="FOOTPRINT">Diode_SMD:D_SMA</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_1N5819" description=""/>
+      <property name="ALTIUM_VALUE" value="1N5819HW1-7-F"/>
+      <property name="FOOTPRINT" value="Diode_SMD:D_SMA"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>ca3a152b-2f99-44f9-9542-f5235f06dbc8</tstamps>
+    </comp>
+    <comp ref="J300">
+      <value>BATT</value>
+      <footprint>con_691508110302_sm</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">691508110302</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_Conn_01x02" description=""/>
+      <property name="ALTIUM_VALUE" value="691508110302"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>438705df-e6a6-4634-a20f-e1148d4198ec</tstamps>
+    </comp>
+    <comp ref="L300">
+      <value>4.7uH</value>
+      <footprint>IND_SRN5040-4R7M_SM</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">SRN5040-4R7M</field>
+        <field name="FOOTPRINT">SRN5040-4R7M:INDPM5050X400N</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_L" description=""/>
+      <property name="ALTIUM_VALUE" value="SRN5040-4R7M"/>
+      <property name="FOOTPRINT" value="SRN5040-4R7M:INDPM5050X400N"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>aac1e47d-1483-40e3-9143-a581624bb5a7</tstamps>
+    </comp>
+    <comp ref="L301">
+      <value>4.7uH</value>
+      <footprint>IND_SRN5040-4R7M_SM</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">SRN5040-4R7M</field>
+        <field name="FOOTPRINT">SRN5040-4R7M:INDPM5050X400N</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_L" description=""/>
+      <property name="ALTIUM_VALUE" value="SRN5040-4R7M"/>
+      <property name="FOOTPRINT" value="SRN5040-4R7M:INDPM5050X400N"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>e440a5bb-450e-4713-aa13-00f1b2554621</tstamps>
+    </comp>
+    <comp ref="Q300">
+      <value>FDN360P</value>
+      <footprint>SOT95P240X110_123_SUPER-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">FDN360P</field>
+        <field name="FOOTPRINT">OPL_Discrete_Semiconductor:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_Q_PMOS_GSD" description=""/>
+      <property name="ALTIUM_VALUE" value="FDN360P"/>
+      <property name="FOOTPRINT" value="OPL_Discrete_Semiconductor:SOT-23"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>eda8f1ee-257e-49ff-93d3-939baf3eef96</tstamps>
+    </comp>
+    <comp ref="Q301">
+      <value>FDN360P</value>
+      <footprint>SOT95P240X110_123_SUPER-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">FDN360P</field>
+        <field name="FOOTPRINT">OPL_Discrete_Semiconductor:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_mirrored_Q_PMOS_GSD" description=""/>
+      <property name="ALTIUM_VALUE" value="FDN360P"/>
+      <property name="FOOTPRINT" value="OPL_Discrete_Semiconductor:SOT-23"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>5689b47b-7b46-4ec7-9ead-ff2aa4f086d5</tstamps>
+    </comp>
+    <comp ref="R300">
+      <value>56K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0756KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0756KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>9450572d-d05d-4226-b258-c4c0bcdbecca</tstamps>
+    </comp>
+    <comp ref="R301">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>4df27aa5-9436-4ee7-b203-34335a137d59</tstamps>
+    </comp>
+    <comp ref="R302">
+      <value>3K3</value>
+      <footprint>RESC2012X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0805FR-073K3L</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0805FR-073K3L"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0805"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>504320bd-cfa7-4952-b386-fafd8ac8a19a</tstamps>
+    </comp>
+    <comp ref="R303">
+      <value>100K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-10100KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-10100KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>fe94c500-4723-4940-b5d8-70f2101badee</tstamps>
+    </comp>
+    <comp ref="R304">
+      <value>5K3</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0745K3L</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0745K3L"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>313c8e97-968d-4155-bdc2-52451d165bb8</tstamps>
+    </comp>
+    <comp ref="R305">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>c31541b0-05b3-4f9a-a5ca-240448e17a33</tstamps>
+    </comp>
+    <comp ref="R306">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>f4f8a9fe-a440-43ec-b602-e6d151d14e34</tstamps>
+    </comp>
+    <comp ref="TP300">
+      <value>5V</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">5V</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="5V"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>285d3b92-7942-4a70-9c84-2570cf0038f4</tstamps>
+    </comp>
+    <comp ref="TP301">
+      <value>RevPol</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RevPol</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="RevPol"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>f4aab422-c542-43e3-8476-eae6a2df1847</tstamps>
+    </comp>
+    <comp ref="TP302">
+      <value>3V3</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">3V3</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="3V3"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>2ad119a6-4155-40ca-979d-c79df1ad63e7</tstamps>
+    </comp>
+    <comp ref="TP304">
+      <value>RevPol</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RevPol</field>
+        <field name="FOOTPRINT">Connector_Pin:Pin_D1.0mm_L10.0mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="RevPol"/>
+      <property name="FOOTPRINT" value="Connector_Pin:Pin_D1.0mm_L10.0mm"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>19df0889-8c5e-415e-abe2-efd1adc29b07</tstamps>
+    </comp>
+    <comp ref="U300">
+      <value>TPS562201DDCR</value>
+      <footprint>SOT95P305X110-6N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">TPS562201DDCR</field>
+        <field name="FOOTPRINT">Package_TO_SOT_SMD:SOT-23-6</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_TPS562200" description=""/>
+      <property name="ALTIUM_VALUE" value="TPS562201DDCR"/>
+      <property name="FOOTPRINT" value="Package_TO_SOT_SMD:SOT-23-6"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>2eb24db3-025b-4a3a-a10a-af83ec90f414</tstamps>
+    </comp>
+    <comp ref="U301">
+      <value>LM2831XMF</value>
+      <footprint>SOT95P279X142-12345-5N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">LM2831XMF</field>
+        <field name="AVAILABILITY">In Stock</field>
+        <field name="FOOTPRINT">SOT95P280X145-5N</field>
+        <field name="MF">Texas Instruments</field>
+        <field name="MP">LM2831XMF/NOPB</field>
+        <field name="PACKAGE">SOT-23-5 Texas Instruments</field>
+        <field name="PRICE">None</field>
+        <field name="PURCHASE-URL">https://pricing.snapeda.com/search/part/LM2831XMF/NOPB/?ref=eda</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_LM2831XMF" description=""/>
+      <property name="MP" value="LM2831XMF/NOPB"/>
+      <property name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/LM2831XMF/NOPB/?ref=eda"/>
+      <property name="PACKAGE" value="SOT-23-5 Texas Instruments"/>
+      <property name="PRICE" value="None"/>
+      <property name="MF" value="Texas Instruments"/>
+      <property name="AVAILABILITY" value="In Stock"/>
+      <property name="ALTIUM_VALUE" value="LM2831XMF"/>
+      <property name="FOOTPRINT" value="SOT95P280X145-5N"/>
+      <property name="Sheetname" value="power_system"/>
+      <property name="Sheetfile" value="power_system.kicad_sch"/>
+      <sheetpath names="/power_system/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/"/>
+      <tstamps>a5168ae5-1e06-4a63-969a-634368913585</tstamps>
+    </comp>
+    <comp ref="C500">
+      <value>22uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805MKX5R8BB226</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805MKX5R8BB226"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>eaf2b036-ddb4-4acf-abc8-936e9ca0b038</tstamps>
+    </comp>
+    <comp ref="C501">
+      <value>10uF</value>
+      <footprint>CAPC2012X90N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0805KKX5R8BB106</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0805KKX5R8BB106"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0805"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>76614376-417b-4b8e-8c1a-7e4905032fe9</tstamps>
+    </comp>
+    <comp ref="C502">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>66c60352-20c9-42c9-8e82-50af27290927</tstamps>
+    </comp>
+    <comp ref="C503">
+      <value>100uF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>35abcfd2-fb3f-41cb-b179-fb65724a1bdc</tstamps>
+    </comp>
+    <comp ref="J500">
+      <value>SDI-12</value>
+      <footprint>CON_691508110304_SM</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">691508110304</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_mirrored_Conn_01x04" description=""/>
+      <property name="ALTIUM_VALUE" value="691508110304"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>e0914859-795e-41b7-b948-5f59aaf6be16</tstamps>
+    </comp>
+    <comp ref="Q500">
+      <value>FDN360P</value>
+      <footprint>SOT95P240X110_123_SUPER-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">FDN360P</field>
+        <field name="FOOTPRINT">OPL_Discrete_Semiconductor:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_mirrored_Q_PMOS_GSD" description=""/>
+      <property name="ALTIUM_VALUE" value="FDN360P"/>
+      <property name="FOOTPRINT" value="OPL_Discrete_Semiconductor:SOT-23"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>af0cbc82-9747-4f5c-bf7b-a3e94024473a</tstamps>
+    </comp>
+    <comp ref="Q501">
+      <value>FDN361BN</value>
+      <footprint>SOT95P240X110_231_SUPER-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">FDN361BN</field>
+        <field name="FOOTPRINT">OPL_Discrete_Semiconductor:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_Q_NMOS_GSD" description=""/>
+      <property name="ALTIUM_VALUE" value="FDN361BN"/>
+      <property name="FOOTPRINT" value="OPL_Discrete_Semiconductor:SOT-23"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>b41b4888-351b-41de-b4d7-00488d81f462</tstamps>
+    </comp>
+    <comp ref="Q502">
+      <value>FDN361BN</value>
+      <footprint>SOT95P240X110_231_SUPER-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">FDN361BN</field>
+        <field name="FOOTPRINT">OPL_Discrete_Semiconductor:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_Q_NMOS_GSD" description=""/>
+      <property name="ALTIUM_VALUE" value="FDN361BN"/>
+      <property name="FOOTPRINT" value="OPL_Discrete_Semiconductor:SOT-23"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>0b9a31b3-71f3-4157-9a7a-513a6a4871fe</tstamps>
+    </comp>
+    <comp ref="R500">
+      <value>1M</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603JR-071ML</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603JR-071ML"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>16049ddd-1751-41e6-a6aa-9af488e1ca52</tstamps>
+    </comp>
+    <comp ref="R501">
+      <value>1M</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603JR-071ML</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603JR-071ML"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>90b1fe41-539e-4f6c-aaef-1f7b0db1b967</tstamps>
+    </comp>
+    <comp ref="R502">
+      <value>1M</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603JR-071ML</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603JR-071ML"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>768d68b3-3286-480c-a1f5-01bd55a6686c</tstamps>
+    </comp>
+    <comp ref="R503">
+      <value>0</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603JR-070RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603JR-070RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>fa092757-d02c-4d9e-8e32-e98fa7fcfddd</tstamps>
+    </comp>
+    <comp ref="TP501">
+      <value>SDI_Tx</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">SDI_Tx</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="SDI_Tx"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>56e0af6c-17ac-45be-a6b1-f823ff68c717</tstamps>
+    </comp>
+    <comp ref="TP502">
+      <value>SDI_Rx</value>
+      <footprint>TP150</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">SDI_Rx</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_TestPoint" description=""/>
+      <property name="ALTIUM_VALUE" value="SDI_Rx"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>49e686e7-716c-461a-9885-6bd22a4c839e</tstamps>
+    </comp>
+    <comp ref="U500">
+      <value>SN74LS00DR</value>
+      <footprint>SOIC127P600X175-14N</footprint>
+      <datasheet>http://www.ti.com/lit/gpn/sn74ls00</datasheet>
+      <fields>
+        <field name="ALTIUM_VALUE">SN74LS00DR</field>
+        <field name="FOOTPRINT">Package_SO:SOIC-14_3.9x8.7mm_P1.27mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_mirrored_74LS00" description=""/>
+      <property name="ALTIUM_VALUE" value="SN74LS00DR"/>
+      <property name="FOOTPRINT" value="Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>965a77de-fc33-40b3-85c0-82c435665780 5c6686c2-f5c4-47ea-bfb7-6de9a4452c2b 40682631-58ac-4750-8f5a-60d3f7d9829d 9652c832-adc6-4f62-b4b6-bc4de5bdf3e6 32c28a5b-6c00-4b9b-a0d6-4b431e6e2613</tstamps>
+    </comp>
+    <comp ref="U501">
+      <value>SN74LVC2G241DCUR</value>
+      <footprint>SOP50P320X90-8N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">SN74LVC2G241DCUR</field>
+        <field name="FOOTPRINT">Package_SO:VSSOP-8_2.3x2mm_P0.5mm</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_74LVC2G241" description=""/>
+      <property name="ALTIUM_VALUE" value="SN74LVC2G241DCUR"/>
+      <property name="FOOTPRINT" value="Package_SO:VSSOP-8_2.3x2mm_P0.5mm"/>
+      <property name="Sheetname" value="sdi-12"/>
+      <property name="Sheetfile" value="sdi-12.kicad_sch"/>
+      <sheetpath names="/sdi-12/" tstamps="/6bec6e76-445c-46e1-9fec-0cf087ac813a/"/>
+      <tstamps>7b591666-9ad7-49bf-a2e5-bfca0931771c 50de83ab-10d8-4f85-86a0-a06133fd1531 09776e58-f137-4452-b7d9-78f884e2f992</tstamps>
+    </comp>
+    <comp ref="C200">
+      <value>3.3nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX7R8BB332</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX7R8BB332"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>ce5b66e8-b710-4452-b68c-9cd786041b99</tstamps>
+    </comp>
+    <comp ref="C201">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>ca7b197f-7808-47de-a461-95f69fe0e8ed</tstamps>
+    </comp>
+    <comp ref="C202">
+      <value>1uF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX6S8BB105</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX6S8BB105"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>6c1474f6-d415-4c7b-8b59-fc1f9a710de3</tstamps>
+    </comp>
+    <comp ref="C203">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>3897df55-4e8e-4d33-b5e2-ac09206305eb</tstamps>
+    </comp>
+    <comp ref="C204">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>4c4881cd-1350-4a28-b356-f3643fc5503d</tstamps>
+    </comp>
+    <comp ref="C205">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>88000859-78d2-4c43-bac7-0b3d749f1368</tstamps>
+    </comp>
+    <comp ref="D200">
+      <value>BZT52C5V6T-7</value>
+      <footprint>SOD523</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">BZT52C5V6T-7</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_D_Zener" description=""/>
+      <property name="ALTIUM_VALUE" value="BZT52C5V6T-7"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>6a3aac14-e57c-49cd-ac67-e411212cffbe</tstamps>
+    </comp>
+    <comp ref="IC200">
+      <value>BQ34Z110PWR</value>
+      <footprint>SOP65P640X120-14N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">BQ34Z110PWR</field>
+        <field name="ARROW PART NUMBER">BQ34Z110PWR</field>
+        <field name="ARROW PRICE/STOCK">https://www.arrow.com/en/products/bq34z110pwr/texas-instruments</field>
+        <field name="FOOTPRINT">SOP65P640X120-14N</field>
+        <field name="HEIGHT">1.2</field>
+        <field name="MANUFACTURER_NAME">Texas Instruments</field>
+        <field name="MANUFACTURER_PART_NUMBER">BQ34Z110PWR</field>
+        <field name="MOUSER PART NUMBER">595-BQ34Z110PWR</field>
+        <field name="MOUSER PRICE/STOCK">https://www.mouser.co.uk/ProductDetail/Texas-Instruments/BQ34Z110PWR/?qs=4whTb%2F0XQMjD6Zq3njSujQ%3D%3D</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_BQ34Z110PWR" description=""/>
+      <property name="HEIGHT" value="1.2"/>
+      <property name="MANUFACTURER_NAME" value="Texas Instruments"/>
+      <property name="MANUFACTURER_PART_NUMBER" value="BQ34Z110PWR"/>
+      <property name="MOUSER PART NUMBER" value="595-BQ34Z110PWR"/>
+      <property name="MOUSER PRICE/STOCK" value="https://www.mouser.co.uk/ProductDetail/Texas-Instruments/BQ34Z110PWR/?qs=4whTb%2F0XQMjD6Zq3njSujQ%3D%3D"/>
+      <property name="ARROW PART NUMBER" value="BQ34Z110PWR"/>
+      <property name="ARROW PRICE/STOCK" value="https://www.arrow.com/en/products/bq34z110pwr/texas-instruments"/>
+      <property name="ALTIUM_VALUE" value="BQ34Z110PWR"/>
+      <property name="FOOTPRINT" value="SOP65P640X120-14N"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>fb56868c-b19c-4212-a841-9013b46ee67d</tstamps>
+    </comp>
+    <comp ref="Q200">
+      <value>2N7002</value>
+      <footprint>SOT95P240X130_123-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">2N7002</field>
+        <field name="FOOTPRINT">Package_TO_SOT_SMD:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_2N7002" description=""/>
+      <property name="ALTIUM_VALUE" value="2N7002"/>
+      <property name="FOOTPRINT" value="Package_TO_SOT_SMD:SOT-23"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>fb80ec7a-b41c-47ce-88ad-426f8849926c</tstamps>
+    </comp>
+    <comp ref="Q201">
+      <value>BSS84</value>
+      <footprint>SOT95P240X130_123-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">BSS84</field>
+        <field name="FOOTPRINT">Package_TO_SOT_SMD:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_BSS84" description=""/>
+      <property name="ALTIUM_VALUE" value="BSS84"/>
+      <property name="FOOTPRINT" value="Package_TO_SOT_SMD:SOT-23"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>357049db-c668-4a77-9a25-ce8b90dfd32b</tstamps>
+    </comp>
+    <comp ref="Q202">
+      <value>2N7002</value>
+      <footprint>SOT95P240X130_123-3N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">2N7002</field>
+        <field name="FOOTPRINT">Package_TO_SOT_SMD:SOT-23</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="3_mirrored_2N7002" description=""/>
+      <property name="ALTIUM_VALUE" value="2N7002"/>
+      <property name="FOOTPRINT" value="Package_TO_SOT_SMD:SOT-23"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>42cc1569-bc07-4b3c-aa19-1ff89972468d</tstamps>
+    </comp>
+    <comp ref="R200">
+      <value>100K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-10100KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-10100KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>e6ff890c-25e5-40fd-9cc5-af46b1daf66b</tstamps>
+    </comp>
+    <comp ref="R201">
+      <value>165K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07165KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07165KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>4f8b8c28-14e3-4385-9730-03ef00608dbe</tstamps>
+    </comp>
+    <comp ref="R202">
+      <value>300K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07300KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07300KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>cc59dc89-7281-4329-8665-69cac2c9dc68</tstamps>
+    </comp>
+    <comp ref="R203">
+      <value>16K5</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603DR-0716K5L</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603DR-0716K5L"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>0ee88c70-b4a6-4a69-8494-c8cddbda5aef</tstamps>
+    </comp>
+    <comp ref="R204">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>20a5fa03-1925-401c-ab1e-0afe600eece7</tstamps>
+    </comp>
+    <comp ref="R205">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>20f86032-2ca7-4d85-9342-2ec7dd95b228</tstamps>
+    </comp>
+    <comp ref="R206">
+      <value>100</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07100RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07100RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>af062573-b97b-4aa1-bea6-0733ff8c3373</tstamps>
+    </comp>
+    <comp ref="R207">
+      <value>100</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07100RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07100RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>b9288ffb-24d0-402b-b179-78cd1bd46e32</tstamps>
+    </comp>
+    <comp ref="R208">
+      <value>100</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07100RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07100RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>66cf9899-100d-45fb-9b9f-8f866de8a3fe</tstamps>
+    </comp>
+    <comp ref="R209">
+      <value>100</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07100RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07100RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>8715f141-d743-43b2-ada1-88f322ec6115</tstamps>
+    </comp>
+    <comp ref="R210">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-1010KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-1010KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>cf686d81-9f88-4310-8cca-09c4155d1a81</tstamps>
+    </comp>
+    <comp ref="R212">
+      <value>100</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07100RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07100RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>d17a8152-3efa-4cbc-b6d7-fac93119bd8f</tstamps>
+    </comp>
+    <comp ref="R213">
+      <value>0.1</value>
+      <footprint>RESC2012X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">PE0805DRF7W0R1L</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0805</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="PE0805DRF7W0R1L"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0805"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>f66e7f65-5501-4321-8ccd-03563508f0c3</tstamps>
+    </comp>
+    <comp ref="R214">
+      <value>100</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-07100RL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-07100RL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>e3961296-b4c5-459d-a7b6-a37ca9fc9b04</tstamps>
+    </comp>
+    <comp ref="SP200">
+      <value>${TOPCODE}</value>
+      <footprint>STAR_TH_2P</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">*</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="1_STARPOINT_2P" description="STARPOINT 2 PIN"/>
+      <property name="ALTIUM_VALUE" value="*"/>
+      <property name="Sheetname" value="battery_fuel_gauge"/>
+      <property name="Sheetfile" value="battery_fuel_gauge.kicad_sch"/>
+      <sheetpath names="/power_system/battery_fuel_gauge/" tstamps="/7bb94872-8dbb-49c9-ba04-f5628db9fbfd/6e5cd04e-2327-4ecd-a08a-14bce936f99b/"/>
+      <tstamps>5f8f5622-0fae-4eeb-bf3b-6112a55f318d</tstamps>
+    </comp>
+    <comp ref="C400">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>66663631-d6f3-4a5e-a176-50982dd4a7e4</tstamps>
+    </comp>
+    <comp ref="C402">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>037791f7-0b6b-411f-96ec-0bf2cb35b675</tstamps>
+    </comp>
+    <comp ref="C403">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>ed14e9ec-5091-4be6-836e-89757f8b6e94</tstamps>
+    </comp>
+    <comp ref="C404">
+      <value>100nF</value>
+      <footprint>CAPC1608X80N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">CC0603KRX5R8BB104</field>
+        <field name="FOOTPRINT">OPL_Capacitor:C0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="2_C" description=""/>
+      <property name="ALTIUM_VALUE" value="CC0603KRX5R8BB104"/>
+      <property name="FOOTPRINT" value="OPL_Capacitor:C0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>0ac868a2-61cb-4b55-b823-31ea796e4a68</tstamps>
+    </comp>
+    <comp ref="J400">
+      <value>Grain_gauge</value>
+      <footprint>con_691508110302_sm</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">691508110302</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_Conn_01x02" description=""/>
+      <property name="ALTIUM_VALUE" value="691508110302"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>c2f88748-7e50-45f6-b4e9-430e89c3a365</tstamps>
+    </comp>
+    <comp ref="R400">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>4fedfa55-8883-4e5a-ab8e-e5c204c6cae8</tstamps>
+    </comp>
+    <comp ref="R401">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>f12a0ac1-e6fc-4994-8a0b-c245f3787e08</tstamps>
+    </comp>
+    <comp ref="R402">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>9d8b82e2-c3ee-480f-970b-e89efd8b1362</tstamps>
+    </comp>
+    <comp ref="R403">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>0e6b115a-ca76-4b21-8148-0f16273d307a</tstamps>
+    </comp>
+    <comp ref="R404">
+      <value>10K</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-0710KL</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-0710KL"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>4088e813-1bbe-405d-acc2-03fd4ff3a7ac</tstamps>
+    </comp>
+    <comp ref="R405">
+      <value>4K7</value>
+      <footprint>RESC1608X50N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">RC0603FR-074K7L</field>
+        <field name="FOOTPRINT">OPL_Resistor:R0603</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_R" description=""/>
+      <property name="ALTIUM_VALUE" value="RC0603FR-074K7L"/>
+      <property name="FOOTPRINT" value="OPL_Resistor:R0603"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>4efa236a-0cac-4446-9fe1-6087fcb3e483</tstamps>
+    </comp>
+    <comp ref="U400">
+      <value>PCF8574ADWR</value>
+      <footprint>SOIC127P1030X265-16N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">PCF8574ADGVR</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_mirrored_PCF8574A" description=""/>
+      <property name="ALTIUM_VALUE" value="PCF8574ADGVR"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>7e17be0a-407e-471a-8d4b-2b97813e2626</tstamps>
+    </comp>
+    <comp ref="U401">
+      <value>74HC590D,118</value>
+      <footprint>SOIC127P600X175-16N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">74HC590D,118</field>
+        <field name="FOOTPRINT">SOIC127P600X175-16N:SOIC127P600X175-16N</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_74HC590" description=""/>
+      <property name="ALTIUM_VALUE" value="74HC590D,118"/>
+      <property name="FOOTPRINT" value="SOIC127P600X175-16N:SOIC127P600X175-16N"/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>bba63fe1-8f85-4a48-a229-be6ce294e7fd</tstamps>
+    </comp>
+    <comp ref="U402">
+      <value>LM393-N</value>
+      <footprint>SOIC127P600X175-8N</footprint>
+      <fields>
+        <field name="ALTIUM_VALUE">LM393</field>
+      </fields>
+      <libsource lib="main_board-altium-import" part="0_LM393" description=""/>
+      <property name="ALTIUM_VALUE" value="LM393"/>
+      <property name="FOOTPRINT" value=""/>
+      <property name="Sheetname" value="rain_gauge_logger"/>
+      <property name="Sheetfile" value="rain_gauge_logger.kicad_sch"/>
+      <sheetpath names="/rain_gauge_logger/" tstamps="/cd0e1ec8-5612-4244-a876-838286424de9/"/>
+      <tstamps>df935dd3-d3e2-4e97-a86f-c0342446e37c b028ec50-8ba0-4827-a96f-ac7b6057021d 144ea723-06fc-4055-b8ef-501771ff7334</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="main_board-altium-import" part="0_1N5819">
+      <footprints>
+        <fp>SODFL3700X115N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_1N5819</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="K" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_74HC590">
+      <footprints>
+        <fp>SOIC127P600X175-16N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_74HC590</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Q1" type="passive"/>
+        <pin num="2" name="Q2" type="passive"/>
+        <pin num="3" name="Q3" type="passive"/>
+        <pin num="4" name="Q4" type="passive"/>
+        <pin num="5" name="Q5" type="passive"/>
+        <pin num="6" name="Q6" type="passive"/>
+        <pin num="7" name="Q7" type="passive"/>
+        <pin num="8" name="GND" type="passive"/>
+        <pin num="9" name="~{RCO" type="passive"/>
+        <pin num="10" name="~{MRC" type="passive"/>
+        <pin num="11" name="CPC" type="passive"/>
+        <pin num="12" name="~{CE" type="passive"/>
+        <pin num="13" name="CPR" type="passive"/>
+        <pin num="14" name="~{OE" type="passive"/>
+        <pin num="15" name="Q0" type="passive"/>
+        <pin num="16" name="VCC" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_74LVC2G241">
+      <footprints>
+        <fp>SOP50P320X90-8N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_74LVC2G241</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="GND" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+        <pin num="7" name="7" type="passive"/>
+        <pin num="8" name="VCC" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_BQ34Z110PWR">
+      <footprints>
+        <fp>SOP65P640X120-14N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_BQ34Z110PWR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="P2" type="passive"/>
+        <pin num="2" name="VEN" type="passive"/>
+        <pin num="3" name="P1" type="passive"/>
+        <pin num="4" name="BAT" type="passive"/>
+        <pin num="5" name="CE" type="passive"/>
+        <pin num="6" name="REGIN" type="passive"/>
+        <pin num="7" name="REG25" type="passive"/>
+        <pin num="8" name="VSS" type="passive"/>
+        <pin num="9" name="SRP" type="passive"/>
+        <pin num="10" name="SRN" type="passive"/>
+        <pin num="11" name="P6/TS" type="passive"/>
+        <pin num="12" name="P5/HDQ" type="passive"/>
+        <pin num="13" name="P4/SCL" type="passive"/>
+        <pin num="14" name="P3/SDA" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_C">
+      <footprints>
+        <fp>CAPC1608X80N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_Conn_01x04">
+      <footprints>
+        <fp>CON_NPTC041KFXC-RC_SM</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_Conn_01x04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_D_Zener">
+      <footprints>
+        <fp>SOD523</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_D_Zener</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="K" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_ESP32-WROVER">
+      <footprints>
+        <fp>IC_ESP32-WROVER</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_ESP32-WROVER</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="3V3" type="passive"/>
+        <pin num="3" name="EN" type="passive"/>
+        <pin num="4" name="SENSOR_VP_IO36" type="passive"/>
+        <pin num="5" name="SENSOR_VN_IO39" type="passive"/>
+        <pin num="6" name="IO34" type="passive"/>
+        <pin num="7" name="IO35" type="passive"/>
+        <pin num="8" name="IO32_XTAL_32K_P" type="passive"/>
+        <pin num="9" name="IO33_XTAL_32K_N" type="passive"/>
+        <pin num="10" name="IO25" type="passive"/>
+        <pin num="11" name="IO26" type="passive"/>
+        <pin num="12" name="IO27" type="passive"/>
+        <pin num="13" name="IO14" type="passive"/>
+        <pin num="14" name="IO12" type="passive"/>
+        <pin num="15" name="GND" type="passive"/>
+        <pin num="16" name="IO13" type="passive"/>
+        <pin num="17" name="SD2_IO9" type="passive"/>
+        <pin num="18" name="SD3_IO10" type="passive"/>
+        <pin num="19" name="CMD_IO11" type="passive"/>
+        <pin num="20" name="CLK_IO6" type="passive"/>
+        <pin num="21" name="SD0_IO7" type="passive"/>
+        <pin num="22" name="SD1_IO8" type="passive"/>
+        <pin num="23" name="IO15" type="passive"/>
+        <pin num="24" name="IO2" type="passive"/>
+        <pin num="25" name="IO0" type="passive"/>
+        <pin num="26" name="IO4" type="passive"/>
+        <pin num="27" name="IO16" type="passive"/>
+        <pin num="28" name="IO17" type="passive"/>
+        <pin num="29" name="IO5" type="passive"/>
+        <pin num="30" name="IO18" type="passive"/>
+        <pin num="31" name="IO19" type="passive"/>
+        <pin num="32" name="NC" type="passive"/>
+        <pin num="33" name="IO21" type="passive"/>
+        <pin num="34" name="RXD0" type="passive"/>
+        <pin num="35" name="TXD0" type="passive"/>
+        <pin num="36" name="IO22" type="passive"/>
+        <pin num="37" name="IO23" type="passive"/>
+        <pin num="38" name="GND" type="passive"/>
+        <pin num="39" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_HOLE_NPTH">
+      <description>HOLE NON PLATED</description>
+      <footprints>
+        <fp>HOLN_M3</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_HOLE_NPTH</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_Header 8H">
+      <description>Header, 8-Pin, Right Angle</description>
+      <footprints>
+        <fp>CON_0878980826_SM</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_Header 8H</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+        <pin num="7" name="7" type="passive"/>
+        <pin num="8" name="8" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_LED_APTF1616SEEZGQBDC_SM">
+      <description>LED RGB WP154A4SEJ3VBDZGC/CA TH</description>
+      <footprints>
+        <fp>LED_APTF1616SEEZGQBDC_SM</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_LED_APTF1616SEEZGQBDC_SM</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Red" type="passive"/>
+        <pin num="2" name="Vcc" type="passive"/>
+        <pin num="3" name="Blue" type="passive"/>
+        <pin num="4" name="Green" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_LM2831XMF">
+      <footprints>
+        <fp>SOT95P279X142-12345-5N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_LM2831XMF</field>
+      </fields>
+      <pins>
+        <pin num="1" name="SW" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="FB" type="passive"/>
+        <pin num="4" name="EN" type="passive"/>
+        <pin num="5" name="VIN" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_LM393">
+      <footprints>
+        <fp>SOIC127P600X175-8N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_LM393</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="-" type="passive"/>
+        <pin num="3" name="+" type="passive"/>
+        <pin num="4" name="V-" type="passive"/>
+        <pin num="5" name="+" type="passive"/>
+        <pin num="6" name="_" type="passive"/>
+        <pin num="7" name="7" type="passive"/>
+        <pin num="8" name="V+" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_Q_NMOS_GSD">
+      <footprints>
+        <fp>SOT95P240X110_231_SUPER-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_Q_NMOS_GSD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_R">
+      <footprints>
+        <fp>RESC1608X50N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_SMD-BUTTON-TOP-DHT-4235A_4P-4.2X3.2MM_">
+      <footprints>
+        <fp>SW_B3S-1000P_SM</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_SMD-BUTTON-TOP-DHT-4235A_4P-4.2X3.2MM_</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A0" type="passive"/>
+        <pin num="2" name="A1" type="passive"/>
+        <pin num="3" name="B0" type="passive"/>
+        <pin num="4" name="B1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_TPS562200">
+      <footprints>
+        <fp>SOT95P305X110-6N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_TPS562200</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="passive"/>
+        <pin num="2" name="SW" type="passive"/>
+        <pin num="3" name="VIN" type="passive"/>
+        <pin num="4" name="VFB" type="passive"/>
+        <pin num="5" name="EN" type="passive"/>
+        <pin num="6" name="VBST" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_TestPoint">
+      <footprints>
+        <fp>TP150</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_TestPoint</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_mirrored_BC847">
+      <footprints>
+        <fp>SOT95P240X130_123-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_mirrored_BC847</field>
+      </fields>
+      <pins>
+        <pin num="1" name="B" type="passive"/>
+        <pin num="2" name="E" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_mirrored_C">
+      <footprints>
+        <fp>CAPC1608X80N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_mirrored_C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_mirrored_CP2104">
+      <footprints>
+        <fp>QFN50P400X400X90-25N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_mirrored_CP2104</field>
+      </fields>
+      <pins>
+        <pin num="1" name="RI" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="D+" type="passive"/>
+        <pin num="4" name="D-" type="passive"/>
+        <pin num="5" name="VIO" type="passive"/>
+        <pin num="6" name="VDD" type="passive"/>
+        <pin num="7" name="REGIN" type="passive"/>
+        <pin num="8" name="VBUS" type="passive"/>
+        <pin num="9" name="~{RST" type="passive"/>
+        <pin num="10" name="VIO/NC" type="passive"/>
+        <pin num="11" name="GPIO.3" type="passive"/>
+        <pin num="12" name="GPIO.2" type="passive"/>
+        <pin num="13" name="GPIO.1" type="passive"/>
+        <pin num="14" name="GPIO.0" type="passive"/>
+        <pin num="15" name="~{SUSPEND" type="passive"/>
+        <pin num="16" name="VPP" type="passive"/>
+        <pin num="17" name="SUSPEND" type="passive"/>
+        <pin num="18" name="CTS" type="passive"/>
+        <pin num="19" name="RTS" type="passive"/>
+        <pin num="20" name="RXD" type="passive"/>
+        <pin num="21" name="TXD" type="passive"/>
+        <pin num="22" name="DSR" type="passive"/>
+        <pin num="23" name="DTR" type="passive"/>
+        <pin num="24" name="DCD" type="passive"/>
+        <pin num="EXPAD" name="PAD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_mirrored_Conn_01x02">
+      <footprints>
+        <fp>con_691508110302_sm</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_mirrored_Conn_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_mirrored_Conn_01x04">
+      <footprints>
+        <fp>CON_NPTC041KFXC-RC_SM</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_mirrored_Conn_01x04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_mirrored_MEM2075-00-140-01-A">
+      <footprints>
+        <fp>CON_MEM2075-00-140-01-A</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_mirrored_MEM2075-00-140-01-A</field>
+      </fields>
+      <pins>
+        <pin num="P1" name="DAT2" type="passive"/>
+        <pin num="P2" name="CD/DAT3" type="passive"/>
+        <pin num="P3" name="CMD" type="passive"/>
+        <pin num="P4" name="VDD" type="passive"/>
+        <pin num="P5" name="CLK" type="passive"/>
+        <pin num="P6" name="VSS" type="passive"/>
+        <pin num="P7" name="DAT0" type="passive"/>
+        <pin num="P8" name="DAT1" type="passive"/>
+        <pin num="P9" name="CD" type="passive"/>
+        <pin num="SH1" name="SHIELD" type="passive"/>
+        <pin num="SH2" name="SHIELD" type="passive"/>
+        <pin num="SH3" name="SHIELD" type="passive"/>
+        <pin num="SH4" name="SHIELD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_mirrored_PCF8574A">
+      <footprints>
+        <fp>SOIC127P1030X265-16N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_mirrored_PCF8574A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="A0" type="passive"/>
+        <pin num="2" name="A1" type="passive"/>
+        <pin num="3" name="A2" type="passive"/>
+        <pin num="4" name="P0" type="passive"/>
+        <pin num="5" name="P1" type="passive"/>
+        <pin num="6" name="P2" type="passive"/>
+        <pin num="7" name="P3" type="passive"/>
+        <pin num="8" name="VSS" type="passive"/>
+        <pin num="9" name="P4" type="passive"/>
+        <pin num="10" name="P5" type="passive"/>
+        <pin num="11" name="P6" type="passive"/>
+        <pin num="12" name="P7" type="passive"/>
+        <pin num="13" name="~{INT" type="passive"/>
+        <pin num="14" name="SCL" type="passive"/>
+        <pin num="15" name="SDA" type="passive"/>
+        <pin num="16" name="VDD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_mirrored_Q_NMOS_GSD">
+      <footprints>
+        <fp>SOT95P240X110_231_SUPER-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_mirrored_Q_NMOS_GSD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="0_mirrored_USB_B_Micro">
+      <footprints>
+        <fp>CON_1050170001</fp>
+      </footprints>
+      <fields>
+        <field name="Value">0_mirrored_USB_B_Micro</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VBUS" type="passive"/>
+        <pin num="2" name="D-" type="passive"/>
+        <pin num="3" name="D+" type="passive"/>
+        <pin num="4" name="ID" type="passive"/>
+        <pin num="5" name="GND" type="passive"/>
+        <pin num="6" name="Shield" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="1_2N7002">
+      <footprints>
+        <fp>SOT95P240X130_123-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">1_2N7002</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="1_L">
+      <footprints>
+        <fp>IND_SRN5040-4R7M_SM</fp>
+      </footprints>
+      <fields>
+        <field name="Value">1_L</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="1_Q_PMOS_GSD">
+      <footprints>
+        <fp>SOT95P240X110_123_SUPER-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">1_Q_PMOS_GSD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="1_R">
+      <footprints>
+        <fp>RESC1608X50N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">1_R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="1_STARPOINT_2P">
+      <description>STARPOINT 2 PIN</description>
+      <footprints>
+        <fp>STAR_TH_2P</fp>
+      </footprints>
+      <fields>
+        <field name="Value">1_STARPOINT_2P</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="1_mirrored_Q_PMOS_GSD">
+      <footprints>
+        <fp>SOT95P240X110_123_SUPER-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">1_mirrored_Q_PMOS_GSD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="2_1N5819">
+      <footprints>
+        <fp>SODFL3700X115N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">2_1N5819</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="K" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="2_BC847">
+      <footprints>
+        <fp>SOT95P240X130_123-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">2_BC847</field>
+      </fields>
+      <pins>
+        <pin num="1" name="B" type="passive"/>
+        <pin num="2" name="E" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="2_C">
+      <footprints>
+        <fp>CAPC1608X80N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">2_C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="2_R">
+      <footprints>
+        <fp>RESC1608X50N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">2_R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="2_mirrored_Conn_01x04">
+      <footprints>
+        <fp>CON_691508110304_SM</fp>
+      </footprints>
+      <fields>
+        <field name="Value">2_mirrored_Conn_01x04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="2_mirrored_Q_PMOS_GSD">
+      <footprints>
+        <fp>SOT95P240X110_123_SUPER-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">2_mirrored_Q_PMOS_GSD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_1N5819">
+      <footprints>
+        <fp>SODFL3700X115N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_1N5819</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="K" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_BSS84">
+      <footprints>
+        <fp>SOT95P240X130_123-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_BSS84</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_C">
+      <footprints>
+        <fp>CAPC1608X80N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_C</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_D_Schottky">
+      <footprints>
+        <fp>SODFL3500X98N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_D_Schottky</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="K" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_LED">
+      <footprints>
+        <fp>LED_19-217{slash}B7C-ZL2N1B3X{slash}3T_SM</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_LED</field>
+      </fields>
+      <pins>
+        <pin num="A" name="A" type="passive"/>
+        <pin num="K" name="K" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_R">
+      <footprints>
+        <fp>RESC1608X50N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_R</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_TestPoint">
+      <footprints>
+        <fp>TP150</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_TestPoint</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_mirrored_2N7002">
+      <footprints>
+        <fp>SOT95P240X130_123-3N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_mirrored_2N7002</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_mirrored_74LS00">
+      <footprints>
+        <fp>SOIC127P600X175-14N</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_mirrored_74LS00</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+        <pin num="5" name="5" type="passive"/>
+        <pin num="6" name="6" type="passive"/>
+        <pin num="7" name="GND" type="passive"/>
+        <pin num="8" name="8" type="passive"/>
+        <pin num="9" name="9" type="passive"/>
+        <pin num="10" name="10" type="passive"/>
+        <pin num="11" name="11" type="passive"/>
+        <pin num="12" name="12" type="passive"/>
+        <pin num="13" name="13" type="passive"/>
+        <pin num="14" name="VCC" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="main_board-altium-import" part="3_mirrored_TestPoint">
+      <footprints>
+        <fp>TP150</fp>
+      </footprints>
+      <fields>
+        <field name="Value">3_mirrored_TestPoint</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="main_board-altium-import">
+      <uri>\\wsl$\Ubuntu-20.04\home\louis\engr489-project\hardware\schematics/main_board-altium-import.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="+2V5">
+      <node ref="C202" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="IC200" pin="7" pinfunction="REG25" pintype="passive"/>
+    </net>
+    <net code="2" name="+3V3">
+      <node ref="C100" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C101" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C102" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C103" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C308" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C309" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C310" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C400" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C402" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C404" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="D101" pin="2" pinfunction="Vcc" pintype="passive"/>
+      <node ref="J102" pin="P4" pinfunction="VDD" pintype="passive"/>
+      <node ref="J103" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="J104" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J106" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="L301" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R100" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R105" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R204" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R205" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R304" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R401" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R402" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R403" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R404" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R502" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="TP302" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U100" pin="5" pinfunction="VIO" pintype="passive"/>
+      <node ref="U100" pin="6" pinfunction="VDD" pintype="passive"/>
+      <node ref="U100" pin="7" pinfunction="REGIN" pintype="passive"/>
+      <node ref="U101" pin="2" pinfunction="3V3" pintype="passive"/>
+      <node ref="U400" pin="16" pinfunction="VDD" pintype="passive"/>
+      <node ref="U401" pin="16" pinfunction="VCC" pintype="passive"/>
+      <node ref="U402" pin="8" pinfunction="V+" pintype="passive"/>
+    </net>
+    <net code="3" name="+5V">
+      <node ref="C300" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C301" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C311" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C501" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C502" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C503" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="D303" pin="A" pinfunction="A" pintype="passive"/>
+      <node ref="J106" pin="5" pinfunction="5" pintype="passive"/>
+      <node ref="L300" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="Q301" pin="1" pinfunction="G" pintype="passive"/>
+      <node ref="R300" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R306" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="TP300" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U500" pin="12" pintype="input"/>
+      <node ref="U500" pin="14" pinfunction="VCC" pintype="passive"/>
+      <node ref="U500" pin="4" pintype="input"/>
+      <node ref="U500" pin="9" pintype="input"/>
+      <node ref="U501" pin="8" pinfunction="VCC" pintype="passive"/>
+    </net>
+    <net code="4" name="+12V">
+      <node ref="C302" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C303" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C305" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="Q201" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q202" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="Q300" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q500" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R200" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R210" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R500" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U300" pin="3" pinfunction="VIN" pintype="passive"/>
+      <node ref="U300" pin="5" pinfunction="EN" pintype="passive"/>
+    </net>
+    <net code="5" name="+BATT">
+      <node ref="D300" pin="K" pinfunction="K" pintype="passive"/>
+      <node ref="J300" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="Q300" pin="3" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="6" name="-BATT">
+      <node ref="J300" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q300" pin="1" pinfunction="G" pintype="passive"/>
+      <node ref="R213" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R214" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R302" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="TP304" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="7" name="/esp32_board/DTR">
+      <node ref="Q101" pin="2" pinfunction="E" pintype="passive"/>
+      <node ref="R103" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U100" pin="23" pinfunction="DTR" pintype="passive"/>
+    </net>
+    <net code="8" name="/esp32_board/EN">
+      <node ref="C104" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="Q100" pin="3" pinfunction="C" pintype="passive"/>
+      <node ref="R100" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="SW100" pin="1" pinfunction="A0" pintype="passive"/>
+      <node ref="U101" pin="3" pinfunction="EN" pintype="passive"/>
+    </net>
+    <net code="9" name="/esp32_board/IO0">
+      <node ref="Q101" pin="3" pinfunction="C" pintype="passive"/>
+      <node ref="U101" pin="25" pinfunction="IO0" pintype="passive"/>
+    </net>
+    <net code="10" name="/esp32_board/LED_GREEN">
+      <node ref="R106" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U101" pin="9" pinfunction="IO33_XTAL_32K_N" pintype="passive"/>
+    </net>
+    <net code="11" name="/esp32_board/LED_RED">
+      <node ref="R107" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U101" pin="8" pinfunction="IO32_XTAL_32K_P" pintype="passive"/>
+    </net>
+    <net code="12" name="/esp32_board/MOD_EN">
+      <node ref="J105" pin="3" pinfunction="3" pintype="passive"/>
+      <node ref="U101" pin="26" pinfunction="IO4" pintype="passive"/>
+    </net>
+    <net code="13" name="/esp32_board/MOD_RX">
+      <node ref="J105" pin="7" pinfunction="7" pintype="passive"/>
+      <node ref="U101" pin="12" pinfunction="IO27" pintype="passive"/>
+    </net>
+    <net code="14" name="/esp32_board/MOD_TX">
+      <node ref="J105" pin="8" pinfunction="8" pintype="passive"/>
+      <node ref="U101" pin="11" pinfunction="IO26" pintype="passive"/>
+    </net>
+    <net code="15" name="/esp32_board/RTS">
+      <node ref="Q100" pin="2" pinfunction="E" pintype="passive"/>
+      <node ref="R104" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U100" pin="19" pinfunction="RTS" pintype="passive"/>
+    </net>
+    <net code="16" name="/esp32_board/RX_CP">
+      <node ref="R102" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U100" pin="20" pinfunction="RXD" pintype="passive"/>
+    </net>
+    <net code="17" name="/esp32_board/RX_ESP">
+      <node ref="R101" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U101" pin="34" pinfunction="RXD0" pintype="passive"/>
+    </net>
+    <net code="18" name="/esp32_board/SD_CLK">
+      <node ref="J102" pin="P5" pinfunction="CLK" pintype="passive"/>
+      <node ref="U101" pin="16" pinfunction="IO13" pintype="passive"/>
+    </net>
+    <net code="19" name="/esp32_board/SD_CS">
+      <node ref="J102" pin="P2" pinfunction="CD/DAT3" pintype="passive"/>
+      <node ref="U101" pin="14" pinfunction="IO12" pintype="passive"/>
+    </net>
+    <net code="20" name="/esp32_board/SD_DI">
+      <node ref="J102" pin="P3" pinfunction="CMD" pintype="passive"/>
+      <node ref="U101" pin="37" pinfunction="IO23" pintype="passive"/>
+    </net>
+    <net code="21" name="/esp32_board/SD_DO">
+      <node ref="J102" pin="P7" pinfunction="DAT0" pintype="passive"/>
+      <node ref="U101" pin="6" pinfunction="IO34" pintype="passive"/>
+    </net>
+    <net code="22" name="/esp32_board/TX_CP">
+      <node ref="R101" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U100" pin="21" pinfunction="TXD" pintype="passive"/>
+    </net>
+    <net code="23" name="/esp32_board/TX_ESP">
+      <node ref="R102" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U101" pin="35" pinfunction="TXD0" pintype="passive"/>
+    </net>
+    <net code="24" name="/esp32_board/USB_N">
+      <node ref="J100" pin="2" pinfunction="D-" pintype="passive"/>
+      <node ref="U100" pin="4" pinfunction="D-" pintype="passive"/>
+    </net>
+    <net code="25" name="/esp32_board/USB_P">
+      <node ref="J100" pin="3" pinfunction="D+" pintype="passive"/>
+      <node ref="U100" pin="3" pinfunction="D+" pintype="passive"/>
+    </net>
+    <net code="26" name="/esp32_board/WIFI_EN">
+      <node ref="C106" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="J104" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R105" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U101" pin="13" pinfunction="IO14" pintype="passive"/>
+    </net>
+    <net code="27" name="/power_system/battery_fuel_gauge/BATT_N">
+      <node ref="C204" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C205" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="IC200" pin="10" pinfunction="SRN" pintype="passive"/>
+      <node ref="R214" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="28" name="/power_system/battery_fuel_gauge/BATT_P">
+      <node ref="C203" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C204" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="IC200" pin="9" pinfunction="SRP" pintype="passive"/>
+      <node ref="R212" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="29" name="/rain_gauge_logger/RAIN_CE">
+      <node ref="R400" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U400" pin="11" pinfunction="P6" pintype="passive"/>
+      <node ref="U401" pin="12" pinfunction="~{CE" pintype="passive"/>
+    </net>
+    <net code="30" name="/rain_gauge_logger/RAIN_RESET">
+      <node ref="R401" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U400" pin="12" pinfunction="P7" pintype="passive"/>
+      <node ref="U401" pin="10" pinfunction="~{MRC" pintype="passive"/>
+    </net>
+    <net code="31" name="/rain_gauge_logger/Vin">
+      <node ref="C403" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="J400" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R402" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U402" pin="2" pinfunction="-" pintype="passive"/>
+    </net>
+    <net code="32" name="/rain_gauge_logger/Vref">
+      <node ref="R403" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R405" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U402" pin="3" pinfunction="+" pintype="passive"/>
+    </net>
+    <net code="33" name="/sdi-12/SDI12">
+      <node ref="J500" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="U501" pin="5" pinfunction="5" pintype="passive"/>
+      <node ref="U501" pin="6" pinfunction="6" pintype="passive"/>
+    </net>
+    <net code="34" name="/sdi-12/SDI_Pow">
+      <node ref="C500" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="J500" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="Q500" pin="3" pinfunction="D" pintype="passive"/>
+    </net>
+    <net code="35" name="GND">
+      <node ref="C100" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C101" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C102" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C103" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C104" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C105" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C106" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C400" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C402" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C403" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C404" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C500" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C501" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C502" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C503" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="J100" pin="5" pinfunction="GND" pintype="passive"/>
+      <node ref="J100" pin="6" pinfunction="Shield" pintype="passive"/>
+      <node ref="J102" pin="P6" pinfunction="VSS" pintype="passive"/>
+      <node ref="J102" pin="SH1" pinfunction="SHIELD" pintype="passive"/>
+      <node ref="J102" pin="SH2" pinfunction="SHIELD" pintype="passive"/>
+      <node ref="J102" pin="SH3" pinfunction="SHIELD" pintype="passive"/>
+      <node ref="J102" pin="SH4" pinfunction="SHIELD" pintype="passive"/>
+      <node ref="J103" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="J104" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="J104" pin="4" pinfunction="Pin_4" pintype="passive"/>
+      <node ref="J106" pin="6" pinfunction="6" pintype="passive"/>
+      <node ref="J106" pin="7" pinfunction="7" pintype="passive"/>
+      <node ref="J400" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="J500" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="J500" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="Q501" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="Q502" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R400" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R405" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R501" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="SP200" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="SW100" pin="3" pinfunction="B0" pintype="passive"/>
+      <node ref="TP106" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U100" pin="2" pinfunction="GND" pintype="passive"/>
+      <node ref="U100" pin="EXPAD" pinfunction="PAD" pintype="passive"/>
+      <node ref="U101" pin="1" pinfunction="GND" pintype="passive"/>
+      <node ref="U101" pin="15" pinfunction="GND" pintype="passive"/>
+      <node ref="U101" pin="38" pinfunction="GND" pintype="passive"/>
+      <node ref="U101" pin="39" pinfunction="GND" pintype="passive"/>
+      <node ref="U400" pin="1" pinfunction="A0" pintype="passive"/>
+      <node ref="U400" pin="2" pinfunction="A1" pintype="passive"/>
+      <node ref="U400" pin="3" pinfunction="A2" pintype="passive"/>
+      <node ref="U400" pin="8" pinfunction="VSS" pintype="passive"/>
+      <node ref="U401" pin="14" pinfunction="~{OE" pintype="passive"/>
+      <node ref="U401" pin="8" pinfunction="GND" pintype="passive"/>
+      <node ref="U402" pin="4" pinfunction="V-" pintype="passive"/>
+      <node ref="U402" pin="5" pinfunction="+" pintype="passive"/>
+      <node ref="U402" pin="6" pinfunction="_" pintype="passive"/>
+      <node ref="U402" pin="7" pinfunction="7" pintype="passive"/>
+      <node ref="U500" pin="10" pintype="input"/>
+      <node ref="U500" pin="13" pintype="input"/>
+      <node ref="U500" pin="5" pintype="input"/>
+      <node ref="U500" pin="7" pinfunction="GND" pintype="passive"/>
+      <node ref="U501" pin="4" pinfunction="GND" pintype="passive"/>
+    </net>
+    <net code="36" name="GNDA">
+      <node ref="C200" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C201" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C202" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C203" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C205" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C300" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C301" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C302" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C303" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C305" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C306" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C307" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C308" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C309" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C310" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="C311" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="D200" pin="A" pinfunction="A" pintype="passive"/>
+      <node ref="D302" pin="A" pinfunction="A" pintype="passive"/>
+      <node ref="IC200" pin="1" pinfunction="P2" pintype="passive"/>
+      <node ref="IC200" pin="11" pinfunction="P6/TS" pintype="passive"/>
+      <node ref="IC200" pin="12" pinfunction="P5/HDQ" pintype="passive"/>
+      <node ref="IC200" pin="3" pinfunction="P1" pintype="passive"/>
+      <node ref="IC200" pin="8" pinfunction="VSS" pintype="passive"/>
+      <node ref="Q200" pin="2" pinfunction="S" pintype="passive"/>
+      <node ref="R203" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R212" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R213" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="R301" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R305" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R306" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="SP200" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U300" pin="1" pinfunction="GND" pintype="passive"/>
+      <node ref="U301" pin="2" pinfunction="GND" pintype="passive"/>
+    </net>
+    <net code="37" name="I2C_SCL">
+      <node ref="J103" pin="1" pinfunction="Pin_1" pintype="passive"/>
+      <node ref="R205" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R209" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U101" pin="30" pinfunction="IO18" pintype="passive"/>
+      <node ref="U400" pin="14" pinfunction="SCL" pintype="passive"/>
+    </net>
+    <net code="38" name="I2C_SDA">
+      <node ref="J103" pin="2" pinfunction="Pin_2" pintype="passive"/>
+      <node ref="R204" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R207" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U101" pin="31" pinfunction="IO19" pintype="passive"/>
+      <node ref="U400" pin="15" pinfunction="SDA" pintype="passive"/>
+    </net>
+    <net code="39" name="Net-(C105-Pad1)">
+      <node ref="C105" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U100" pin="16" pinfunction="VPP" pintype="passive"/>
+    </net>
+    <net code="40" name="Net-(C200-Pad1)">
+      <node ref="C200" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="IC200" pin="4" pinfunction="BAT" pintype="passive"/>
+      <node ref="R202" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R203" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="41" name="Net-(C201-Pad2)">
+      <node ref="C201" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="IC200" pin="5" pinfunction="CE" pintype="passive"/>
+      <node ref="IC200" pin="6" pinfunction="REGIN" pintype="passive"/>
+      <node ref="Q202" pin="2" pinfunction="S" pintype="passive"/>
+    </net>
+    <net code="42" name="Net-(C304-Pad1)">
+      <node ref="C304" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="L300" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U300" pin="2" pinfunction="SW" pintype="passive"/>
+    </net>
+    <net code="43" name="Net-(C304-Pad2)">
+      <node ref="C304" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U300" pin="6" pinfunction="VBST" pintype="passive"/>
+    </net>
+    <net code="44" name="Net-(C306-Pad1)">
+      <node ref="C306" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="C307" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="D303" pin="K" pinfunction="K" pintype="passive"/>
+      <node ref="Q301" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R303" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U301" pin="5" pinfunction="VIN" pintype="passive"/>
+    </net>
+    <net code="45" name="Net-(D100-PadK)">
+      <node ref="D100" pin="K" pinfunction="K" pintype="passive"/>
+      <node ref="U100" pin="8" pinfunction="VBUS" pintype="passive"/>
+    </net>
+    <net code="46" name="Net-(D101-Pad1)">
+      <node ref="D101" pin="1" pinfunction="Red" pintype="passive"/>
+      <node ref="R107" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="47" name="Net-(D101-Pad4)">
+      <node ref="D101" pin="4" pinfunction="Green" pintype="passive"/>
+      <node ref="R106" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="48" name="Net-(D200-PadK)">
+      <node ref="D200" pin="K" pinfunction="K" pintype="passive"/>
+      <node ref="Q202" pin="1" pinfunction="G" pintype="passive"/>
+      <node ref="R210" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="49" name="Net-(D300-PadA)">
+      <node ref="D300" pin="A" pinfunction="A" pintype="passive"/>
+      <node ref="D301" pin="K" pinfunction="K" pintype="passive"/>
+      <node ref="TP301" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="50" name="Net-(D301-PadA)">
+      <node ref="D301" pin="A" pinfunction="A" pintype="passive"/>
+      <node ref="R302" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="51" name="Net-(D302-PadK)">
+      <node ref="D302" pin="K" pinfunction="K" pintype="passive"/>
+      <node ref="L301" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U301" pin="1" pinfunction="SW" pintype="passive"/>
+    </net>
+    <net code="52" name="Net-(IC200-Pad2)">
+      <node ref="IC200" pin="2" pinfunction="VEN" pintype="passive"/>
+      <node ref="Q200" pin="1" pinfunction="G" pintype="passive"/>
+    </net>
+    <net code="53" name="Net-(IC200-Pad13)">
+      <node ref="IC200" pin="13" pinfunction="P4/SCL" pintype="passive"/>
+      <node ref="R208" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="54" name="Net-(IC200-Pad14)">
+      <node ref="IC200" pin="14" pinfunction="P3/SDA" pintype="passive"/>
+      <node ref="R206" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="55" name="Net-(Q100-Pad1)">
+      <node ref="Q100" pin="1" pinfunction="B" pintype="passive"/>
+      <node ref="R103" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="56" name="Net-(Q101-Pad1)">
+      <node ref="Q101" pin="1" pinfunction="B" pintype="passive"/>
+      <node ref="R104" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="57" name="Net-(Q200-Pad3)">
+      <node ref="Q200" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R201" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="58" name="Net-(Q201-Pad1)">
+      <node ref="Q201" pin="1" pinfunction="G" pintype="passive"/>
+      <node ref="R200" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R201" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="59" name="Net-(Q201-Pad3)">
+      <node ref="Q201" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R202" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="60" name="Net-(Q500-Pad1)">
+      <node ref="Q500" pin="1" pinfunction="G" pintype="passive"/>
+      <node ref="Q501" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R500" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="61" name="Net-(Q502-Pad1)">
+      <node ref="Q502" pin="1" pinfunction="G" pintype="passive"/>
+      <node ref="R503" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="62" name="Net-(R206-Pad2)">
+      <node ref="R206" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R207" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="63" name="Net-(R208-Pad2)">
+      <node ref="R208" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R209" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="64" name="Net-(R300-Pad2)">
+      <node ref="R300" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R301" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U300" pin="4" pinfunction="VFB" pintype="passive"/>
+    </net>
+    <net code="65" name="Net-(R303-Pad2)">
+      <node ref="R303" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U301" pin="4" pinfunction="EN" pintype="passive"/>
+    </net>
+    <net code="66" name="Net-(R304-Pad2)">
+      <node ref="R304" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="R305" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U301" pin="3" pinfunction="FB" pintype="passive"/>
+    </net>
+    <net code="67" name="Net-(R503-Pad1)">
+      <node ref="R503" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="TP502" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U501" pin="3" pinfunction="3" pintype="passive"/>
+    </net>
+    <net code="68" name="Net-(TP100-Pad1)">
+      <node ref="TP100" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U101" pin="17" pinfunction="SD2_IO9" pintype="passive"/>
+    </net>
+    <net code="69" name="Net-(TP101-Pad1)">
+      <node ref="TP101" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U101" pin="18" pinfunction="SD3_IO10" pintype="passive"/>
+    </net>
+    <net code="70" name="Net-(TP102-Pad1)">
+      <node ref="TP102" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U101" pin="22" pinfunction="SD1_IO8" pintype="passive"/>
+    </net>
+    <net code="71" name="Net-(TP103-Pad1)">
+      <node ref="TP103" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U101" pin="19" pinfunction="CMD_IO11" pintype="passive"/>
+    </net>
+    <net code="72" name="Net-(TP104-Pad1)">
+      <node ref="TP104" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U101" pin="21" pinfunction="SD0_IO7" pintype="passive"/>
+    </net>
+    <net code="73" name="Net-(TP105-Pad1)">
+      <node ref="TP105" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U101" pin="20" pinfunction="CLK_IO6" pintype="passive"/>
+    </net>
+    <net code="74" name="Net-(TP501-Pad1)">
+      <node ref="TP501" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U500" pin="3" pintype="output"/>
+      <node ref="U501" pin="2" pinfunction="2" pintype="passive"/>
+    </net>
+    <net code="75" name="Net-(U400-Pad4)">
+      <node ref="U400" pin="4" pinfunction="P0" pintype="passive"/>
+      <node ref="U401" pin="15" pinfunction="Q0" pintype="passive"/>
+    </net>
+    <net code="76" name="Net-(U400-Pad5)">
+      <node ref="U400" pin="5" pinfunction="P1" pintype="passive"/>
+      <node ref="U401" pin="1" pinfunction="Q1" pintype="passive"/>
+    </net>
+    <net code="77" name="Net-(U400-Pad6)">
+      <node ref="U400" pin="6" pinfunction="P2" pintype="passive"/>
+      <node ref="U401" pin="2" pinfunction="Q2" pintype="passive"/>
+    </net>
+    <net code="78" name="Net-(U400-Pad7)">
+      <node ref="U400" pin="7" pinfunction="P3" pintype="passive"/>
+      <node ref="U401" pin="3" pinfunction="Q3" pintype="passive"/>
+    </net>
+    <net code="79" name="Net-(U400-Pad9)">
+      <node ref="U400" pin="9" pinfunction="P4" pintype="passive"/>
+      <node ref="U401" pin="4" pinfunction="Q4" pintype="passive"/>
+    </net>
+    <net code="80" name="Net-(U400-Pad10)">
+      <node ref="U400" pin="10" pinfunction="P5" pintype="passive"/>
+      <node ref="U401" pin="5" pinfunction="Q5" pintype="passive"/>
+    </net>
+    <net code="81" name="RAIN_CLK">
+      <node ref="R404" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U101" pin="29" pinfunction="IO5" pintype="passive"/>
+      <node ref="U401" pin="11" pinfunction="CPC" pintype="passive"/>
+      <node ref="U401" pin="13" pinfunction="CPR" pintype="passive"/>
+      <node ref="U402" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="82" name="SDI_DIR">
+      <node ref="U101" pin="33" pinfunction="IO21" pintype="passive"/>
+      <node ref="U501" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U501" pin="7" pinfunction="7" pintype="passive"/>
+    </net>
+    <net code="83" name="SDI_EN">
+      <node ref="Q501" pin="1" pinfunction="G" pintype="passive"/>
+      <node ref="R501" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U101" pin="24" pinfunction="IO2" pintype="passive"/>
+    </net>
+    <net code="84" name="SDI_FOut">
+      <node ref="U101" pin="10" pinfunction="IO25" pintype="passive"/>
+      <node ref="U500" pin="1" pintype="input"/>
+    </net>
+    <net code="85" name="SDI_RX">
+      <node ref="Q502" pin="3" pinfunction="D" pintype="passive"/>
+      <node ref="R502" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U101" pin="5" pinfunction="SENSOR_VN_IO39" pintype="passive"/>
+    </net>
+    <net code="86" name="SDI_TX">
+      <node ref="U101" pin="36" pinfunction="IO22" pintype="passive"/>
+      <node ref="U500" pin="2" pintype="input"/>
+    </net>
+    <net code="87" name="VBUS">
+      <node ref="D100" pin="A" pinfunction="A" pintype="passive"/>
+      <node ref="J100" pin="1" pinfunction="VBUS" pintype="passive"/>
+      <node ref="Q301" pin="2" pinfunction="S" pintype="passive"/>
+    </net>
+    <net code="88" name="unconnected-(D101-Pad3)">
+      <node ref="D101" pin="3" pinfunction="Blue" pintype="passive+no_connect"/>
+    </net>
+    <net code="89" name="unconnected-(J100-Pad4)">
+      <node ref="J100" pin="4" pinfunction="ID" pintype="passive+no_connect"/>
+    </net>
+    <net code="90" name="unconnected-(J102-PadP1)">
+      <node ref="J102" pin="P1" pinfunction="DAT2" pintype="passive+no_connect"/>
+    </net>
+    <net code="91" name="unconnected-(J102-PadP8)">
+      <node ref="J102" pin="P8" pinfunction="DAT1" pintype="passive+no_connect"/>
+    </net>
+    <net code="92" name="unconnected-(J102-PadP9)">
+      <node ref="J102" pin="P9" pinfunction="CD" pintype="passive+no_connect"/>
+    </net>
+    <net code="93" name="unconnected-(J105-Pad1)">
+      <node ref="J105" pin="1" pinfunction="1" pintype="passive+no_connect"/>
+    </net>
+    <net code="94" name="unconnected-(J105-Pad2)">
+      <node ref="J105" pin="2" pinfunction="2" pintype="passive+no_connect"/>
+    </net>
+    <net code="95" name="unconnected-(J105-Pad4)">
+      <node ref="J105" pin="4" pinfunction="4" pintype="passive+no_connect"/>
+    </net>
+    <net code="96" name="unconnected-(J105-Pad5)">
+      <node ref="J105" pin="5" pinfunction="5" pintype="passive+no_connect"/>
+    </net>
+    <net code="97" name="unconnected-(J105-Pad6)">
+      <node ref="J105" pin="6" pinfunction="6" pintype="passive+no_connect"/>
+    </net>
+    <net code="98" name="unconnected-(J106-Pad1)">
+      <node ref="J106" pin="1" pinfunction="1" pintype="passive+no_connect"/>
+    </net>
+    <net code="99" name="unconnected-(J106-Pad3)">
+      <node ref="J106" pin="3" pinfunction="3" pintype="passive+no_connect"/>
+    </net>
+    <net code="100" name="unconnected-(J106-Pad4)">
+      <node ref="J106" pin="4" pinfunction="4" pintype="passive+no_connect"/>
+    </net>
+    <net code="101" name="unconnected-(J106-Pad8)">
+      <node ref="J106" pin="8" pinfunction="8" pintype="passive+no_connect"/>
+    </net>
+    <net code="102" name="unconnected-(MH100-Pad1)">
+      <node ref="MH100" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="103" name="unconnected-(MH101-Pad1)">
+      <node ref="MH101" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="104" name="unconnected-(MH103-Pad1)">
+      <node ref="MH103" pin="1" pinfunction="1" pintype="passive"/>
+    </net>
+    <net code="105" name="unconnected-(SW100-Pad2)">
+      <node ref="SW100" pin="2" pinfunction="A1" pintype="passive+no_connect"/>
+    </net>
+    <net code="106" name="unconnected-(SW100-Pad4)">
+      <node ref="SW100" pin="4" pinfunction="B1" pintype="passive+no_connect"/>
+    </net>
+    <net code="107" name="unconnected-(U100-Pad1)">
+      <node ref="U100" pin="1" pinfunction="RI" pintype="passive+no_connect"/>
+    </net>
+    <net code="108" name="unconnected-(U100-Pad9)">
+      <node ref="U100" pin="9" pinfunction="~{RST" pintype="passive+no_connect"/>
+    </net>
+    <net code="109" name="unconnected-(U100-Pad10)">
+      <node ref="U100" pin="10" pinfunction="VIO/NC" pintype="passive+no_connect"/>
+    </net>
+    <net code="110" name="unconnected-(U100-Pad11)">
+      <node ref="U100" pin="11" pinfunction="GPIO.3" pintype="passive+no_connect"/>
+    </net>
+    <net code="111" name="unconnected-(U100-Pad12)">
+      <node ref="U100" pin="12" pinfunction="GPIO.2" pintype="passive+no_connect"/>
+    </net>
+    <net code="112" name="unconnected-(U100-Pad13)">
+      <node ref="U100" pin="13" pinfunction="GPIO.1" pintype="passive+no_connect"/>
+    </net>
+    <net code="113" name="unconnected-(U100-Pad14)">
+      <node ref="U100" pin="14" pinfunction="GPIO.0" pintype="passive+no_connect"/>
+    </net>
+    <net code="114" name="unconnected-(U100-Pad15)">
+      <node ref="U100" pin="15" pinfunction="~{SUSPEND" pintype="passive+no_connect"/>
+    </net>
+    <net code="115" name="unconnected-(U100-Pad17)">
+      <node ref="U100" pin="17" pinfunction="SUSPEND" pintype="passive+no_connect"/>
+    </net>
+    <net code="116" name="unconnected-(U100-Pad18)">
+      <node ref="U100" pin="18" pinfunction="CTS" pintype="passive+no_connect"/>
+    </net>
+    <net code="117" name="unconnected-(U100-Pad22)">
+      <node ref="U100" pin="22" pinfunction="DSR" pintype="passive+no_connect"/>
+    </net>
+    <net code="118" name="unconnected-(U100-Pad24)">
+      <node ref="U100" pin="24" pinfunction="DCD" pintype="passive+no_connect"/>
+    </net>
+    <net code="119" name="unconnected-(U101-Pad4)">
+      <node ref="U101" pin="4" pinfunction="SENSOR_VP_IO36" pintype="passive+no_connect"/>
+    </net>
+    <net code="120" name="unconnected-(U101-Pad7)">
+      <node ref="U101" pin="7" pinfunction="IO35" pintype="passive+no_connect"/>
+    </net>
+    <net code="121" name="unconnected-(U101-Pad23)">
+      <node ref="U101" pin="23" pinfunction="IO15" pintype="passive+no_connect"/>
+    </net>
+    <net code="122" name="unconnected-(U101-Pad27)">
+      <node ref="U101" pin="27" pinfunction="IO16" pintype="passive+no_connect"/>
+    </net>
+    <net code="123" name="unconnected-(U101-Pad28)">
+      <node ref="U101" pin="28" pinfunction="IO17" pintype="passive+no_connect"/>
+    </net>
+    <net code="124" name="unconnected-(U101-Pad32)">
+      <node ref="U101" pin="32" pinfunction="NC" pintype="passive+no_connect"/>
+    </net>
+    <net code="125" name="unconnected-(U400-Pad13)">
+      <node ref="U400" pin="13" pinfunction="~{INT" pintype="passive"/>
+    </net>
+    <net code="126" name="unconnected-(U401-Pad6)">
+      <node ref="U401" pin="6" pinfunction="Q6" pintype="passive+no_connect"/>
+    </net>
+    <net code="127" name="unconnected-(U401-Pad7)">
+      <node ref="U401" pin="7" pinfunction="Q7" pintype="passive+no_connect"/>
+    </net>
+    <net code="128" name="unconnected-(U401-Pad9)">
+      <node ref="U401" pin="9" pinfunction="~{RCO" pintype="passive+no_connect"/>
+    </net>
+    <net code="129" name="unconnected-(U500-Pad6)">
+      <node ref="U500" pin="6" pintype="output"/>
+    </net>
+    <net code="130" name="unconnected-(U500-Pad8)">
+      <node ref="U500" pin="8" pintype="output"/>
+    </net>
+    <net code="131" name="unconnected-(U500-Pad11)">
+      <node ref="U500" pin="11" pintype="output"/>
+    </net>
+  </nets>
+</export>

@@ -1,0 +1,50 @@
+{
+    "version": "2.1.0",
+    "device_name": "untitled",
+    "device_id": "device_id",
+    "hw_revision": "4.0",
+    "send_interval": 1,
+    "first_send_at": 0,
+    "wifi_ssid": "ssid",
+    "wifi_password": "password",
+    "maintenance_mode": false,
+    "test_mode": false,
+    "mqtt_settings": {
+        "host": "test.mosquitto.org",
+        "port": 1883,
+        "username": "username",
+        "password": "password",
+        "parent_topic": "test/environmentMonitoring"
+    },
+    "mmw_settings": {
+        "auth_token": "abcdef",
+        "sampling_feature": "abcdef"
+    },
+    "sdi12_sensors": {
+        "water_sensor": {
+            "enabled": true,
+            "address": 1,
+            "bootup_time": 0,
+            "record_interval": 10,
+            "first_record_at": 0,
+            "readings": [
+                {
+                    "reading": "flow",
+                    "index": 1,
+                    "multiplier": 1,
+                    "offset": 0,
+                    "unit": "mm/s",
+                    "uuid": "uuid"
+                },
+                {
+                    "reading": "temperature",
+                    "index": 2,
+                    "multiplier": 1,
+                    "offset": 0,
+                    "unit": "C",
+                    "uuid": "uuid"
+                }
+            ]
+        }
+    }
+}

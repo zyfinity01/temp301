@@ -1,0 +1,8 @@
+### Module positions - created on Thu Dec 16 13:03:51 2021 ###
+### Printed by Pcbnew version (6.0.0-rc1-255-gd64ae52042)
+## Unit = mm, Angle = deg.
+## Side : bottom
+# Ref     Val       Package                 PosX       PosY       Rot  Side
+J105      MODEM_A   CON_0878980826_SM  -181.3587   154.4635    0.0000  bottom
+J106      MODEM_B   CON_0878980826_SM  -163.5787   106.2035    0.0000  bottom
+## End

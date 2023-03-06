@@ -1,0 +1,18 @@
+# latexmk configuration file for generating PDF versions of lecture
+# slides within a GitLab CI pipeline. This file is intended to be
+# passed explicitly to latexmk by use of the '-r <rcfile>' option on
+# the command-line.
+
+# Suppress loading of any other latexmkrc file
+$auto_rc_use=0;
+
+# Build to PDF using the command specified by the $pdflatex variable
+$pdf_mode=1;
+
+# Build silently to minimise low-value log messages
+$silent=1;       # passes --interactive=batchmode to pdflatex
+$rc_report=0;    # Not suppressed by '-silent'; suppress explicitly
+
+# Add non-latexmk-default file specifiations to clean-up here.
+# Beamer: nav snm vrb
+$clean_ext="bbl synctex.gz nav snm vrb";

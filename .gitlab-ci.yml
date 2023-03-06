@@ -1,0 +1,118 @@
+image: python:3
+
+default:
+  tags:
+    - docker
+
+stages:
+  - lint
+  - build
+  - test
+  - uat
+  - deploy
+
+####################################################
+# LINT STAGE
+####################################################
+
+lint:
+  stage: lint
+  image: $CI_REGISTRY_IMAGE/ci:lint
+  variables:
+    PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
+  cache:
+    paths:
+      - ${PRE_COMMIT_HOME}
+  script:
+    - pre-commit run --all-files
+
+####################################################
+# BUILD STAGE
+####################################################
+
+embedded:
+  stage: build
+  image: $CI_REGISTRY_IMAGE/ci:build
+  # rules:
+  #   - changes:
+  #       - /software/device/embedded/src/**/*
+  script:
+    - make --directory=software/device/embedded
+  artifacts:
+    expose_as: "Embedded code"
+    paths:
+      - "software/device/embedded/build"
+
+webapp:
+  stage: build
+  image: $CI_REGISTRY_IMAGE/ci:build
+  cache:
+    paths:
+      - software/device/webapp/node_modules
+  # rules:
+  #   - changes:
+  #       - /software/device/webapp/src/**/*
+  script:
+    - echo "API_URL=/" > software/device/webapp/.env
+    - make --directory=software/device/webapp
+  artifacts:
+    expose_as: "Static webapp"
+    paths:
+      - "software/device/webapp/build/static"
+
+firmware:
+  stage: build
+  # image: node:alpine
+  tags:
+    - hitl
+  when: manual
+  script:
+    - util/scripts/build-firmware.sh
+
+####################################################
+# TEST STAGE
+####################################################
+
+# test-micropython:
+#   image:
+#     name: $CI_REGISTRY_IMAGE/micropython
+#     entrypoint: [""]
+#   stage: test
+#   script:
+#     - test-micropython.sh
+
+test-hitl:
+  stage: test
+  when: manual
+  tags:
+    - hitl
+  script:
+    - util/micropython-hitl/hitl-tests.sh ./device/src /dev/ttyUSB0 115200
+    # - raspistill -vf -o hardware.jpg
+  artifacts:
+    paths:
+      - test_output.txt
+      # - hardware.jpg
+
+user-acceptance-tests:
+  stage: uat
+  image: node:alpine
+  before_script:
+    - apk add --no-cache curl zip
+  script:
+    - util/scripts/test-user-acceptance.sh
+  after_script:
+    - rm device-simulator/auth.txt || echo "no auth.txt found"
+  environment:
+    name: user acceptance testing
+    url: https://engr489-environmental-monitoring.azurewebsites.net/
+  when: manual
+
+# approve:
+#   stage: deploy
+#   when: manual
+#   allow_failure: false
+#   script:
+#     - echo "passed user testing"
+#   only:
+#     - master

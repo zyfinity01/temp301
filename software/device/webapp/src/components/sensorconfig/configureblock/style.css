@@ -1,0 +1,55 @@
+.collapsed {
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
+}
+
+.opened {
+    transition: max-height 0.2s ease-out;
+    overflow: hidden;
+    max-height: 5000px;
+}
+
+.header {
+    background-color: #0d99a5;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.headerText {
+}
+
+.block {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    border: 1px solid #e3e3e3;
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.buttonsList {
+    /*margin: 0 auto;*/
+}
+
+.buttonsList button svg {
+    margin-right: 5px;
+    position: relative;
+    top: 1px;
+}
+
+.buttonsList button {
+    text-decoration: none;
+    padding: 5px;
+    color: rgb(13, 153, 165);
+    background: white none repeat scroll 0% 0%;
+    display: inline-block;
+    border: 1px solid rgb(13, 153, 165);
+    border-radius: 5px;
+    font-size: 15px;
+    position: relative;
+    margin: 2px;
+}

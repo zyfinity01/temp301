@@ -1,0 +1,11 @@
+{
+  "last_updated": 0,
+  "last_transmitted": 0,
+  "battery_level": 100,
+  "coverage_level": 0,
+  "messages_sent": 0,
+  "failed_transmissions": 0,
+  "free_sd_space": 0,
+  "rainfall": [],
+  "date_time": []
+}

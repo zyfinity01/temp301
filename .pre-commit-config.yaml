@@ -1,0 +1,49 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more supported hooks
+# See also: https://pypi.org/project/pre-commit-hooks/
+
+default_stages: [commit]
+
+exclude: pylint-ignore\.md
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+        args: ['--maxkb=10240']
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.26.3
+    hooks:
+      - id: yamllint
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.8.0.1
+    hooks:
+      - id: shellcheck
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+      - id: black
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.17.0
+    hooks:
+      - id: gitlint
+        # stages: [commit-msg]  # Disable to allow running in CI environmen
+  - repo: https://github.com/markdownlint/markdownlint/
+    rev: v0.11.0
+    hooks:
+      - id: markdownlint
+        # Exclude Issue templates
+        exclude: '(^.gitlab/issue_templates/.*\.md$)'
+  - repo: local
+    hooks:
+      - id: pylint-ignore-update
+        name: update pylint-ignore.md file
+        entry: pylint-ignore
+        args: ["--update-ignorefile"]
+        stages: [manual]
+        language: system
+        types: [python]
+        require_serial: true

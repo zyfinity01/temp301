@@ -1,0 +1,6 @@
+---
+
+extends: default
+
+rules:
+  document-start: disable  # Don't require the document start marker '---'

@@ -1,0 +1,22 @@
+.submitButton {
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    float: right;
+    width: 13%;
+}
+
+.inputButton {
+    float: left;
+    width: 85%;
+}
+
+/*.submitButton:disabled {*/
+/*    background: gray;*/
+/*}*/
+
+/*.submitButton:not(disabled):hover {*/
+/*    background: #2cdaea;*/
+/*}*/
+
+/*.submitButton:enabled {*/
+/*    background: #51dfec;*/
+/*}*/

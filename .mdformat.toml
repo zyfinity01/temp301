@@ -1,0 +1,15 @@
+# .mdformat.toml
+#
+# This file shows the default values and is equivalent to having
+# no configuration file at all. Change the values for non-default
+# behavior.
+#
+# wrap = "keep"       # possible values: {"keep", "no", INTEGER}
+# number = false      # possible values: {false, true}
+# end_of_line = "lf"  # possible values: {"lf", "crlf"}
+primary_bullet_list_marker = "-"
+secondary_bullet_list_marker = "*"
+thematic_break_character = "-"
+thematic_break_width = 3
+escape_square_brackets = false     # possible values: {false, true}
+entity_substitution = false        # possible values: {false, true}

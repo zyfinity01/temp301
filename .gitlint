@@ -1,0 +1,8 @@
+[general]
+ignore=body-max-line-length,body-is-missing,body-min-length
+
+[title-max-length]
+line-length=100
+
+[title-match-regex]
+regex=^(build|ci|chore|docs|feat|fix|perf|refactor|revert|style|test)(\((requirements|pcb|battery|rtc|rain-gauge|sdcard|sdi-12|modem|drivers|services|sensors|mqtt|network|cloud|webapp|repo|device-sw|logging|device-sim|report-sw|report-hw|proposal|server)\))\:\s+.*

@@ -1,0 +1,39 @@
+{
+    "device_name": "untitled",
+    "device_id": "device_id",
+    "send_interval": 10,
+    "first_send_at": 0,
+    "wifi_password": "",
+    "maintenance_mode": false,
+    "test_mode": true,
+    "azure_settings": {
+        "scope_id": "abcdef",
+        "symmetric_key": "9937e41af4e645ab94d6029d1fb536ff",
+        "auth_mode": "SAS"
+    },
+    "sdi12_sensors": {
+        "water_sensor": {
+            "enabled": true,
+            "address": 1,
+            "bootup_time": 0,
+            "record_interval": 10,
+            "first_record_at": 0,
+            "readings": [
+                {
+                    "reading": "temperature",
+                    "index": 0,
+                    "multiplier": 1,
+                    "offset": 0,
+                    "unit": "c"
+                },
+                {
+                    "reading": "flow",
+                    "index": 1,
+                    "multiplier": 1,
+                    "offset": 0,
+                    "unit": "mm/s"
+                }
+            ]
+        }
+    }
+}

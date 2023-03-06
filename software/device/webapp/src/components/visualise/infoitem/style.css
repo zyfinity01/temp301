@@ -1,0 +1,23 @@
+.item {
+    border-top: solid 1px #aaa;
+    padding: 20px 0;
+    display: flex;
+}
+
+.icon {
+    width: 10%;
+}
+
+.name {
+    width: 50%;
+}
+
+.value {
+    width: 40%;
+    text-align: right;
+}
+
+
+.icon, .value, .name {
+    margin: 0 10px;
+}
