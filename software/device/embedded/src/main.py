@@ -258,11 +258,20 @@ def regular_mode(device_config=None, device_data=None):
         # log.debug("Data amended with rainfall count: {0}".format(device_data))
 
     # Check schedule
-    should_transmit = scheduler_services.should_transmit(
-        current_time,
-        device_data["last_transmitted"],
-        device_config["send_interval"] * 60,
-    )
+    if rainfall > 0:
+        should_transmit = scheduler_services.should_transmit(
+            current_time,
+            device_data["last_transmitted"],
+            device_config["send_interval"]
+            * 5,  # checks if should send, send interval * 60 secs
+        )
+    else:
+        should_transmit = scheduler_services.should_transmit(
+            current_time,
+            device_data["last_transmitted"],
+            device_config["send_interval"]
+            * 60,  # checks if should send, send interval * 60 secs
+        )
 
     if should_transmit:
         # The following should be moved to the pipeline() function (#650)
