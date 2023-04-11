@@ -37,8 +37,7 @@ def loadjson(filename, local=False):
 
     Arguments:
         filename (str): name of the JSON file to load
-        local (bool): if enabled, load from script directory (mainly for azure deployment purposes),
-                        otherwise find the file in the relative device code path
+        local (bool): if enabled, load from script
 
     Returns:
         dict
@@ -56,7 +55,7 @@ def loadjson(filename, local=False):
         return json.load(f_in)
 
 
-# Check to see if $LOCAL_CONFIG env var is set (best way for azure web apps)
+# Check to see if $LOCAL_CONFIG env var is set
 use_local_configs = True if "LOCAL_CONFIG" in os.environ else False
 
 # load the example device configs from the device/src directory

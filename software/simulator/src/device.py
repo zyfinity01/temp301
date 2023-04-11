@@ -16,8 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-Simulation software to create mock SDI-12/rainfall data and send it to the azure cloud IoT Hub backend.
-See iotc-test.py for testing communication to Azure IoT Central
+Simulation software to create mock SDI-12/rainfall data.
 """
 
 import configargparse
@@ -77,13 +76,6 @@ def main():
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
     client.on_publish = on_publish
-    client.username_pw_set(
-        username="{0}.azure-devices.net/{1}/?api-version=2018-06-30".format(
-            options.hub_name, options.device_id
-        ),
-        # TODO: replace this with x.509 certs as an auth method rather than using sas tokens
-        password=options.sas_token,
-    )
     client.tls_set(
         ca_certs="digiCert-root.crt",
         certfile=None,
@@ -92,10 +84,6 @@ def main():
         ciphers=None,
     )
     client.tls_insecure_set(False)
-
-    connected = client.connect(
-        host="{0}.azure-devices.net".format(options.hub_name), port=options.port
-    )
 
     topic = "devices/{0}/messages/events/".format(options.device_id)
     print(
@@ -134,9 +122,6 @@ if __name__ == "__main__":
         help="type of device",
     )
     parser.add_argument(
-        "-n", "--device-id", required=True, help="device id in azure IoT Hub"
-    )
-    parser.add_argument(
         "-p", "--port", default=8883, type=int, help="Cloud endpoint port"
     )
     parser.add_argument(
@@ -144,14 +129,6 @@ if __name__ == "__main__":
         "--region",
         required=True,
         help="Device region identifier (eg: upper-hutt)",
-    )
-    parser.add_argument(
-        "--hub-name",
-        required=True,
-        help="IoT Hub Identifier (without .azure-device.net)",
-    )
-    parser.add_argument(
-        "-s", "--sas-token", required=True, help="Azure IoT SAS Token (temporary)"
     )
     parser.add_argument(
         "-f", "--format", default="json", choices=["json", "csv"], help="Message format"
