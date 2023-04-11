@@ -31,8 +31,7 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
             wifi_password: props.wifi_password,
             first_send_at_date: props.first_send_at_date,
             first_send_at_time: props.first_send_at_time,
-            send_interval: props.send_interval,
-            azure_settings: props.azure_settings
+            send_interval: props.send_interval
         }
     });
 
@@ -139,35 +138,6 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
                                name="send_interval"
                                min={1}
                                ref={register}
-                        />
-                    </div>
-                    {/*</fieldset>*/}
-                    <h2>Azure Settings</h2>
-                    {/*<fieldset>*/}
-                    <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">Scope ID</label>
-                        <input type="text"
-                               className="aligned-name"
-                               name="azure_settings.scope_id"
-                               ref={register}
-                        />
-                    </div>
-                    <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">Auth Mode</label>
-                        <input type="text"
-                               className="aligned-name"
-                               name="azure_settings.auth_mode"
-                               ref={register}
-                               readOnly
-                        />
-                    </div>
-                    <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">Symmetric Key (SAS Token)</label>
-                        <textarea
-                            className="aligned-name"
-                            name="azure_settings.symmetric_key"
-                            ref={register}
-                            style={{resize: 'vertical'}}
                         />
                     </div>
                     {/*</fieldset>*/}
