@@ -21,6 +21,9 @@ import {ESP32_UNIX_EPOCH, formatDateTime, timestampToDate} from "../../util";
 import {useContext} from "preact/hooks";
 import { getNotyfContext } from "../../util/notyfContext";
 import {fetchApiContext, request} from "../../util/apiClient";
+import { useState } from 'preact/hooks';
+
+
 
 const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
     const {register, handleSubmit, watch, reset} = useForm<deviceConfigType>({
@@ -35,6 +38,7 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
             azure_settings: props.azure_settings
         }
     });
+
 
     // Convert the esp32-offset unix timestamp into a string-formatted date and time string
     const first_send_at = timestampToDate(props.first_send_at);
@@ -77,6 +81,15 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
         }, notyf);
     }
 
+    // showPassword state here
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+
+
     return (
         <div className={style.page}>
             <h2>Device Settings</h2>
@@ -110,11 +123,18 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Wifi Password</label>
-                        <input type="text"
+                        <input type={showPassword ? 'text' : 'password'}
                                className="aligned-name"
                                name="wifi_password"
                                ref={register}
                         />
+                        <button
+                            type="button"
+                            onClick={togglePasswordVisibility}
+                            className={style.toggleButton}
+                            >
+                                {showPassword ? 'Hide' : 'Show'} Password
+                            </button>
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">First Send At (Date)</label>
