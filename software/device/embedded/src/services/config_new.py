@@ -234,8 +234,30 @@ class MmwConfig:
         self.config = config
 
     # todo: auth_token
+    @property
+    def auth_token(self) -> str:
+        """Get the auth_token config"""
+
+        return self.config[self.__auth_token]
+
+    @auth_token.setter
+    def auth_token(self, value: str):
+        """Set the auth_token config"""
+
+        self.config[self.__auth_token] = value
 
     # todo: sampling_feature
+    @property
+    def sampling_feature(self) -> str:
+        """Get the sampling_feature config"""
+
+        return self.config[self.__sampling_feature]
+
+    @sampling_feature.setter
+    def sampling_feature(self, value: str):
+        """Set the sampling_feature config"""
+
+        self.config[self.__sampling_feature] = value
 
 
 class BaseConfig:
