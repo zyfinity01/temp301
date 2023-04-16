@@ -7,36 +7,6 @@ CONFIG_FILE = "/services/config.json"
 DYNAMIC_DATA_FILE = "/services/data.json"
 
 
-class WaterSensorConfig:
-    """The water sensor config of the Sdi12"""
-
-    __enabled = "enabled"
-    __address = "address"
-    __bootup_time = "bootup_time"
-    __record_interval = "record_interval"
-    __first_record_at = "first_record_at"
-    __readings = "readings"
-
-    def __init__(self, config):
-        self.config = config
-
-    # todo: enabled
-
-    # todo: address
-
-    # todo: bootup_time
-
-    # todo: record_interval
-
-    # todo: first_record_at
-
-    @readings
-    def readings(self) -> typing.List[ReadingConfig]:
-        """Get the readings config array"""
-
-        return self.config[self.__readings]
-
-
 class ReadingConfig:
     """The reading config of the Sdi12"""
 
@@ -50,17 +20,185 @@ class ReadingConfig:
     def __init__(self, config):
         self.config = config
 
-    # todo: reading
+    @property
+    def reading(self) -> str:
+        """Get the reading config"""
 
-    # todo: index
+        return self.config[self.__reading]
 
-    # todo: multiplier
+    @reading.setter
+    def reading(self, value: str):
+        """Set the reading config"""
 
-    # todo: offset
+        self.config[self.__reading] = value
 
-    # todo: unit
+    @property
+    def index(self) -> int:
+        """Get the index config"""
 
-    # todo: uuid
+        return self.config[self.__index]
+
+    @index.setter
+    def index(self, value: int):
+        """Set the index config"""
+
+        self.config[self.__index] = value
+
+    @property
+    def multiplier(self) -> int:
+        """Get the multiplier config"""
+
+        return self.config[self.__multiplier]
+
+    @multiplier.setter
+    def multiplier(self, value: int):
+        """Set the multiplier config"""
+
+        self.config[self.__multiplier] = value
+
+    @property
+    def offset(self) -> int:
+        """Get the offset config"""
+
+        return self.config[self.__offset]
+
+    @offset.setter
+    def offset(self, value: int):
+        """Set the offset config"""
+
+        self.config[self.__offset] = value
+
+    @property
+    def unit(self) -> str:
+        """Get the unit config"""
+
+        return self.config[self.__unit]
+
+    @unit.setter
+    def unit(self, value: str):
+        """Set the unit config"""
+
+        self.config[self.__unit] = value
+
+    @property
+    def uuid(self) -> str:
+        """Get the UUID config"""
+
+        return self.config[self.__uuid]
+
+    @uuid.setter
+    def uuid(self, value: str):
+        """Set the UUID config"""
+
+        self.config[self.__uuid] = value
+
+
+class WaterSensorConfig:
+    """The water sensor config of the Sdi12"""
+
+    __enabled = "enabled"
+    __address = "address"
+    __bootup_time = "bootup_time"
+    __record_interval = "record_interval"
+    __first_record_at = "first_record_at"
+    __readings = "readings"
+
+    def __init__(self, config):
+        self.config = config
+
+    @property
+    def enabled(self) -> bool:
+        """Get the enabled config"""
+
+        return self.config[self.__enabled]
+
+    @enabled.setter
+    def enabled(self, value: bool):
+        """Set the enabled config"""
+
+        self.config[self.__enabled] = value
+
+    @property
+    def address(self) -> int:
+        """Get the address config"""
+
+        return self.config[self.__address]
+
+    @address.setter
+    def address(self, value: int):
+        """Set the address config"""
+
+        self.config[self.__address] = value
+
+    @property
+    def bootup_time(self) -> int:
+        """Get the bootup_time config"""
+
+        return self.config[self.__bootup_time]
+
+    @bootup_time.setter
+    def bootup_time(self, value: int):
+        """Set the bootup_time config"""
+
+        self.config[self.__bootup_time] = value
+
+    @property
+    def record_interval(self) -> int:
+        """Get the record_interval config"""
+
+        return self.config[self.__record_interval]
+
+    @record_interval.setter
+    def record_interval(self, value: int):
+        """Set the record_interval config"""
+
+        self.config[self.__record_interval] = value
+
+    @property
+    def first_record_at(self) -> int:
+        """Get the first_record_at config"""
+
+        return self.config[self.__first_record_at]
+
+    @first_record_at.setter
+    def first_record_at(self, value: int):
+        """Get the first_record_at config"""
+
+        self.config[self.__first_record_at] = value
+
+    @property
+    def readings(self) -> typing.List[ReadingConfig]:
+        """Get the readings config array"""
+
+        readings = self.config[self.__readings]
+        return [ReadingConfig(reading) for reading in readings]
+
+    @readings.setter
+    def readings(self, value: typing.List[ReadingConfig]):
+        """Set the readings config array"""
+
+        self.config[self.__readings] = value
+
+
+class Sdi12Config:
+    """The Sdi12 config of the data recorder"""
+
+    __water_sensor = "water_sensor"
+
+    def __init__(self, config):
+        self.config = config
+
+    @property
+    def water_sensor(self) -> WaterSensorConfig:
+        """Get the water sensor config"""
+
+        return WaterSensorConfig(self.config[self.__water_sensor])
+
+    @water_sensor.setter
+    def water_sensor(self, value: WaterSensorConfig):
+        """Set the water sensor config"""
+
+        self.config[self.__water_sensor] = value
 
 
 class MqttConfig:
@@ -98,21 +236,6 @@ class MmwConfig:
     # todo: auth_token
 
     # todo: sampling_feature
-
-
-class Sdi12Config:
-    """The Sdi12 config of the data recorder"""
-
-    __water_sensor = "water_sensor"
-
-    def __init__(self, config):
-        self.config = config
-
-    @property
-    def water_sensor(self) -> WaterSensorConfig:
-        """Get the water sensor config"""
-
-        return self.config[self.__water_sensor]
 
 
 class BaseConfig:
