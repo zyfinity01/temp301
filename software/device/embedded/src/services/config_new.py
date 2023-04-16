@@ -242,7 +242,7 @@ class BaseConfig:
     """The base data recorder config"""
 
     __version = "version"
-    __devie_name = "device_name"
+    __device_name = "device_name"
     __device_id = "device_id"
     __hw_revision = "hw_revision"
     __send_interval = "send_interval"
@@ -271,21 +271,109 @@ class BaseConfig:
 
         self.config[self.__version] = value
 
-    # todo: devie_name
+    # todo: device_name
+    @property
+    def device_name(self) -> str:
+        """Get the device name setting"""
+
+        return self.config[self.__device_name]
+
+    @device_name.setter
+    def device_name(self, value: str) -> str:
+        """Set the device name setting"""
+
+        self.config[self.__device_name] = value
 
     # todo: device_id
+    @property
+    def device_id(self) -> str:
+        """Get the device id setting"""
+
+        return self.config[self.__device_id]
+
+    @device_id.setter
+    def device_id(self, value: str) -> str:
+        """Set the device id setting"""
+
+        self.config[self.__device_id] = value
 
     # todo: hw_revision
+    @property
+    def hw_revision(self) -> str:
+        """Get the hardware revision setting"""
+
+        return self.config[self.__hw_revision]
+
+    @hw_revision.setter
+    def hw_revision(self, value: str) -> str:
+        """Set the hardware revision setting"""
+
+        self.config[self.__hw_revision] = value
 
     # todo: send_interval
+    @property
+    def send_interval(self) -> int:
+        """Get the send interval setting"""
+
+        return self.config[self.__send_interval]
+
+    @send_interval.setter
+    def send_interval(self, value: int) -> int:
+        """Set the send interval setting"""
+
+        self.config[self.__send_interval] = value
 
     # todo: first_send_at
+    @property
+    def first_send_at(self) -> str:
+        """Get the first send at setting"""
+
+        return self.config[self.__first_send_at]
+
+    @first_send_at.setter
+    def first_send_at(self, value: str) -> str:
+        """Set the first send at setting"""
+
+        self.config[self.__first_send_at] = value
 
     # todo: wifi_ssid
+    @property
+    def wifi_ssid(self) -> str:
+        """Get the wifi ssid setting"""
+
+        return self.config[self.__wifi_ssid]
+
+    @wifi_ssid.setter
+    def wifi_ssid(self, value: str) -> str:
+        """Set the wifi ssid setting"""
+
+        self.config[self.__wifi_ssid] = value
 
     # todo: wifi_password
+    @property
+    def wifi_password(self) -> str:
+        """Get the wifi password setting"""
+
+        return self.config[self.__wifi_password]
+
+    @wifi_password.setter
+    def wifi_password(self, value: str) -> str:
+        """Set the wifi password setting"""
+
+        self.config[self.__wifi_password] = value
 
     # todo: maintenance_mode
+    @property
+    def maintenance_mode(self) -> bool:
+        """Get the maintenance mode setting"""
+
+        return self.config[self.__maintenance_mode]
+
+    @maintenance_mode.setter
+    def maintenance_mode(self, value: bool) -> bool:
+        """Set the maintenance mode setting"""
+
+        self.config[self.__maintenance_mode] = value
 
     # todo: test_mode
 
