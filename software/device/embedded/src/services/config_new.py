@@ -217,7 +217,7 @@ class MqttConfig:
     def host(self) -> str:
         """Get the host config"""
         return self.config[self.__host]
-    
+
     @host.setter
     def host(self, value: str):
         """Set the host config"""
@@ -227,7 +227,7 @@ class MqttConfig:
     def port(self) -> int:
         """Get the port config"""
         return self.config[self.__port]
-    
+
     @port.setter
     def port(self, value: int):
         """Set the port config"""
@@ -237,7 +237,7 @@ class MqttConfig:
     def username(self) -> str:
         """Get the username config"""
         return self.config[self.__username]
-    
+
     @username.setter
     def username(self, value: str):
         """Set the username config"""
@@ -247,7 +247,7 @@ class MqttConfig:
     def password(self) -> str:
         """Get the password config"""
         return self.config[self.__password]
-    
+
     @password.setter
     def password(self, value: str):
         """Set the password config"""
@@ -257,11 +257,12 @@ class MqttConfig:
     def parent_topic(self) -> str:
         """Get the parent_topic config"""
         return self.config[self.__parent_topic]
-    
+
     @parent_topic.setter
     def parent_topic(self, value: str):
         """Set the parent_topic config"""
         self.config[self.__parent_topic] = value
+
 
 class MmwConfig:
     """The MMW config of the data recorder"""
