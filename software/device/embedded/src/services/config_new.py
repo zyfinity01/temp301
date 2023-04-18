@@ -23,73 +23,61 @@ class ReadingConfig:
     @property
     def reading(self) -> str:
         """Get the reading config"""
-
         return self.config[self.__reading]
 
     @reading.setter
     def reading(self, value: str):
         """Set the reading config"""
-
         self.config[self.__reading] = value
 
     @property
     def index(self) -> int:
         """Get the index config"""
-
         return self.config[self.__index]
 
     @index.setter
     def index(self, value: int):
         """Set the index config"""
-
         self.config[self.__index] = value
 
     @property
     def multiplier(self) -> int:
         """Get the multiplier config"""
-
         return self.config[self.__multiplier]
 
     @multiplier.setter
     def multiplier(self, value: int):
         """Set the multiplier config"""
-
         self.config[self.__multiplier] = value
 
     @property
     def offset(self) -> int:
         """Get the offset config"""
-
         return self.config[self.__offset]
 
     @offset.setter
     def offset(self, value: int):
         """Set the offset config"""
-
         self.config[self.__offset] = value
 
     @property
     def unit(self) -> str:
         """Get the unit config"""
-
         return self.config[self.__unit]
 
     @unit.setter
     def unit(self, value: str):
         """Set the unit config"""
-
         self.config[self.__unit] = value
 
     @property
     def uuid(self) -> str:
         """Get the UUID config"""
-
         return self.config[self.__uuid]
 
     @uuid.setter
     def uuid(self, value: str):
         """Set the UUID config"""
-
         self.config[self.__uuid] = value
 
 
@@ -109,75 +97,64 @@ class WaterSensorConfig:
     @property
     def enabled(self) -> bool:
         """Get the enabled config"""
-
         return self.config[self.__enabled]
 
     @enabled.setter
     def enabled(self, value: bool):
         """Set the enabled config"""
-
         self.config[self.__enabled] = value
 
     @property
     def address(self) -> int:
         """Get the address config"""
-
         return self.config[self.__address]
 
     @address.setter
     def address(self, value: int):
         """Set the address config"""
-
         self.config[self.__address] = value
 
     @property
     def bootup_time(self) -> int:
         """Get the bootup_time config"""
-
         return self.config[self.__bootup_time]
 
     @bootup_time.setter
     def bootup_time(self, value: int):
         """Set the bootup_time config"""
-
         self.config[self.__bootup_time] = value
 
     @property
     def record_interval(self) -> int:
         """Get the record_interval config"""
-
         return self.config[self.__record_interval]
 
     @record_interval.setter
     def record_interval(self, value: int):
         """Set the record_interval config"""
-
         self.config[self.__record_interval] = value
 
     @property
     def first_record_at(self) -> int:
         """Get the first_record_at config"""
-
         return self.config[self.__first_record_at]
 
     @first_record_at.setter
     def first_record_at(self, value: int):
         """Get the first_record_at config"""
-
         self.config[self.__first_record_at] = value
 
     @property
     def readings(self) -> typing.List[ReadingConfig]:
         """Get the readings config array"""
-
         readings = self.config[self.__readings]
         return [ReadingConfig(reading) for reading in readings]
 
     @readings.setter
-    def readings(self, value: typing.List[ReadingConfig]):
+    def readings(self, values: typing.List[ReadingConfig]):
         """Set the readings config array"""
-
-        self.config[self.__readings] = value
+        configs = [value.config for value in values]
+        self.config[self.__readings] = configs
 
 
 class Sdi12Config:
@@ -191,14 +168,12 @@ class Sdi12Config:
     @property
     def water_sensor(self) -> WaterSensorConfig:
         """Get the water sensor config"""
-
         return WaterSensorConfig(self.config[self.__water_sensor])
 
     @water_sensor.setter
     def water_sensor(self, value: WaterSensorConfig):
         """Set the water sensor config"""
-
-        self.config[self.__water_sensor] = value
+        self.config[self.__water_sensor] = value.config
 
 
 class MqttConfig:
@@ -273,30 +248,24 @@ class MmwConfig:
     def __init__(self, config):
         self.config = config
 
-    # todo: auth_token
     @property
     def auth_token(self) -> str:
         """Get the auth_token config"""
-
         return self.config[self.__auth_token]
 
     @auth_token.setter
     def auth_token(self, value: str):
         """Set the auth_token config"""
-
         self.config[self.__auth_token] = value
 
-    # todo: sampling_feature
     @property
     def sampling_feature(self) -> str:
         """Get the sampling_feature config"""
-
         return self.config[self.__sampling_feature]
 
     @sampling_feature.setter
     def sampling_feature(self, value: str):
         """Set the sampling_feature config"""
-
         self.config[self.__sampling_feature] = value
 
 
@@ -324,144 +293,143 @@ class BaseConfig:
     @property
     def version(self) -> str:
         """Get the version setting"""
-
         return self.config[self.__version]
 
     @version.setter
-    def version(self, value: str) -> str:
+    def version(self, value: str):
         """Set the version setting"""
-
         self.config[self.__version] = value
 
-    # todo: device_name
     @property
     def device_name(self) -> str:
         """Get the device name setting"""
-
         return self.config[self.__device_name]
 
     @device_name.setter
-    def device_name(self, value: str) -> str:
+    def device_name(self, value: str):
         """Set the device name setting"""
-
         self.config[self.__device_name] = value
 
-    # todo: device_id
     @property
     def device_id(self) -> str:
         """Get the device id setting"""
-
         return self.config[self.__device_id]
 
     @device_id.setter
-    def device_id(self, value: str) -> str:
+    def device_id(self, value: str):
         """Set the device id setting"""
-
         self.config[self.__device_id] = value
 
-    # todo: hw_revision
     @property
     def hw_revision(self) -> str:
         """Get the hardware revision setting"""
-
         return self.config[self.__hw_revision]
 
     @hw_revision.setter
-    def hw_revision(self, value: str) -> str:
+    def hw_revision(self, value: str):
         """Set the hardware revision setting"""
-
         self.config[self.__hw_revision] = value
 
-    # todo: send_interval
     @property
     def send_interval(self) -> int:
         """Get the send interval setting"""
-
         return self.config[self.__send_interval]
 
     @send_interval.setter
-    def send_interval(self, value: int) -> int:
+    def send_interval(self, value: int):
         """Set the send interval setting"""
-
         self.config[self.__send_interval] = value
 
-    # todo: first_send_at
     @property
     def first_send_at(self) -> str:
         """Get the first send at setting"""
-
         return self.config[self.__first_send_at]
 
     @first_send_at.setter
-    def first_send_at(self, value: str) -> str:
+    def first_send_at(self, value: str):
         """Set the first send at setting"""
-
         self.config[self.__first_send_at] = value
 
-    # todo: wifi_ssid
     @property
     def wifi_ssid(self) -> str:
         """Get the wifi ssid setting"""
-
         return self.config[self.__wifi_ssid]
 
     @wifi_ssid.setter
-    def wifi_ssid(self, value: str) -> str:
+    def wifi_ssid(self, value: str):
         """Set the wifi ssid setting"""
-
         self.config[self.__wifi_ssid] = value
 
-    # todo: wifi_password
     @property
     def wifi_password(self) -> str:
         """Get the wifi password setting"""
-
         return self.config[self.__wifi_password]
 
     @wifi_password.setter
-    def wifi_password(self, value: str) -> str:
+    def wifi_password(self, value: str):
         """Set the wifi password setting"""
-
         self.config[self.__wifi_password] = value
 
-    # todo: maintenance_mode
     @property
     def maintenance_mode(self) -> bool:
         """Get the maintenance mode setting"""
-
         return self.config[self.__maintenance_mode]
 
     @maintenance_mode.setter
-    def maintenance_mode(self, value: bool) -> bool:
+    def maintenance_mode(self, value: bool):
         """Set the maintenance mode setting"""
-
         self.config[self.__maintenance_mode] = value
 
-    # todo: test_mode
+    @property
+    def test_mode(self) -> bool:
+        """Get the test_mode config"""
+        return self.config[self.__test_mode]
+
+    @test_mode.setter
+    def test_mode(self, value: bool):
+        """Set the test_mode config"""
+        self.config[self.__test_mode] = value
 
     @property
     def mqtt_settings(self) -> MqttConfig:
         """Get the MQTT settings"""
+        return MqttConfig(self.config[self.__mqtt_settings])
 
-        return self.config[self.__mqtt_settings]
+    @mqtt_settings.setter
+    def mqtt_settings(self, value: MqttConfig):
+        """Set the MQTT settings"""
+        self.config[self.__mqtt_settings] = value.config
+
+    @property
+    def mmw_settings(self) -> MmwConfig:
+        """Get the MMW settings"""
+        return MmwConfig(self.config[self.__mmw_settings])
 
     @mmw_settings.setter
-    def mmw_settings(self) -> MmwConfig:
-        """Set the MQTT settings"""
-
-        return self.config[self.__mmw_settings]
+    def mmw_settings(self, value: MmwConfig):
+        """Set the MMW settings"""
+        self.config[self.__mmw_settings] = value.config
 
     @property
     def sdi12_sensors(self) -> Sdi12Config:
         """Get the SDI12 settings"""
-
-        return self.config[self.__sdi12_sensors]
+        return Sdi12Config(self.config[self.__sdi12_sensors])
 
     @sdi12_sensors.setter
-    def water_senor(self) -> WaterSensorConfig:
+    def sdi12_sensors(self, value: Sdi12Config):
         """Set the SDI12 settings"""
 
-        return self.config[self.__water_sensor]
+        self.config[self.__sdi12_sensors] = value.config
+
+    @property
+    def water_sensor(self) -> WaterSensorConfig:
+        """Get the water_sensor settings"""
+        return WaterSensorConfig(self.config[self.__water_sensor])
+
+    @water_sensor.setter
+    def water_sensor(self, value: WaterSensorConfig):
+        """Set the water_sensor settings"""
+        self.config[self.__water_sensor] = value.config
 
 
 class DataConfig:
@@ -483,109 +451,91 @@ class DataConfig:
     @property
     def last_updated(self) -> int:
         """Get the last_updated config"""
-
         return self.config[self.__last_updated]
 
     @last_updated.setter
     def last_updated(self, value: int):
         """Set the last_updated config"""
-
         self.config[self.__last_updated] = value
 
     @property
     def last_transmitted(self) -> int:
         """Get the last_transmitted config"""
-
         return self.config[self.__last_transmitted]
 
     @last_transmitted.setter
     def last_transmitted(self, value: int):
         """Set the last_transmitted config"""
-
         self.config[self.__last_transmitted] = value
 
     @property
     def battery_level(self) -> int:
         """Get the battery_level config"""
-
         return self.config[self.__battery_level]
 
     @battery_level.setter
     def battery_level(self, value: int):
         """Set the battery_level config"""
-
         self.config[self.__battery_level] = value
 
     @property
     def coverage_level(self) -> int:
         """Get the coverage_level config"""
-
         return self.config[self.__coverage_level]
 
     @coverage_level.setter
     def coverage_level(self, value: int):
         """Set the coverage_level config"""
-
         self.config[self.__coverage_level] = value
 
     @property
     def messages_sent(self) -> int:
         """Get the messages_sent config"""
-
         return self.config[self.__messages_sent]
 
     @messages_sent.setter
     def messages_sent(self, value: int):
         """Set the messages_sent config"""
-
         self.config[self.__messages_sent] = value
 
     @property
     def failed_transmissions(self) -> int:
         """Get the failed_transmissions config"""
-
         return self.config[self.__failed_transmissions]
 
     @failed_transmissions.setter
     def failed_transmissions(self, value: int):
         """Set the failed_transmissions config"""
-
         self.config[self.__failed_transmissions] = value
 
     @property
     def free_sd_space(self) -> int:
         """Get the free_sd_space config"""
-
         return self.config[self.__free_sd_space]
 
     @free_sd_space.setter
     def free_sd_space(self, value: int):
         """Set the free_sd_space config"""
-
         self.config[self.__free_sd_space] = value
 
     @property
     def rainfall(self) -> typing.List(int):
         """Get the rainfall config"""
-
         return self.config[self.__rainfall]
 
     @rainfall.setter
     def rainfall(self, value: typing.List(int)):
         """Set the rainfall config"""
-
         self.config[self.__rainfall] = value
 
     @property
     def date_time(self) -> typing.List(int):
         """Get the date_time config"""
-
         return self.config[self.__date_time]
 
     @date_time.setter
     def date_time(self, value: typing.List(int)):
         """Set the date_time config"""
-
         self.config[self.__date_time] = value
 
 
