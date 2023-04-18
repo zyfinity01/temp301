@@ -213,15 +213,55 @@ class MqttConfig:
     def __init__(self, config):
         self.config = config
 
-    # todo: host
+    @property
+    def host(self) -> str:
+        """Get the host config"""
+        return self.config[self.__host]
 
-    # todo: port
+    @host.setter
+    def host(self, value: str):
+        """Set the host config"""
+        self.config[self.__host] = value
 
-    # todo: username
+    @property
+    def port(self) -> int:
+        """Get the port config"""
+        return self.config[self.__port]
 
-    # todo: password
+    @port.setter
+    def port(self, value: int):
+        """Set the port config"""
+        self.config[self.__port] = value
 
-    # todo: parent_topic
+    @property
+    def username(self) -> str:
+        """Get the username config"""
+        return self.config[self.__username]
+
+    @username.setter
+    def username(self, value: str):
+        """Set the username config"""
+        self.config[self.__username] = value
+
+    @property
+    def password(self) -> str:
+        """Get the password config"""
+        return self.config[self.__password]
+
+    @password.setter
+    def password(self, value: str):
+        """Set the password config"""
+        self.config[self.__password] = value
+
+    @property
+    def parent_topic(self) -> str:
+        """Get the parent_topic config"""
+        return self.config[self.__parent_topic]
+
+    @parent_topic.setter
+    def parent_topic(self, value: str):
+        """Set the parent_topic config"""
+        self.config[self.__parent_topic] = value
 
 
 class MmwConfig:
