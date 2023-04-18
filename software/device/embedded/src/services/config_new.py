@@ -480,23 +480,113 @@ class DataConfig:
     def __init__(self, config):
         self.config = config
 
-    # todo: last_updated
+    @property
+    def last_updated(self) -> int:
+        """Get the last_updated config"""
 
-    # todo: last_transmitted
+        return self.config[self.__last_updated]
 
-    # todo: battery_level
+    @last_updated.setter
+    def last_updated(self, value: int):
+        """Set the last_updated config"""
 
-    # todo: coverage_level
+        self.config[self.__last_updated] = value
 
-    # todo: message_sent
+    @property
+    def last_transmitted(self) -> int:
+        """Get the last_transmitted config"""
 
-    # todo: failed_transmissions
+        return self.config[self.__last_transmitted]
 
-    # todo: free_sd_space
+    @last_transmitted.setter
+    def last_transmitted(self, value: int):
+        """Set the last_transmitted config"""
 
-    # todo: rainfall
+        self.config[self.__last_transmitted] = value
 
-    # todo: date_time
+    @property
+    def battery_level(self) -> int:
+        """Get the battery_level config"""
+
+        return self.config[self.__battery_level]
+
+    @battery_level.setter
+    def battery_level(self, value: int):
+        """Set the battery_level config"""
+
+        self.config[self.__battery_level] = value
+
+    @property
+    def coverage_level(self) -> int:
+        """Get the coverage_level config"""
+
+        return self.config[self.__coverage_level]
+
+    @coverage_level.setter
+    def coverage_level(self, value: int):
+        """Set the coverage_level config"""
+
+        self.config[self.__coverage_level] = value
+
+    @property
+    def messages_sent(self) -> int:
+        """Get the messages_sent config"""
+
+        return self.config[self.__messages_sent]
+
+    @messages_sent.setter
+    def messages_sent(self, value: int):
+        """Set the messages_sent config"""
+
+        self.config[self.__messages_sent] = value
+
+    @property
+    def failed_transmissions(self) -> int:
+        """Get the failed_transmissions config"""
+
+        return self.config[self.__failed_transmissions]
+
+    @failed_transmissions.setter
+    def failed_transmissions(self, value: int):
+        """Set the failed_transmissions config"""
+
+        self.config[self.__failed_transmissions] = value
+
+    @property
+    def free_sd_space(self) -> int:
+        """Get the free_sd_space config"""
+
+        return self.config[self.__free_sd_space]
+
+    @free_sd_space.setter
+    def free_sd_space(self, value: int):
+        """Set the free_sd_space config"""
+
+        self.config[self.__free_sd_space] = value
+
+    @property
+    def rainfall(self) -> typing.List(int):
+        """Get the rainfall config"""
+
+        return self.config[self.__rainfall]
+
+    @rainfall.setter
+    def rainfall(self, value: typing.List(int)):
+        """Set the rainfall config"""
+
+        self.config[self.__rainfall] = value
+
+    @property
+    def date_time(self) -> typing.List(int):
+        """Get the date_time config"""
+
+        return self.config[self.__date_time]
+
+    @date_time.setter
+    def date_time(self, value: typing.List(int)):
+        """Set the date_time config"""
+
+        self.config[self.__date_time] = value
 
 
 def read_config(file_name: str = CONFIG_FILE) -> BaseConfig:
