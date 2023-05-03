@@ -252,7 +252,17 @@ def read_failed_transmission() -> str or None:
     Returns:
         str: Json data from failed transmission, or None if there are no remaining failed.
     """
-    return None  # FIXME: complete implementation
+
+    # get list of files, ignoring directories
+    dir_files = [f for f in os.listdir(REQUEUE_DIR) if os.path.isfile(f)]
+
+    # if no files are present
+    if not len(dir_files):
+        return None
+
+    # load first found json file
+    with open(REQUEUE_DIR + dir_files[1]) as f_ptr:
+        return f_ptr.read()
 
 
 def save_telemetry(data: dict):
