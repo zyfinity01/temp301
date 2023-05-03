@@ -27,6 +27,8 @@ from micropython import const
 from util import helpers
 from util.time import isoformat
 
+import json
+
 log = logging.getLogger("sdcard")  # __name__ = "drivers.sdcard"
 # Enable the following to set a log level specific to this module:
 # Don't honour global DEBUG - limited general value in DEBUG messages
@@ -109,7 +111,7 @@ def setup(sd_logging=True):
         sdstat = os.statvfs(SD_DIR)
         log.debug(
             "Mounted microSD card, size={:0.2f} GB".format(
-                (sdstat[2] * sdstat[1]) / 1000**3
+                (sdstat[2] * sdstat[1]) / 1000 ** 3
             )
         )
         # Ensure the expected directory structure exists
@@ -184,14 +186,15 @@ def get_free_space() -> int:
         sdstat = os.statvfs(SD_DIR)
         log.info(
             "Remaining microSD capacity: {0} of {1} GB".format(
-                ((sdstat[1] * sdstat[3]) / 1000**3),
-                ((sdstat[1] * sdstat[2]) / 1000**3),
+                ((sdstat[1] * sdstat[3]) / 1000 ** 3),
+                ((sdstat[1] * sdstat[2]) / 1000 ** 3),
             )
         )
         return sdstat[1] * sdstat[3]
 
     log.warning("No microSD card present")
     return -1
+
 
 def write_failed_transmission(data: dict):
     """Writes out the json data to the failed transmission directory
@@ -209,14 +212,19 @@ def write_failed_transmission(data: dict):
     """
 
     if not _SD_ENABLED:
-        log.warning("Can not save data to microSD card because it has not been successfully set up. This failed transmission will be lost!")
+        log.warning(
+            "Can not save data to microSD card because it has not been successfully set up." +
+            "This failed transmission will be lost!"
+        )
         return False
 
+    out_file = gen_path(REQUEUE_DIR + data['DateTime'] + FAILED_FILETYPE)
+    log.info(f"Writing failed transmission to {out_file}")
 
-    out_path = helpers.join_path(REQUEUE_DIR, data['DateTime']+FAILED_FILETYPE)
-    log.info(f"Writing failed transmission to {out_path}")
+    with open(out_file, 'w') as f_ptr:
+        f_ptr.write(str(json.dumps(data)))
 
-    return True #TODO: for now, assuming that the file was saved
+    return True
 
 
 def save_telemetry(data: dict):
