@@ -219,7 +219,7 @@ def write_failed_transmission(data: dict):
         return False
 
     out_file = gen_path(REQUEUE_DIR + data["DateTime"] + FAILED_FILETYPE)
-    log.info(f"Writing failed transmission to "+out_file)
+    log.info("Writing failed transmission to "+out_file)
 
     with open(out_file, "w") as f_ptr:
         f_ptr.write(str(json.dumps(data)))
