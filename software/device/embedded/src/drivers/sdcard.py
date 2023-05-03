@@ -222,6 +222,7 @@ def write_failed_transmission(data: dict):
         )
         return False
 
+    # Construct path for writing to failed dir
     out_file = gen_path(REQUEUE_DIR + data["DateTime"] + FAILED_FILETYPE)
     log.info("Writing failed transmission to {}".format(out_file))
 
@@ -230,6 +231,7 @@ def write_failed_transmission(data: dict):
             "Cached failed transmission already exists! Did we time travel? Overriding anyways."
         )
 
+    # Write out json data
     with open(out_file, "w") as f_ptr:
         f_ptr.write(str(json.dumps(data)))
 
