@@ -197,7 +197,7 @@ def get_free_space() -> int:
 
 
 def write_failed_transmission(data: dict):
-    """Writes out the json data to the failed transmission directory
+    """Writes out the json data to the failed transmission directory.
 
     Args:
         data (dict): Data to be stored. Must be in the format used to
@@ -236,6 +236,23 @@ def write_failed_transmission(data: dict):
         f_ptr.write(str(json.dumps(data)))
 
     return True
+
+
+def read_failed_transmission() -> str or None:
+    """
+    Loads a random file to be queued for transmission.
+
+    Files are obtained as the os chooses to provide them, as sorting via O(NlogN) gets complex,
+    especially given the processing capacity of the ESP32.
+
+    # TODO: https://gitlab.ecs.vuw.ac.nz/course-work/engr301/2023/group3/data-recorder/-/issues/80
+         \\ This issue will need to be evaluated to ensure that ordering is inconsequential.
+         \\ If ordering is required, this is going to have to be rewritten.
+
+    Returns:
+        str: Json data from failed transmission, or None if there are no remaining failed.
+    """
+    return None  # FIXME: complete implementation
 
 
 def save_telemetry(data: dict):
