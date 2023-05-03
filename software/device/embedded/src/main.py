@@ -262,13 +262,15 @@ def regular_mode(device_config=None, device_data=None):
         should_transmit = scheduler_services.should_transmit(
             current_time,
             device_data["last_transmitted"],
-            device_config["send_interval"] * 5,
+            device_config["send_interval"]
+            * 300,  # TODO figure out how to make this 5 minutes
         )
     else:
         should_transmit = scheduler_services.should_transmit(
             current_time,
             device_data["last_transmitted"],
-            device_config["send_interval"] * 60,
+            device_config["send_interval"]
+            * 3600,  # TODO figure out how to make this 60 minutes
         )
 
     if should_transmit:
@@ -427,6 +429,7 @@ async def pipeline(device_config: dict, device_data: dict):
     # Convert Datetime to ISO8601 compliant string
     sensor_merged_results["DateTime"] = isoformat(sensor_merged_results["DateTime"])
 
+    # FIXME Redundant code
     # rain_gauge_results = [
     #     {"r": device_data["rainfall"][i], "t": device_data["date_time"][i]}
     #     for i in range(len(device_data["rainfall"]))
