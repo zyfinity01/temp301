@@ -207,6 +207,10 @@ def write_failed_transmission(data: dict):
         Each failed transmission is stored within a separate file. This is to ensure the ability to remove and add
         entries arbitrarily without loading the entire failed transmission cache into memory.
 
+        If a failed transmission already exists with the given timestamp, the file will be overridden and an error
+        will be logged. In theory, this should never occur, as time should be synchronised on device startup.
+        With UTC time, time should never go backwards.
+
     Returns:
         bool: True if successfully written.
     """
@@ -220,6 +224,11 @@ def write_failed_transmission(data: dict):
 
     out_file = gen_path(REQUEUE_DIR + data["DateTime"] + FAILED_FILETYPE)
     log.info("Writing failed transmission to {}".format(out_file))
+
+    if helpers.check_exists(out_file):
+        log.error(
+            "Cached failed transmission already exists! Did we time travel? Overriding anyways."
+        )
 
     with open(out_file, "w") as f_ptr:
         f_ptr.write(str(json.dumps(data)))
