@@ -468,8 +468,10 @@ async def pipeline(device_config: dict, device_data: dict):
             config_services.write_data_file(device_data)
         else:
             log.error("Failed to connect to the MQTT broker")
+            sdcard_driver.write_failed_transmission(sensor_merged_results)
     else:
         log.info("Modem has no network or no response. No transmission")
+        sdcard_driver.write_failed_transmission(sensor_merged_results)
 
     # Turn off modem
     # For frequent transmissions, e.g. once per minute, the power-on/power-off

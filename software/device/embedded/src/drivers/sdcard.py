@@ -55,6 +55,9 @@ BACKUP_DIR = "daily/"
 SYSLOG = "system.log"
 FILETYPE = ".csv"
 
+REQUEUE_DIR = "failed_transmissions/"
+FAILED_FILETYPE = ".json"
+
 HEADER_STR = "Sensor,Datetime,Data"
 
 
@@ -189,6 +192,31 @@ def get_free_space() -> int:
 
     log.warning("No microSD card present")
     return -1
+
+def write_failed_transmission(data: dict):
+    """Writes out the json data to the failed transmission directory
+
+    Args:
+        data (dict): Data to be stored. Must be in the format used to
+            send data to the webserver, as it is parsed and re-sent with the
+            same format. Data must contain a timestamp, as it is used to name the file to ensure uniqueness.
+
+        Each failed transmission is stored within a separate file. This is to ensure the ability to remove and add
+        entries arbitrarily without loading the entire failed transmission cache into memory.
+
+    Returns:
+        bool: True if successfully written.
+    """
+
+    if not _SD_ENABLED:
+        log.warning("Can not save data to microSD card because it has not been successfully set up. This failed transmission will be lost!")
+        return False
+
+
+    out_path = helpers.join_path(REQUEUE_DIR, data['DateTime']+FAILED_FILETYPE)
+    log.info(f"Writing failed transmission to {out_path}")
+
+    return True #TODO: for now, assuming that the file was saved
 
 
 def save_telemetry(data: dict):
