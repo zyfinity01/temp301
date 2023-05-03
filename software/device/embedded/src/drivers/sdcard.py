@@ -238,7 +238,7 @@ def write_failed_transmission(data: dict):
     return True
 
 
-def read_failed_transmission() -> str or None:
+def read_failed_transmission() -> os.DirEntry[str] or None:
     """
     Loads a random file to be queued for transmission.
 
@@ -250,15 +250,14 @@ def read_failed_transmission() -> str or None:
          \\ If ordering is required, this is going to have to be rewritten.
 
     Returns:
-        str: Json data from failed transmission, or None if there are no remaining failed.
+        os.DirEntry[str]: Json data from failed transmission, or None if there are no remaining failed.
     """
 
     # iterate over files in directory
     for file in os.scandir(REQUEUE_DIR):
         if file.is_file():
-            # load first found json file
-            with open(file) as f_ptr:
-                return f_ptr.read()
+            # return first found json file reference
+            return file
 
     # if no files are present
     return None
