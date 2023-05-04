@@ -95,6 +95,8 @@ LED_BLUE_PIN = None  # Not connected in Rev::4.0; see #508.
 
 # Time constants in seconds
 DEEP_SLEEP_WAIT_PERIOD = 3
+FIVE_MINUTES = 300
+SIXTY_MINUTES = 3600
 # Time constants in milliseconds
 DEEP_SLEEP_PERIOD = 60000
 SERVER_STOP_WAIT_PERIOD = 5000
@@ -250,19 +252,24 @@ def regular_mode(device_config=None, device_data=None):
 
     rainfall = rain_counter.get_rainfall()
 
+    # Check schedule (if raining change interval to 5 minutes else 60 minutes)
     if rainfall > 0:
         device_data["rainfall"].append(rainfall)
         device_data["date_time"].append(time.time())
         # Enable the following debug statement only when troubleshooting
         # data.json problems:
         # log.debug("Data amended with rainfall count: {0}".format(device_data))
-
-    # Check schedule
-    should_transmit = scheduler_services.should_transmit(
-        current_time,
-        device_data["last_transmitted"],
-        device_config["send_interval"] * 60,
-    )
+        should_transmit = scheduler_services.should_transmit(
+            current_time,
+            device_data["last_transmitted"],
+            device_config["send_interval"] * FIVE_MINUTES,
+        )
+    else:
+        should_transmit = scheduler_services.should_transmit(
+            current_time,
+            device_data["last_transmitted"],
+            device_config["send_interval"] * SIXTY_MINUTES,
+        )
 
     if should_transmit:
         # The following should be moved to the pipeline() function (#650)
@@ -420,6 +427,7 @@ async def pipeline(device_config: dict, device_data: dict):
     # Convert Datetime to ISO8601 compliant string
     sensor_merged_results["DateTime"] = isoformat(sensor_merged_results["DateTime"])
 
+    # FIXME Redundant code
     # rain_gauge_results = [
     #     {"r": device_data["rainfall"][i], "t": device_data["date_time"][i]}
     #     for i in range(len(device_data["rainfall"]))
