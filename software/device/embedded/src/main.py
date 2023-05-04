@@ -95,6 +95,8 @@ LED_BLUE_PIN = None  # Not connected in Rev::4.0; see #508.
 
 # Time constants in seconds
 DEEP_SLEEP_WAIT_PERIOD = 3
+FIVE_MINUTES = 300
+SIXTY_MINUTES = 3600
 # Time constants in milliseconds
 DEEP_SLEEP_PERIOD = 60000
 SERVER_STOP_WAIT_PERIOD = 5000
@@ -262,15 +264,13 @@ def regular_mode(device_config=None, device_data=None):
         should_transmit = scheduler_services.should_transmit(
             current_time,
             device_data["last_transmitted"],
-            device_config["send_interval"]
-            * 300,  # TODO figure out how to make this 5 minutes
+            device_config["send_interval"] * FIVE_MINUTES,
         )
     else:
         should_transmit = scheduler_services.should_transmit(
             current_time,
             device_data["last_transmitted"],
-            device_config["send_interval"]
-            * 3600,  # TODO figure out how to make this 60 minutes
+            device_config["send_interval"] * SIXTY_MINUTES,
         )
 
     if should_transmit:
