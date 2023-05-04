@@ -67,12 +67,7 @@ const App: FunctionalComponent = () => {
         send_interval: 0,
         wifi_ssid: "",
         wifi_password: "",
-        sdi12_sensors: {},
-        azure_settings: {
-            symmetric_key: "",
-            auth_mode: "SAS",
-            scope_id: ""
-        }
+        sdi12_sensors: {}
     });
 
     /**

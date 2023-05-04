@@ -133,3 +133,9 @@ __pycache__/
 #*.dll
 #*.exe
 #*.out
+software/mqtt/mqtt_sub.py
+.gitignore
+util/micropython-hitl/hitl-tests.sh
+.gitignore
+.gitignore
+.gitignore

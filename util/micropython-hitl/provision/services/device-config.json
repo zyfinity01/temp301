@@ -7,11 +7,6 @@
     "wifi_password": "password",
     "maintenance_mode": false,
     "test_mode": false,
-    "azure_settings": {
-        "scope_id": "abcdef",
-        "symmetric_key": "AM228",
-        "auth_mode": "SAS"
-    },
     "sdi12_sensors": {
         "water_sensor": {
             "enabled": true,

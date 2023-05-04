@@ -21,6 +21,9 @@ import {ESP32_UNIX_EPOCH, formatDateTime, timestampToDate} from "../../util";
 import {useContext} from "preact/hooks";
 import { getNotyfContext } from "../../util/notyfContext";
 import {fetchApiContext, request} from "../../util/apiClient";
+import { useState } from 'preact/hooks';
+
+
 
 const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
     const {register, handleSubmit, watch, reset} = useForm<deviceConfigType>({
@@ -31,10 +34,10 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
             wifi_password: props.wifi_password,
             first_send_at_date: props.first_send_at_date,
             first_send_at_time: props.first_send_at_time,
-            send_interval: props.send_interval,
-            azure_settings: props.azure_settings
+            send_interval: props.send_interval
         }
     });
+
 
     // Convert the esp32-offset unix timestamp into a string-formatted date and time string
     const first_send_at = timestampToDate(props.first_send_at);
@@ -77,6 +80,15 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
         }, notyf);
     }
 
+    // showPassword state here
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+
+
     return (
         <div className={style.page}>
             <h2>Device Settings</h2>
@@ -110,11 +122,18 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Wifi Password</label>
-                        <input type="text"
+                        <input type={showPassword ? 'text' : 'password'}
                                className="aligned-name"
                                name="wifi_password"
                                ref={register}
                         />
+                        <button
+                            type="button"
+                            onClick={togglePasswordVisibility}
+                            className={style.toggleButton}
+                            >
+                                {showPassword ? 'Hide' : 'Show'} Password
+                            </button>
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">First Send At (Date)</label>
@@ -139,35 +158,6 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
                                name="send_interval"
                                min={1}
                                ref={register}
-                        />
-                    </div>
-                    {/*</fieldset>*/}
-                    <h2>Azure Settings</h2>
-                    {/*<fieldset>*/}
-                    <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">Scope ID</label>
-                        <input type="text"
-                               className="aligned-name"
-                               name="azure_settings.scope_id"
-                               ref={register}
-                        />
-                    </div>
-                    <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">Auth Mode</label>
-                        <input type="text"
-                               className="aligned-name"
-                               name="azure_settings.auth_mode"
-                               ref={register}
-                               readOnly
-                        />
-                    </div>
-                    <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">Symmetric Key (SAS Token)</label>
-                        <textarea
-                            className="aligned-name"
-                            name="azure_settings.symmetric_key"
-                            ref={register}
-                            style={{resize: 'vertical'}}
                         />
                     </div>
                     {/*</fieldset>*/}

@@ -46,7 +46,6 @@ Pulse input Variant,,
 ,,
 ,,
 Software - Server,Raised by,Comments
-"Hosted on a virtual server (Amazon AWS, Microsoft Azure?)",DT,
 Flexible data storage format - allowing future integration with GWRC databases / applications,DT,
 Robust data transfer protocol to ensure no data loss (data pointers? transfer file numbering?),DT,
 Explore possibility of also enabling transfer of data to FTP server using existing supplierss custom XML data format.,DT,

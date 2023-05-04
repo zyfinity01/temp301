@@ -20,10 +20,6 @@ Note: Ensure you have your virtual environment initialised and dependendencies f
 
 | config option | default | description                                                                          |
 |---------------|---------|--------------------------------------------------------------------------------------|
-| device-id     |         | **(required)** id of device in Azure IoT Hub                                         |
-| region        |         | **(required)** region identifier for the device (eg: upper-hutt)                     |
-| hub-name      |         | **(required)** Azure IoT Hub Identifier (without .azure-devices.net)                 |
-| sas-token     |         | **(required)** SAS token for device. Temporary until we get cert based auth working. |
 | port          | 1883    | broker port                                                                          |
 | wait-time     | 3       | number of seconds to wait between attempting to send each message                    |
 | device-type   | sdi-12  | type of device (can either be `sdi-12` or `rainfall`                                 |

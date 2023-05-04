@@ -39,11 +39,6 @@ export type deviceConfigType = {
     sdi12_sensors: {
         [key: string]: SDISensorType
     };
-    azure_settings: {
-        scope_id: string,
-        symmetric_key: string,
-        auth_mode: "SAS" | "X509"
-    }
 }
 
 export type SDISensorType = {
