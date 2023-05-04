@@ -216,11 +216,16 @@ def write_failed_transmission(data: dict):
         return False
 
     # Construct path for writing to failed dir
-    out_file = REQUEUE_FILE+FILETYPE
+    out_file = REQUEUE_FILE + FILETYPE
     log.info("Writing failed transmission to {}".format(out_file))
 
     # Write out json data
-    _append_to_csv(out_file, [str(json.dumps(data)),])
+    _append_to_csv(
+        out_file,
+        [
+            str(json.dumps(data)),
+        ],
+    )
 
     return True
 
