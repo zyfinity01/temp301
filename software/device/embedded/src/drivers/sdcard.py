@@ -57,8 +57,7 @@ BACKUP_DIR = "daily/"
 SYSLOG = "system.log"
 FILETYPE = ".csv"
 
-REQUEUE_DIR = "failed_transmissions/"
-FAILED_FILETYPE = ".json"
+REQUEUE_FILE = "failed_transmissions"
 
 HEADER_STR = "Sensor,Datetime,Data"
 
@@ -197,19 +196,14 @@ def get_free_space() -> int:
 
 
 def write_failed_transmission(data: dict):
-    """Writes out the json data to the failed transmission directory.
+    """Writes out the json data to the failed transmission file.
 
     Args:
         data (dict): Data to be stored. Must be in the format used to
             send data to the webserver, as it is parsed and re-sent with the
             same format. Data must contain a timestamp, as it is used to name the file to ensure uniqueness.
 
-        Each failed transmission is stored within a separate file. This is to ensure the ability to remove and add
-        entries arbitrarily without loading the entire failed transmission cache into memory.
-
-        If a failed transmission already exists with the given timestamp, the file will be overridden and an error
-        will be logged. In theory, this should never occur, as time should be synchronised on device startup.
-        With UTC time, time should never go backwards.
+        Each failed transmission is stored within an ordered csv file.
 
     Returns:
         bool: True if successfully written.
@@ -223,17 +217,16 @@ def write_failed_transmission(data: dict):
         return False
 
     # Construct path for writing to failed dir
-    out_file = gen_path(REQUEUE_DIR + data["DateTime"] + FAILED_FILETYPE)
+    out_file = REQUEUE_FILE + FILETYPE
     log.info("Writing failed transmission to {}".format(out_file))
 
-    if helpers.check_exists(out_file):
-        log.error(
-            "Cached failed transmission already exists! Did we time travel? Overriding anyways."
-        )
-
     # Write out json data
-    with open(out_file, "w") as f_ptr:
-        f_ptr.write(str(json.dumps(data)))
+    _append_to_csv(
+        out_file,
+        [
+            str(json.dumps(data)),
+        ],
+    )
 
     return True
 
