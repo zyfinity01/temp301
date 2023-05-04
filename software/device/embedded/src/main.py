@@ -252,15 +252,13 @@ def regular_mode(device_config=None, device_data=None):
 
     rainfall = rain_counter.get_rainfall()
 
+    # Check schedule (if raining change interval to 5 minutes else 60 minutes)
     if rainfall > 0:
         device_data["rainfall"].append(rainfall)
         device_data["date_time"].append(time.time())
         # Enable the following debug statement only when troubleshooting
         # data.json problems:
         # log.debug("Data amended with rainfall count: {0}".format(device_data))
-
-    # Check schedule (if raining change interval to 5 minutes else 60 minutes)
-    if rainfall > 0:
         should_transmit = scheduler_services.should_transmit(
             current_time,
             device_data["last_transmitted"],
