@@ -250,8 +250,13 @@ def read_failed_transmission() -> os.DirEntry[str] or None:
          \\ If ordering is required, this is going to have to be rewritten.
 
     Returns:
-        os.DirEntry[str]: Json data from failed transmission, or None if there are no remaining failed.
+        os.DirEntry[str]: Json data from failed transmission, or None if there are no remaining failed or the
+        SD card is not mounted
     """
+
+    # if SD card is not mounted, no files avaliable
+    if not _SD_ENABLED:
+        return None
 
     # iterate over files in directory
     for file in os.scandir(REQUEUE_DIR):
