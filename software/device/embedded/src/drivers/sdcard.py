@@ -27,6 +27,8 @@ from micropython import const
 from util import helpers
 from util.time import isoformat
 
+import json
+
 log = logging.getLogger("sdcard")  # __name__ = "drivers.sdcard"
 # Enable the following to set a log level specific to this module:
 # Don't honour global DEBUG - limited general value in DEBUG messages
@@ -54,6 +56,9 @@ MAIN_FILE = "datalog"
 BACKUP_DIR = "daily/"
 SYSLOG = "system.log"
 FILETYPE = ".csv"
+
+REQUEUE_DIR = "failed_transmissions/"
+FAILED_FILETYPE = ".json"
 
 HEADER_STR = "Sensor,Datetime,Data"
 
@@ -189,6 +194,48 @@ def get_free_space() -> int:
 
     log.warning("No microSD card present")
     return -1
+
+
+def write_failed_transmission(data: dict):
+    """Writes out the json data to the failed transmission directory
+
+    Args:
+        data (dict): Data to be stored. Must be in the format used to
+            send data to the webserver, as it is parsed and re-sent with the
+            same format. Data must contain a timestamp, as it is used to name the file to ensure uniqueness.
+
+        Each failed transmission is stored within a separate file. This is to ensure the ability to remove and add
+        entries arbitrarily without loading the entire failed transmission cache into memory.
+
+        If a failed transmission already exists with the given timestamp, the file will be overridden and an error
+        will be logged. In theory, this should never occur, as time should be synchronised on device startup.
+        With UTC time, time should never go backwards.
+
+    Returns:
+        bool: True if successfully written.
+    """
+
+    if not _SD_ENABLED:
+        log.warning(
+            "Can not save data to microSD card because it has not been successfully set up."
+            + "This failed transmission will be lost!"
+        )
+        return False
+
+    # Construct path for writing to failed dir
+    out_file = gen_path(REQUEUE_DIR + data["DateTime"] + FAILED_FILETYPE)
+    log.info("Writing failed transmission to {}".format(out_file))
+
+    if helpers.check_exists(out_file):
+        log.error(
+            "Cached failed transmission already exists! Did we time travel? Overriding anyways."
+        )
+
+    # Write out json data
+    with open(out_file, "w") as f_ptr:
+        f_ptr.write(str(json.dumps(data)))
+
+    return True
 
 
 def save_telemetry(data: dict):
