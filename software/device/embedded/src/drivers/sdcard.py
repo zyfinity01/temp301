@@ -19,7 +19,6 @@ Driver for the microSD card reader
 Defines functions for mounting and read-write access to the filesystem on
 a microSD card, as well as functions called from test/test_sd.py.
 """
-
 import os
 import logging
 from machine import SDCard
@@ -217,25 +216,20 @@ def write_failed_transmission(data: dict):
         return False
 
     # Construct path for writing to failed dir
-    out_file = REQUEUE_FILE + FILETYPE
+    out_file = REQUEUE_FILE+FILETYPE
     log.info("Writing failed transmission to {}".format(out_file))
 
     # Write out json data
-    _append_to_csv(
-        out_file,
-        [
-            str(json.dumps(data)),
-        ],
-    )
+    _append_to_csv(out_file, [str(json.dumps(data)),])
 
     return True
 
 
-def read_failed_transmission() -> os.DirEntry[str] or None:
+def read_failed_transmission() -> str or None:
     """
     Loads a random file to be queued for transmission.
 
-    Files are obtained as the os chooses to provide them, as sorting via O(NlogN) gets complex,
+    Transmissions are obtained in the reverse order they were written, as sorting via O(NlogN) gets complex,
     especially given the processing capacity of the ESP32.
 
     # TODO: https://gitlab.ecs.vuw.ac.nz/course-work/engr301/2023/group3/data-recorder/-/issues/80
@@ -243,7 +237,7 @@ def read_failed_transmission() -> os.DirEntry[str] or None:
          \\ If ordering is required, this is going to have to be rewritten.
 
     Returns:
-        os.DirEntry[str]: Json data from failed transmission, or None if there are no remaining failed or the
+        str: Json data from failed transmission, or None if there are no remaining failed or the
         SD card is not mounted
     """
 
@@ -251,11 +245,10 @@ def read_failed_transmission() -> os.DirEntry[str] or None:
     if not _SD_ENABLED:
         return None
 
-    # iterate over files in directory
-    for file in os.scandir(REQUEUE_DIR):
-        if file.is_file():
-            # return first found json file reference
-            return file
+    # grabs latest cached transmission
+    in_file = REQUEUE_FILE + FILETYPE
+    with open(in_file, "r") as f_ptr:
+        return f_ptr.readlines()[-1]
 
     # if no files are present
     return None
