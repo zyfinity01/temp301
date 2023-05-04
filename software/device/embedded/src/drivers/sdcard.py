@@ -259,6 +259,37 @@ def read_failed_transmission() -> str or None:
     return None
 
 
+def delete_latest_failed_transmission() -> bool:
+    """
+    Attempts to truncate the failed transmission file by the latest transmission.
+
+    This is used to remove transmissions from the cache which have since been successfully transmitted.
+
+    FIXME: is O(N) with full read/write really the best solution..?
+
+    Returns:
+        bool: Whether an entry was removed. False if there are no entries present
+    """
+
+    # load in the list of entries
+    in_file = REQUEUE_FILE + FILETYPE
+    with open(in_file, "r") as f_ptr:
+        lines = f_ptr.readlines()
+
+    # if there are no entries, return
+    if len(lines) == 0:
+        return False
+
+    # remove the last entry
+    lines.pop()
+
+    # write back the truncated transmissions
+    with open(in_file, "w") as f_ptr:
+        f_ptr.writelines(lines)
+
+    return True
+
+
 def save_telemetry(data: dict):
     """Stores data in the form:
 
