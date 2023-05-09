@@ -18,6 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Executed on startup directly after boot.py
 """
 import sys
+from typing import Any, Callable
 
 # Change the module search order by modifying `sys.path`. The entry
 # `""` specifies frozen bytecode. By moving this entry to the end
@@ -97,9 +98,13 @@ LED_BLUE_PIN = None  # Not connected in Rev::4.0; see #508.
 DEEP_SLEEP_WAIT_PERIOD = 3
 FIVE_MINUTES = 300
 SIXTY_MINUTES = 3600
+
 # Time constants in milliseconds
 DEEP_SLEEP_PERIOD = 60000
 SERVER_STOP_WAIT_PERIOD = 5000
+
+# Recovery constants
+RECOVERY_TRANSMISSION_COUNT = 3
 
 # Allocate emergency ISR buffer - https://docs.micropython.org/en/latest/reference/isr_rules.html
 alloc_emergency_exception_buf(100)
@@ -446,40 +451,33 @@ async def pipeline(device_config: dict, device_data: dict):
     json_result = json.dumps(sensor_merged_results)
 
     # Start transmit
-    if modem.has_serial:
-        log.info("Start transmitting data...")
-        modem.get_signal_power()
-        modem.acquire_network()  # Proceed even if an IP address has not been acquired
-        # Update the Cellular network RSSI
-        # !!! Must be executed _only_ when a transmit is taking place,
-        # !!! otherwise the modem will not be instantiated.
-        # !!! Which is why it's been move to pipeline()
-        device_data["coverage_level"] = (
-            "Not known or not detectable"
-            if modem.signal_power == None or modem.signal_power == 99
-            else int(100 * modem.signal_power / 31)  # 31 is the maximum signal_power
-        )
-        config_services.write_data_file(device_data)
-        if modem.mqtt_connect():
-            topic = "{0}/{1}".format(
-                device_config["mqtt_settings"]["parent_topic"].rstrip("/"),
-                device_config["device_name"],
+    # don't transmit failed transmissions if the initial transmission fails
+    if transmit(
+        device_data,
+        device_config,
+        json_result,
+    ):
+        # attempt to transmit some failed transmissions
+        for itt in range(RECOVERY_TRANSMISSION_COUNT):
+            # get failed transmission if any are remaining
+            failed_transmission = sdcard_driver.read_failed_transmission()
+            if failed_transmission is None:
+                break
+
+            log.debug(
+                "Attempting to retransmit transmission:\n\t{}".format(
+                    failed_transmission
+                )
             )
-            modem.mqtt_publish(topic, str(json_result))
-            # mqtt_services.publish(modem, topic, str(json_result))
-            time.sleep(1)
-            # mqtt_services.disconnect(modem)
-            modem.mqtt_disconnect()
-            # Reset rainfall data buffer
-            device_data["rainfall"] = []
-            device_data["date_time"] = []
-            config_services.write_data_file(device_data)
-        else:
-            log.error("Failed to connect to the MQTT broker")
-            sdcard_driver.write_failed_transmission(str(json_result))
+
+            # attempt to send the transmission
+            if transmit(device_data, device_config, failed_transmission):
+                # if the transmission succeeded, it can be removed from the cache
+                sdcard_driver.delete_latest_failed_transmission()
     else:
-        log.info("Modem has no network or no response. No transmission")
-        sdcard_driver.write_failed_transmission(str(json_result))
+        log.warning("Transmitting failed, saving transmission to sd card")
+        # If the transmission fails, send the result to the sd card cache
+        sdcard_driver.write_failed_transmission(json_result)
 
     # Turn off modem
     # For frequent transmissions, e.g. once per minute, the power-on/power-off
@@ -523,6 +521,56 @@ async def pipeline(device_config: dict, device_data: dict):
             )
         )
         deepsleep((sleep_time * 1000) + 500)
+
+
+def transmit(device_data: dict, device_config: dict, json_result: str):
+    """
+    Attempts to transmit a given json-encoded data collection to the server.
+
+    Args:
+        device_config (dict): device configuration dictionary
+        json_result (str): data to be transmitted to the server
+        device_data (dict): device data dictionary
+
+    Returns:
+        bool: whether the transmission was successful
+    """
+    if modem.has_serial:
+        log.info("Start transmitting data...")
+        modem.get_signal_power()
+        modem.acquire_network()  # Proceed even if an IP address has not been acquired
+        # Update the Cellular network RSSI
+        # !!! Must be executed _only_ when a transmit is taking place,
+        # !!! otherwise the modem will not be instantiated.
+        # !!! Which is why it's been move to pipeline()
+        device_data["coverage_level"] = (
+            "Not known or not detectable"
+            if modem.signal_power is None or modem.signal_power == 99
+            else int(100 * modem.signal_power / 31)  # 31 is the maximum signal_power
+        )
+        config_services.write_data_file(device_data)
+        if modem.mqtt_connect():
+            topic = "{0}/{1}".format(
+                device_config["mqtt_settings"]["parent_topic"].rstrip("/"),
+                device_config["device_name"],
+            )
+            modem.mqtt_publish(topic, str(json_result))
+            # mqtt_services.publish(modem, topic, str(json_result))
+            time.sleep(1)
+            # mqtt_services.disconnect(modem)
+            modem.mqtt_disconnect()
+            # Reset rainfall data buffer
+            device_data["rainfall"] = []
+            device_data["date_time"] = []
+            config_services.write_data_file(device_data)
+        else:
+            log.error("Failed to connect to the MQTT broker")
+            return False
+    else:
+        log.info("Modem has no network or no response. No transmission")
+        return False
+
+    return True
 
 
 def configure_mode():
