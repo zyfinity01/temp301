@@ -136,7 +136,7 @@ const App: FunctionalComponent = () => {
     }
     // handle the edge case of resizing the screen if the current tab is the monitor.
     // just reset it back to the visualise screen if that happens.
-    else if (currentTab == 3) {
+    else if (currentTab == 4) {
         setCurrentTab(0);
     }
 

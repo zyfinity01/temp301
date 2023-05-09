@@ -8,3 +8,4 @@ export const topHeader: string;
 export const mainContent: string;
 export const col: string;
 export const page: string;
+export const toggleButton: string;
