@@ -456,22 +456,21 @@ async def pipeline(device_config: dict, device_data: dict):
         device_data,
         device_config,
         json_result,
-        on_failure=sdcard_driver.write_failed_transmission,
     ):
         # attempt to transmit some failed transmissions
         for itt in range(RECOVERY_TRANSMISSION_COUNT):
-            # get failed transmission if any are present
+            # get failed transmission if any are remaining
             failed_transmission = sdcard_driver.read_failed_transmission()
             if failed_transmission is None:
                 break
 
             # attempt to send the transmission
-            transmit(
-                device_data,
-                device_config,
-                failed_transmission,
-                on_success=lambda jr: sdcard_driver.delete_latest_failed_transmission(),
-            )
+            if transmit(device_data, device_config, failed_transmission):
+                # if the transmission succeeded, it can be removed from the cache
+                sdcard_driver.delete_latest_failed_transmission()
+    else:
+        # If the transmission fails, send the result to the sd card cache
+        sdcard_driver.write_failed_transmission(json_result)
 
     # Turn off modem
     # For frequent transmissions, e.g. once per minute, the power-on/power-off
@@ -517,13 +516,7 @@ async def pipeline(device_config: dict, device_data: dict):
         deepsleep((sleep_time * 1000) + 500)
 
 
-def transmit(
-    device_data: dict,
-    device_config: dict,
-    json_result: str,
-    on_failure: Callable[[str], Any] = (lambda jr: None),
-    on_success: Callable[[str], Any] = (lambda jr: None),
-):
+def transmit(device_data: dict, device_config: dict, json_result: str):
     """
     Attempts to transmit a given json-encoded data collection to the server.
 
@@ -531,8 +524,6 @@ def transmit(
         device_config (dict): device configuration dictionary
         json_result (str): data to be transmitted to the server
         device_data (dict): device data dictionary
-        on_failure: function to be called on failed transmission
-        on_success: function to be called on successful transmission
 
     Returns:
         bool: whether the transmission was successful
@@ -567,14 +558,11 @@ def transmit(
             config_services.write_data_file(device_data)
         else:
             log.error("Failed to connect to the MQTT broker")
-            on_failure(json_result)
             return False
     else:
         log.info("Modem has no network or no response. No transmission")
-        on_failure(json_result)
         return False
 
-    on_success(json_result)
     return True
 
 
