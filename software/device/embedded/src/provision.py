@@ -27,7 +27,7 @@ from drivers import sdcard
 from drivers import modem as modem_driver
 from drivers import rtc as rtc_driver
 import lib.textfx as textfx
-from services.config import CONFIG_FILE, DYNAMIC_DATA_FILE, TEST_CONFIG_FILE
+from services.config_new import CONFIG_FILE, DYNAMIC_DATA_FILE, TEST_CONFIG_FILE
 
 log = logging.getLogger("provision")
 # Enable the following to set a log level specific to this module:
