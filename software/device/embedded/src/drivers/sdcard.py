@@ -19,7 +19,6 @@ Driver for the microSD card reader
 Defines functions for mounting and read-write access to the filesystem on
 a microSD card, as well as functions called from test/test_sd.py.
 """
-
 import os
 import logging
 from machine import SDCard
@@ -57,8 +56,7 @@ BACKUP_DIR = "daily/"
 SYSLOG = "system.log"
 FILETYPE = ".csv"
 
-REQUEUE_DIR = "failed_transmissions/"
-FAILED_FILETYPE = ".json"
+REQUEUE_FILE = "failed_transmissions"
 
 HEADER_STR = "Sensor,Datetime,Data"
 
@@ -196,25 +194,21 @@ def get_free_space() -> int:
     return -1
 
 
-def write_failed_transmission(data: dict):
-    """Writes out the json data to the failed transmission directory.
+def write_failed_transmission(data: str):
+    """Writes out the json data to the failed transmission file.
 
     Args:
-        data (dict): Data to be stored. Must be in the format used to
+        data (str): Data to be stored. Must be in the format used to
             send data to the webserver, as it is parsed and re-sent with the
-            same format. Data must contain a timestamp, as it is used to name the file to ensure uniqueness.
+            same format.
 
-        Each failed transmission is stored within a separate file. This is to ensure the ability to remove and add
-        entries arbitrarily without loading the entire failed transmission cache into memory.
-
-        If a failed transmission already exists with the given timestamp, the file will be overridden and an error
-        will be logged. In theory, this should never occur, as time should be synchronised on device startup.
-        With UTC time, time should never go backwards.
+        Each failed transmission is stored within an ordered csv file.
 
     Returns:
         bool: True if successfully written.
     """
 
+    # If the is card is not enabled
     if not _SD_ENABLED:
         log.warning(
             "Can not save data to microSD card because it has not been successfully set up."
@@ -223,26 +217,20 @@ def write_failed_transmission(data: dict):
         return False
 
     # Construct path for writing to failed dir
-    out_file = gen_path(REQUEUE_DIR + data["DateTime"] + FAILED_FILETYPE)
+    out_file = REQUEUE_FILE + FILETYPE
     log.info("Writing failed transmission to {}".format(out_file))
 
-    if helpers.check_exists(out_file):
-        log.error(
-            "Cached failed transmission already exists! Did we time travel? Overriding anyways."
-        )
-
     # Write out json data
-    with open(out_file, "w") as f_ptr:
-        f_ptr.write(str(json.dumps(data)))
-
+    with open(out_file, "a") as f_ptr:
+        f_ptr.write(data + "\n")
     return True
 
 
-def read_failed_transmission() -> os.DirEntry[str] or None:
+def read_failed_transmission() -> str or None:
     """
     Loads a random file to be queued for transmission.
 
-    Files are obtained as the os chooses to provide them, as sorting via O(NlogN) gets complex,
+    Transmissions are obtained in the reverse order they were written, as sorting via O(NlogN) gets complex,
     especially given the processing capacity of the ESP32.
 
     # TODO: https://gitlab.ecs.vuw.ac.nz/course-work/engr301/2023/group3/data-recorder/-/issues/80
@@ -250,22 +238,66 @@ def read_failed_transmission() -> os.DirEntry[str] or None:
          \\ If ordering is required, this is going to have to be rewritten.
 
     Returns:
-        os.DirEntry[str]: Json data from failed transmission, or None if there are no remaining failed or the
+        str: Json data from failed transmission, or None if there are no remaining failed or the
         SD card is not mounted
     """
 
-    # if SD card is not mounted, no files avaliable
+    # If SD card is not mounted, no files available
     if not _SD_ENABLED:
         return None
 
-    # iterate over files in directory
-    for file in os.scandir(REQUEUE_DIR):
-        if file.is_file():
-            # return first found json file reference
-            return file
+    # Grabs latest cached transmission
+    in_file = REQUEUE_FILE + FILETYPE
 
-    # if no files are present
-    return None
+    # Grabs the last line of the file
+    with open(in_file, "r") as f_ptr:
+        f_ptr.seek(0, os.SEEK_END)
+
+        # If the file has no lines, there is no last line to grab
+        if not f_ptr.tell():
+            return None
+
+        # Seek to the start of the last line of the file
+        index = seek_endl(f_ptr)
+
+        # Return the last line
+        return f_ptr.read(
+            index
+        ).strip()  # FIXME: .strip() is slow, could we guarantee safety with [:-1]?
+
+
+def delete_latest_failed_transmission() -> bool:
+    """
+    Attempts to truncate the failed transmission file by the latest transmission.
+
+    This is used to remove transmissions from the cache which have since been successfully transmitted.
+
+    Returns:
+        bool: Whether an entry was removed. False if there are no entries present
+    """
+
+    # load in the list of entries
+    in_file = REQUEUE_FILE + FILETYPE
+
+    # Deletes the last line of the file
+    with open("debug.csv", "r+") as f_ptr:
+        f_ptr.seek(0, os.SEEK_END)
+
+        # If file is empty, nothing to delete
+        if not f_ptr.tell():
+            return False
+
+        # Seek to the start of the last line of the file
+        index = seek_endl(f_ptr)
+
+        # Don't include the terminating newline if there are remaining lines in the file
+        index = index + (index > 0)
+        f_ptr.seek(index, os.SEEK_SET)
+
+        # Truncate the last line
+        f_ptr.truncate(index)
+
+    return True
 
 
 def save_telemetry(data: dict):
@@ -387,6 +419,26 @@ def open_file(filename, mode="r", no_sd=False) -> FileIO:
         return open(gen_path(filename), mode)
     else:
         raise RuntimeError("No microSD card present.")
+
+
+def seek_endl(f_ptr):
+    """Seeks to the start of the last line in the file.
+
+    Args:
+        f_ptr: The file pointer of the file to be traversed.
+
+    Returns:
+        int: Index of the file pointer after seeking.
+    """
+    # Skips the last newline
+    index = f_ptr.tell() - 1
+
+    # While we are not pointing at a newline, seek backwards
+    while f_ptr.read(1) != "\n" and index > 0:
+        index -= 1
+        f_ptr.seek(index, os.SEEK_SET)
+
+    return index
 
 
 def enabled() -> bool:
