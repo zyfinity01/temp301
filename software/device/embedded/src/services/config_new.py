@@ -4,6 +4,7 @@ import json
 import typing
 
 CONFIG_FILE = "/services/config.json"
+TEST_CONFIG_FILE = "/services/test-config.json"
 DYNAMIC_DATA_FILE = "/services/data.json"
 
 
