@@ -140,7 +140,7 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                                ref={register}
                         />
                     </div>
-                    
+
                     <input type="submit" value={"Download History Data"} className={style.bigButton}/>
                 </form>
             </div>
