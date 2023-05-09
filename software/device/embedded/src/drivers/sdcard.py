@@ -194,13 +194,13 @@ def get_free_space() -> int:
     return -1
 
 
-def write_failed_transmission(data: dict):
+def write_failed_transmission(data: str):
     """Writes out the json data to the failed transmission file.
 
     Args:
-        data (dict): Data to be stored. Must be in the format used to
+        data (str): Data to be stored. Must be in the format used to
             send data to the webserver, as it is parsed and re-sent with the
-            same format. Data must contain a timestamp, as it is used to name the file to ensure uniqueness.
+            same format.
 
         Each failed transmission is stored within an ordered csv file.
 
@@ -208,6 +208,7 @@ def write_failed_transmission(data: dict):
         bool: True if successfully written.
     """
 
+    # If the is card is not enabled
     if not _SD_ENABLED:
         log.warning(
             "Can not save data to microSD card because it has not been successfully set up."
@@ -220,13 +221,8 @@ def write_failed_transmission(data: dict):
     log.info("Writing failed transmission to {}".format(out_file))
 
     # Write out json data
-    _append_to_csv(
-        out_file,
-        [
-            str(json.dumps(data)),
-        ],
-    )
-
+    with open(out_file, "a") as f_ptr:
+        f_ptr.write(data + "\n")
     return True
 
 
@@ -246,17 +242,28 @@ def read_failed_transmission() -> str or None:
         SD card is not mounted
     """
 
-    # if SD card is not mounted, no files avaliable
+    # If SD card is not mounted, no files available
     if not _SD_ENABLED:
         return None
 
-    # grabs latest cached transmission
+    # Grabs latest cached transmission
     in_file = REQUEUE_FILE + FILETYPE
-    with open(in_file, "r") as f_ptr:
-        return f_ptr.readlines()[-1]
 
-    # if no files are present
-    return None
+    # Grabs the last line of the file
+    with open(in_file, "r") as f_ptr:
+        f_ptr.seek(0, os.SEEK_END)
+
+        # If the file has no lines, there is no last line to grab
+        if not f_ptr.tell():
+            return None
+
+        # Seek to the start of the last line of the file
+        index = seek_endl(f_ptr)
+
+        # Return the last line
+        return f_ptr.read(
+            index
+        ).strip()  # FIXME: .strip() is slow, could we guarantee safety with [:-1]?
 
 
 def delete_latest_failed_transmission() -> bool:
@@ -265,27 +272,30 @@ def delete_latest_failed_transmission() -> bool:
 
     This is used to remove transmissions from the cache which have since been successfully transmitted.
 
-    FIXME: is O(N) with full read/write really the best solution..?
-
     Returns:
         bool: Whether an entry was removed. False if there are no entries present
     """
 
     # load in the list of entries
     in_file = REQUEUE_FILE + FILETYPE
-    with open(in_file, "r") as f_ptr:
-        lines = f_ptr.readlines()
 
-    # if there are no entries, return
-    if len(lines) == 0:
-        return False
+    # Deletes the last line of the file
+    with open("debug.csv", "r+") as f_ptr:
+        f_ptr.seek(0, os.SEEK_END)
 
-    # remove the last entry
-    lines.pop()
+        # If file is empty, nothing to delete
+        if not f_ptr.tell():
+            return False
 
-    # write back the truncated transmissions
-    with open(in_file, "w") as f_ptr:
-        f_ptr.writelines(lines)
+        # Seek to the start of the last line of the file
+        index = seek_endl(f_ptr)
+
+        # Don't include the terminating newline if there are remaining lines in the file
+        index = index + (index > 0)
+        f_ptr.seek(index, os.SEEK_SET)
+
+        # Truncate the last line
+        f_ptr.truncate(index)
 
     return True
 
@@ -409,6 +419,26 @@ def open_file(filename, mode="r", no_sd=False) -> FileIO:
         return open(gen_path(filename), mode)
     else:
         raise RuntimeError("No microSD card present.")
+
+
+def seek_endl(f_ptr):
+    """Seeks to the start of the last line in the file.
+
+    Args:
+        f_ptr: The file pointer of the file to be traversed.
+
+    Returns:
+        int: Index of the file pointer after seeking.
+    """
+    # Skips the last newline
+    index = f_ptr.tell() - 1
+
+    # While we are not pointing at a newline, seek backwards
+    while f_ptr.read(1) != "\n" and index > 0:
+        index -= 1
+        f_ptr.seek(index, os.SEEK_SET)
+
+    return index
 
 
 def enabled() -> bool:
