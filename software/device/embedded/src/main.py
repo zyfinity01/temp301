@@ -464,11 +464,18 @@ async def pipeline(device_config: dict, device_data: dict):
             if failed_transmission is None:
                 break
 
+            log.debug(
+                "Attempting to retransmit transmission:\n\t{}".format(
+                    failed_transmission
+                )
+            )
+
             # attempt to send the transmission
             if transmit(device_data, device_config, failed_transmission):
                 # if the transmission succeeded, it can be removed from the cache
                 sdcard_driver.delete_latest_failed_transmission()
     else:
+        log.warning("Transmitting failed, saving transmission to sd card")
         # If the transmission fails, send the result to the sd card cache
         sdcard_driver.write_failed_transmission(json_result)
 
