@@ -374,19 +374,31 @@ async def pipeline(device_config: dict, device_data: dict):
 
     # list of tasks to execute asynchronously
     tasks = []
-
+    wake_times = []
     # turn on the sensors
     sensors = config_services.get_sensors(device_config)
 
     # filter sensors to ones that are "enabled"
     sensors_filtered = {name: data for name, data in sensors.items() if data["enabled"]}
-    wake_time = sdi12_driver.turn_on_sensors(sdi)
+
+    wake_times.append(0)
+    bootup = sdi12_driver.turn_on_sensors(sdi) / sensors_filtered.__len__
+    for sensor in sensors_filtered:
+        wake_times.append(sensor["record_interval"] + bootup)
+    sdi._apply_adjustments
+    for wake_time in wake_times:
+        log.debug("Wake times (seconds since epoch): {0}".format(wake_time))
+
+    # read sensorspro
+    # TODO filter out sensors that aren't scheduled to be read
+    names, gatherables = sdi12_services.gather_sensors(
+        sdi, sensors_filtered, wake_times
+    )
 
     log.debug("Wake time (seconds since epoch): {0}".format(wake_time))
 
     # read sensorspro
     # TODO filter out sensors that aren't scheduled to be read
-    names, gatherables = sdi12_services.gather_sensors(sdi, sensors_filtered, wake_time)
     tasks.extend(gatherables)
 
     # # Add sensors to tasks

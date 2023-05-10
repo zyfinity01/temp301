@@ -27,24 +27,24 @@ except:
     pass
 
 
-def gather_sensors(sdi, sensors, wake_time):
+def gather_sensors(sdi, sensors, wake_times):
     """
     Gather a list of functions as Gatherables to read the sensor data
 
     Args:
         sdi (dict): SDI-12 driver
         sensors (dict): Configuration of all sensors
-        wake_time: time sensors were woken
+        wake_times (list): List of times the sensors were woken
 
     Returns:
-        Array of Gatherables
+        Tuple containing sensor names and array of Gatherables
     """
     sensor_names = list(sensors.keys())
     gatherables = [
         asyn.Gatherable(
-            drivers.sdi12.read_sensor, sensors[name], sdi, wake_time, name=name
+            drivers.sdi12.read_sensor, sensors[name], sdi, wake_times[i], name=name
         )
-        for name in sensor_names
+        for i, name in enumerate(sensor_names)
     ]
     return sensor_names, gatherables
 
