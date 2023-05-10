@@ -14,6 +14,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import {FunctionalComponent, h} from "preact";
+import Popup from "reactjs-popup";
 import {useState, useContext} from "preact/hooks";
 import * as style from "./style.css";
 import {FaCheckSquare, FaRegCheckSquare} from "react-icons/fa";
@@ -25,6 +26,8 @@ export interface Props {
 
 const MaintenanceBlock: FunctionalComponent<Props> = (props) => {
     const [pressed, setPressed] = useState(props.enabled);
+    // For popup window functionality
+    const [showPopup, setShowPopup] = useState(false);
 
     /**
      * Toggle the checkbox, passing the new value to the callback method
@@ -33,18 +36,59 @@ const MaintenanceBlock: FunctionalComponent<Props> = (props) => {
         props.callback(!pressed);
         setPressed(!pressed);
     }
-
+    /**
+     *  Inital functionality as seen in the first block;
+     *  Includes a notice functionality letting the user know that the sensor has been succesfully enabled
+     *
+     *  The popup window functionality is set within the second block where implementation has been copied over from the
+     *  Rename sensor popup window within: software\device\webapp\src\components\sensorconfig\configureblock\rename\index.tsx
+     *  Redirected the initial toggle function to only be set after clicking the "Yes" button within the popup window.
+     *
+     */
     return (
-        <div className={style.maintenanceBlock} onClick={() => toggle()}>
-            <div style={{float: "left", width: "20%"}}>
-                {pressed ? <FaCheckSquare size={48}/> : <FaRegCheckSquare size={48}/>}
+        <div>
+            <div className={style.maintenanceBlock} onClick={() => setShowPopup(true)}>
+                <div style={{float: "left", width: "20%"}}>
+                    {pressed ? <FaCheckSquare size={48}/> : <FaRegCheckSquare size={48}/>}
+                </div>
+                <div style={{float: "right", width: "80%"}}>
+                    <label>Enable Maintenance Mode</label><br/>
+                    <small>Do you wish to enable maitenance mode?</small>
+                </div>
             </div>
-            <div style={{float: "right", width: "80%"}}>
-                <label>Enable Maintenance Mode</label><br/>
-                <small>Note: This will power on the SDI-12 sensors and increase power consumption.</small>
-            </div>
+            <Popup open = {showPopup} onClose={() => setShowPopup(false)} modal>
+                <div>
+                    <h3>Maitenance Mode Note</h3>
+                    <p>Do you wish to continue?</p>
+                    <p>This will power on the SDI-12 sensors and increase power consumption.</p>
+                    <input type={"submit"}
+                        value={"Continue"}
+                        onClick={() => {
+                            // Call the toggle function which enables sensor
+                            toggle();
+                            setShowPopup(false);
+                        }}
+                        className= {style.bigButton}
+                    />
+                    <input type={"submit"}
+                        value={"Cancel"}
+                        onClick={() => {
+                            // Exit popup, without calling toggle function
+                            setShowPopup(false);
+                        }}
+                        className= {style.bigButton}
+                    />
+                </div>
+            </Popup>
         </div>
+                /* <div style={{float: "left", width: "20%"}}>
+                    {pressed ? <FaCheckSquare size={48}/> : <FaRegCheckSquare size={48}/>}
+                </div>
+                <div style={{float: "right", width: "80%"}}>
+                    <label>Enable Maintenance Mode</label><br/>
+                    <small>Note: This will power on the SDI-12 sensors and increase power consumption.</small>
+                </div>
+            </div> */
     )
 }
-
 export default MaintenanceBlock;
