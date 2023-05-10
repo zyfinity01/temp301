@@ -16,13 +16,14 @@
 import "preact/debug";
 import {FunctionalComponent, h, PreactContext} from "preact";
 import React, {useLayoutEffect, useState} from "react";
-import {deviceDataType, deviceConfigType} from "./interfaces";
+import {deviceDataType, deviceConfigType, deviceHistoryType} from "./interfaces";
 import {useWindowSize} from "../util";
 import * as style from './style.css'
 
 import VisualisePage from "./visualise";
 import DeviceConfigPage from "./deviceconfig";
 import SensorConfigPage from "./sensorconfig";
+import HistoryPage from "./history";
 import Header from "./header";
 import Tabs from "./tabs";
 import MonitorPage from "./monitor";
@@ -70,6 +71,17 @@ const App: FunctionalComponent = () => {
         sdi12_sensors: {}
     });
 
+    const [deviceHistory, setDeviceHistory] = React.useState<deviceHistoryType>({
+        device_name: LOADING_NOTICE,
+        device_id: LOADING_NOTICE,
+        first_send_at_date: "",
+        first_send_at_time: "",
+        first_send_at: 0,
+        send_interval: 0,
+        rain_gauge: LOADING_NOTICE,
+        water_level: 50,
+    });
+
     /**
      * Fetch Data from the API and set state
      */
@@ -115,6 +127,7 @@ const App: FunctionalComponent = () => {
         // This is such a hacky workaround I'm sorry
         deviceConfig.device_name !== LOADING_NOTICE ? <DeviceConfigPage {...deviceConfig}/> : <div/>,
         <SensorConfigPage {...deviceConfig}/>,
+        <HistoryPage {...deviceHistory}/>,
     ]
 
     // Add monitor as another tab if mobile size
@@ -123,7 +136,7 @@ const App: FunctionalComponent = () => {
     }
     // handle the edge case of resizing the screen if the current tab is the monitor.
     // just reset it back to the visualise screen if that happens.
-    else if (currentTab == 3) {
+    else if (currentTab == 4) {
         setCurrentTab(0);
     }
 

@@ -41,6 +41,20 @@ export type deviceConfigType = {
     };
 }
 
+// For History Tab - first edition, need to update these values at a later date, inputs relate to the history/index.ts page
+export type deviceHistoryType = {
+    device_name: string;
+    device_id: string;
+    rain_gauge: string;
+    water_level: number;
+    send_interval: number;
+
+    // Store date+time as string in frontend
+    first_send_at_date: string;
+    first_send_at_time: string;
+    first_send_at: number;
+}
+
 export type SDISensorType = {
     // TODO number/string discussion in #161
     address: string;

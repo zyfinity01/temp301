@@ -36,7 +36,8 @@ const Tabs: React.FunctionComponent<TabProps> = ({ click, active, fullscreen }) 
                 <a className={style.button} onClick={() => click(0)} style={activeOutline(0)}>VISUALISE</a>
                 <a className={style.button} onClick={() => click(1)} style={activeOutline(1)}>DEVICE</a>
                 <a className={style.button} onClick={() => click(2)} style={activeOutline(2)}>SENSORS</a>
-                { fullscreen ? null : <a className={style.button} onClick={() => click(3)} style={activeOutline(3)}>MONITOR</a> }
+                <a className={style.button} onClick={() => click(3)} style={activeOutline(3)}>HISTORY</a>
+                { fullscreen ? null : <a className={style.button} onClick={() => click(4)} style={activeOutline(4)}>MONITOR</a> }
             </p>
         </div>
     )
