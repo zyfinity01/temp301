@@ -90,9 +90,7 @@ def post_mattermost(text, username=MQTT_SUBSCRIBER, icon_url=""):
     """
     Post to Mattermost channel ENGR489: Environmental Monitoring Alerts
     """
-    mattermost_webhook = (
-        "https://mattermost.ecs.vuw.ac.nz/hooks/6hwshmgj1bdu8k5rajakurz9oe"
-    )
+    mattermost_webhook = "https://mattermost.ecs.vuw.ac.nz/hooks/3g7p6bm3ojfijpigdoers15awr"  # 2023 Data Recorder Webhook
     payload = {"username": username, "icon_url": icon_url, "text": text}
     return requests.post(mattermost_webhook, json=payload)
 
