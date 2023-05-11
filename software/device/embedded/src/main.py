@@ -279,12 +279,10 @@ def regular_mode(device_config=None, device_data=None):
     if should_transmit:
         # The following should be moved to the pipeline() function (#650)
         # Set last send time
-        device_data["last_transmitted"] = current_time
-        config_services.write_data_file(device_data)
-        log.debug("Set last_transmitted {:d}".format(current_time))
+
         loop = asyncio.get_event_loop()
         try:
-            loop.run_until_complete(pipeline(device_config, device_data))
+            loop.run_until_complete(pipeline(device_config, device_data, current_time))
         # catch any errors here to ensure the event loop doesn't stop
         except (RuntimeError, TypeError, ValueError) as e:
             if not device_config["test_mode"]:
@@ -350,7 +348,7 @@ def regular_mode(device_config=None, device_data=None):
         deepsleep((1000 * sleep_time) + 500)
 
 
-async def pipeline(device_config: dict, device_data: dict):
+async def pipeline(device_config: dict, device_data: dict, current_time):
     """
     Run the regular-mode pipeline of steps from reading data to sending it.
 
@@ -365,6 +363,9 @@ async def pipeline(device_config: dict, device_data: dict):
     sync_time(modem)
     # Initialise SDI-12 UART
     sdi = sdi12_driver.init_sdi()
+    device_data["last_transmitted"] = current_time
+    config_services.write_data_file(device_data)
+    log.debug("Set last_transmitted {:d}".format(current_time))
     # Enable the following debug statement only when troubleshooting
     # SDI-12 driver problems:
     # log.debug("SDI-12 Driver: {0}".format(sdi))
