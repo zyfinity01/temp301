@@ -455,6 +455,7 @@ async def pipeline(device_config: dict, device_data: dict):
     if transmit(
         device_data,
         device_config,
+        modem,
         json_result,
     ):
         # attempt to transmit some failed transmissions
@@ -471,7 +472,8 @@ async def pipeline(device_config: dict, device_data: dict):
             )
 
             # attempt to send the transmission
-            if transmit(device_data, device_config, failed_transmission):
+            if transmit(device_data, device_config, modem, failed_transmission):
+                log.debug("Retransmission succeeded!")
                 # if the transmission succeeded, it can be removed from the cache
                 sdcard_driver.delete_latest_failed_transmission()
     else:
@@ -523,7 +525,7 @@ async def pipeline(device_config: dict, device_data: dict):
         deepsleep((sleep_time * 1000) + 500)
 
 
-def transmit(device_data: dict, device_config: dict, json_result: str):
+def transmit(device_data: dict, device_config: dict, modem, json_result: str):
     """
     Attempts to transmit a given json-encoded data collection to the server.
 
@@ -531,6 +533,7 @@ def transmit(device_data: dict, device_config: dict, json_result: str):
         device_config (dict): device configuration dictionary
         json_result (str): data to be transmitted to the server
         device_data (dict): device data dictionary
+        modem: modem to be used to transmit data
 
     Returns:
         bool: whether the transmission was successful

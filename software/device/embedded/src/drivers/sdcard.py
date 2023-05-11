@@ -118,6 +118,10 @@ def setup(sd_logging=True):
         helpers.deep_mkdir(backup_directory)
         helpers.deep_mkdir(services_directory)
 
+        # Ensure existence of cache file
+        with open(REQUEUE_FILE + FILETYPE, "a+") as _:
+            pass
+
 
 def teardown():
     """Cleanly disable the SD card. This is only used for testing."""
