@@ -122,6 +122,7 @@ def setup(sd_logging=True):
         with open(REQUEUE_FILE + FILETYPE, "a+") as _:
             pass
 
+
 def teardown():
     """Cleanly disable the SD card. This is only used for testing."""
     global _SD_ENABLED
