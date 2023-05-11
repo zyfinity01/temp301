@@ -16,11 +16,71 @@
 import {FunctionalComponent, h} from "preact";
 import {deviceHistoryType, deviceDataType, SDISensorType} from "../interfaces";
 import * as style from "../style.css";
+import * as style2 from "./style.css";
 import {useForm} from "react-hook-form";
 import {ESP32_UNIX_EPOCH, formatDateTime, timestampToDate} from "../../util";
 import {useContext} from "preact/hooks";
 import { getNotyfContext } from "../../util/notyfContext";
 import {fetchApiContext, request} from "../../util/apiClient";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend
+);
+
+const options = {
+    responsive: true,
+    plugins: {
+        legend: {
+            position: 'top' as const
+        },
+        title: {
+            display: true,
+            text: 'Rainfall Data'
+        }
+    },
+    scales: {
+        x: {
+            title: {
+                display: true,
+                text: 'Date (DD/MM/YY)'
+            }
+        },
+        y: {
+            title: {
+                display: true,
+                text: 'Rainfall (mm)'
+            }
+        }
+    }
+};
+
+const labels = ['08/05/23', '09/05/23', '10/05/23', '11/05/23', '12/05/23', '13/05/23', '14/05/23'];
+
+const data = {
+    labels,
+    datasets: [
+        {
+            label: 'Rainfall Data',
+            data: [6, 1.5, 3, 0, 2, 1, 7],
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        }
+    ]
+};
 
 const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
     const {register, handleSubmit, watch, reset} = useForm<deviceHistoryType>({
@@ -79,6 +139,10 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
     return (
         <div className={style.page}>
             <h2>Water Level History</h2>
+
+            <div className={style2.graph}>
+                <Bar options={options} data={data} />
+            </div>
 
             <div>
                 <form className={style.aligned} onSubmit={(handleSubmit(onSubmit) as any)}>
