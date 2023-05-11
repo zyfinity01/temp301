@@ -473,6 +473,7 @@ async def pipeline(device_config: dict, device_data: dict):
 
             # attempt to send the transmission
             if transmit(device_data, device_config, modem, failed_transmission):
+                log.debug("Retransmission succeeded!")
                 # if the transmission succeeded, it can be removed from the cache
                 sdcard_driver.delete_latest_failed_transmission()
     else:
