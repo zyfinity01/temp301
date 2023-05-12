@@ -49,34 +49,32 @@ const MaintenanceBlock: FunctionalComponent<Props> = (props) => {
         <div>
             <div className={style.maintenanceBlock} onClick={() => setShowPopup(true)}>
                 <div style={{float: "left", width: "20%"}}>
-                    {pressed ? <FaCheckSquare size={48}/> : <FaRegCheckSquare size={48}/>}
+                    {pressed ? <FaCheckSquare size={48} color="green"/> : <FaRegCheckSquare size={48}/>}
                 </div>
                 <div style={{float: "right", width: "80%"}}>
-                    <label>Enable Maintenance Mode</label><br/>
-                    <small>Do you wish to enable maitenance mode?</small>
+                    <label>{pressed ? 'You are in maintanence mode!' : 'Maintanence mode is currently not enabled'} </label><br/>
+                    <small>Click here if you wish to <b>{!pressed ? 'enter' : 'exit'}</b> maitenance mode</small>
                 </div>
             </div>
-            <Popup open = {showPopup} onClose={() => setShowPopup(false)} modal>
+            <Popup open={showPopup} onClose={() => setShowPopup(false)} modal>
                 <div>
-                    <h3>Maitenance Mode Note</h3>
+                    <h3>Maintenance Mode Note</h3>
                     <p>Do you wish to continue?</p>
-                    <p>This will power on the SDI-12 sensors and increase power consumption.</p>
+                    <p>This will power <b>{!pressed ? 'on' : 'off'}</b> the SDI-12 sensors and increase power consumption.</p>
                     <input type={"submit"}
-                        value={"Continue"}
+                        value={!pressed ? 'Enable Maintenance Mode' : 'Exit Maintenance Mode'}
                         onClick={() => {
-                            // Call the toggle function which enables sensor
                             toggle();
                             setShowPopup(false);
                         }}
-                        className= {style.bigButton}
+                        className={style.bigButton}
                     />
                     <input type={"submit"}
                         value={"Cancel"}
                         onClick={() => {
-                            // Exit popup, without calling toggle function
                             setShowPopup(false);
                         }}
-                        className= {style.bigButton}
+                        className={style.bigButton}
                     />
                 </div>
             </Popup>
