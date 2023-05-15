@@ -285,7 +285,7 @@ def delete_latest_failed_transmission() -> bool:
 
     # Deletes the last line of the file
     with open(in_file, "r") as f_ptr:
-        with open(in_file+".tmp", "w") as w_ptr:
+        with open(in_file + ".tmp", "w") as w_ptr:
             prev_line = None
             for line in f_ptr:
                 if prev_line is None:
@@ -297,7 +297,7 @@ def delete_latest_failed_transmission() -> bool:
                 prev_line = line
 
     os.remove(in_file)
-    os.rename(in_file+".tmp", in_file)
+    os.rename(in_file + ".tmp", in_file)
 
     return True
 
