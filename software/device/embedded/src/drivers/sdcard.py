@@ -255,7 +255,7 @@ def read_failed_transmission() -> str or None:
 
     # Grabs the last line of the file
     with open(in_file, "r") as f_ptr:
-        f_ptr.seek(0, 2) #os.SEEK_END
+        f_ptr.seek(0, 2)  # os.SEEK_END
 
         # If the file has no lines, there is no last line to grab
         if not f_ptr.tell():
@@ -284,22 +284,20 @@ def delete_latest_failed_transmission() -> bool:
     in_file = REQUEUE_FILE + FILETYPE
 
     # Deletes the last line of the file
-    with open("debug.csv", "r+") as f_ptr:
-        f_ptr.seek(0, 2) #os.SEEK_END
+    with open(in_file, "r") as f_ptr:
+        with open(in_file+".tmp", "w") as w_ptr:
+            prev_line = None
+            for line in f_ptr:
+                if prev_line is None:
+                    prev_line = line
+                    continue
 
-        # If file is empty, nothing to delete
-        if not f_ptr.tell():
-            return False
+                w_ptr.write(prev_line)
+                print(prev_line)
+                prev_line = line
 
-        # Seek to the start of the last line of the file
-        index = seek_endl(f_ptr)
-
-        # Don't include the terminating newline if there are remaining lines in the file
-        index = index + (index > 0)
-        f_ptr.seek(index, 0) #os.SEEK_SET
-
-        # Truncate the last line
-        f_ptr.truncate(index)
+    os.remove(in_file)
+    os.rename(in_file+".tmp", in_file)
 
     return True
 
@@ -440,7 +438,7 @@ def seek_endl(f_ptr):
     # While we are not pointing at a newline, seek backwards
     while f_ptr.read(1) != "\n" and index > 0:
         index -= 1
-        f_ptr.seek(index, 0) #os.SEEK_SET
+        f_ptr.seek(index, 0)  # os.SEEK_SET
 
     return index
 
