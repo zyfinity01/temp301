@@ -18,7 +18,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Executed on startup directly after boot.py
 """
 import sys
-from typing import Any, Callable
 
 # Change the module search order by modifying `sys.path`. The entry
 # `""` specifies frozen bytecode. By moving this entry to the end
