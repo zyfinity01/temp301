@@ -123,6 +123,7 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
             delete data.first_send_at_time
             data.first_send_at = timestamp
         }
+
         if (data.last_send_at !== '' && data.last_send_at_date !== '') {
             const timestamp = Date.parse(`${data.last_send_at_date}T${data.last_send_at_time}`) - ESP32_UNIX_EPOCH
 
@@ -166,7 +167,6 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                     {
                         close => (
                             <div className='modal'>
-                                
                                 <div className={style2.filter}>
                                     <label htmlFor="aligned-name">Start Date</label>
                                     <input type={"date"}
