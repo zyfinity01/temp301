@@ -1,5 +1,6 @@
 import axios from 'axios';
 import csv from 'csv-parser';
+import { Readable } from 'stream';
 
 interface Watershed {
     DateTime: string;
@@ -21,10 +22,12 @@ class CsvDataFetcher {
         const url = `https://monitormywatershed.org/api/csv-values/?result_ids=${this.resultIds.join(",")}`;
 
         try {
-            const response = await axios.get(url, { responseType: 'stream' });
+            const response = await axios.get(url, { responseType: 'text' });
+
+            const stream = Readable.from(response.data);
 
             return new Promise((resolve, reject) => {
-                response.data
+                stream
                     .pipe(csv())
                     .on('data', (data: Watershed) => results.push(data))
                     .on('end', () => resolve(results))
