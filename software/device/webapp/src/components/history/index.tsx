@@ -22,6 +22,8 @@ import {ESP32_UNIX_EPOCH, formatDateTime, timestampToDate} from "../../util";
 import {useContext} from "preact/hooks";
 import { getNotyfContext } from "../../util/notyfContext";
 import {fetchApiContext, request} from "../../util/apiClient";
+import Popup from 'reactjs-popup';
+import React from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -91,13 +93,18 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
             water_level: props.water_level,
             first_send_at_date: props.first_send_at_date,
             first_send_at_time: props.first_send_at_time,
-            send_interval: props.send_interval,
+            last_send_at_date: props.last_send_at_date,
+            last_send_at_time: props.last_send_at_time,
         }
     });
 
     // Convert the esp32-offset unix timestamp into a string-formatted date and time string
     const first_send_at = timestampToDate(props.first_send_at);
     const [first_send_at_date, first_send_at_time] = formatDateTime(first_send_at);
+
+    const last_send_at = timestampToDate(props.last_send_at);
+    //The whole webpage goes blank when the following added, need to look into it.
+    // const [last_send_at_date, last_send_at_time] = formatDateTime(last_send_at);
 
     const notyf = getNotyfContext();
     const getConfig = useContext(fetchApiContext);
@@ -115,6 +122,14 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
             delete data.first_send_at_date
             delete data.first_send_at_time
             data.first_send_at = timestamp
+        }
+        if (data.last_send_at !== '' && data.last_send_at_date !== '') {
+            const timestamp = Date.parse(`${data.last_send_at_date}T${data.last_send_at_time}`) - ESP32_UNIX_EPOCH
+
+            // strip datetime data from form object, and add timestamp
+            delete data.last_send_at_date
+            delete data.last_send_at_time
+            data.last_send_at = timestamp
         }
 
         // convert other fields to numbers.
@@ -147,6 +162,52 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
             <div>
                 <form className={style.aligned} onSubmit={(handleSubmit(onSubmit) as any)}>
                     {/*<fieldset>*/}
+                    <Popup trigger = {<button className={style.bigButton}>Filter</button>} modal>
+                    {
+                        close => (
+                            <div className='modal'>
+                                
+                                <div className={style2.filter}>
+                                    <label htmlFor="aligned-name">Start Date</label>
+                                    <input type={"date"}
+                                        className="aligned-name"
+                                        name="first_send_at_date"
+                                        ref={register}
+                                    />
+                                </div>
+                                <div className={style2.filter}>
+                                    <label htmlFor="aligned-name">End Date</label>
+                                    <input type={"date"}
+                                        className="aligned-name"
+                                        name="last_send_at_date"
+                                        ref={register}
+                                    />
+                                </div>
+                                <div className={style2.filter}>
+                                    <label htmlFor="aligned-name">Start Time</label>
+                                    <input type={"time"}
+                                        className="aligned-name"
+                                        name="first_send_at_time"
+                                        ref={register}
+                                    />
+                                </div>
+                                <div className={style2.filter}>
+                                    <label htmlFor="aligned-name">End Time</label>
+                                    <input type={"time"}
+                                        className="aligned-name"
+                                        name="last_send_at_time"
+                                        ref={register}
+                                    />
+                                </div>
+                                <div>
+                                    <button className={style.bigButton} onClick={() => close()}>
+                                        Apply
+                                    </button>
+                                </div>
+                            </div>
+                        )
+                    }
+                    </Popup>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Device Name</label>
                         <input type="text"
@@ -179,33 +240,6 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                                ref={register}
                         />
                     </div>
-                    <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">First Send At (Date)</label>
-                        <input type={"date"}
-                               className="aligned-name"
-                               name="first_send_at_date"
-                               ref={register}
-                        />
-                    </div>
-                    <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">First Send At (Time)</label>
-                        <input type={"time"}
-                               className="aligned-name"
-                               name="first_send_at_time"
-                               ref={register}
-                        />
-                    </div>
-                    <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">Send Interval (mins) </label>
-                        <input type="number"
-                               className="aligned-name"
-                               name="send_interval"
-                               min={1}
-                               ref={register}
-                        />
-                    </div>
-
-                    <input type="submit" value={"Download History Data"} className={style.bigButton}/>
                 </form>
             </div>
         </div>
