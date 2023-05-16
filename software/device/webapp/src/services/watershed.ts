@@ -1,6 +1,14 @@
 import axios from 'axios';
 import csv from 'csv-parser';
 
+interface Watershed {
+    DateTime: string;
+    TimeOffset: string;
+    DateTimeUTC: string;
+    Maxim_DS3231_Temp: number | 'nan';
+    TBRain_5Min: number | 'nan';
+}
+
 class CsvDataFetcher {
     private resultIds: number[];
 
@@ -9,7 +17,7 @@ class CsvDataFetcher {
     }
 
     public async fetchData(): Promise<any[]> {
-        const results: any[] = [];
+        const results: Watershed[] = [];
         const url = `https://monitormywatershed.org/api/csv-values/?result_ids=${this.resultIds.join(",")}`;
 
         const response = await axios.get(url, { responseType: 'stream' });
@@ -17,22 +25,9 @@ class CsvDataFetcher {
         return new Promise((resolve, reject) => {
             response.data
                 .pipe(csv())
-                .on('data', (data) => results.push(data))
+                .on('data', (data: Watershed) => results.push(data))
                 .on('end', () => resolve(results))
-                .on('error', (error) => reject(error));
+                .on('error', (error: any) => reject(error));
         });
-    }
-}
-
-class WatershedDataExtractor {
-    private dataFetcher: CsvDataFetcher;
-
-    constructor(resultIds: number[]) {
-        this.dataFetcher = new CsvDataFetcher(resultIds);
-    }
-
-    public async doSomethingWithCsvData() {
-        const csvData = await this.dataFetcher.fetchData();
-        // Do something with csvData...
     }
 }
