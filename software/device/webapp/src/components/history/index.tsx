@@ -24,52 +24,52 @@ import { getNotyfContext } from "../../util/notyfContext";
 import {fetchApiContext, request} from "../../util/apiClient";
 import Popup from 'reactjs-popup';
 import React from 'react';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-} from "chart.js";
-import { Bar } from "react-chartjs-2";
+// import {
+//     Chart as ChartJS,
+//     CategoryScale,
+//     LinearScale,
+//     BarElement,
+//     Title,
+//     Tooltip,
+//     Legend
+// } from "chart.js";
+// import { Bar } from "react-chartjs-2";
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
+// ChartJS.register(
+//     CategoryScale,
+//     LinearScale,
+//     BarElement,
+//     Title,
+//     Tooltip,
+//     Legend
+// );
 
-const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top' as const
-        },
-        title: {
-            display: true,
-            text: 'Rainfall Data'
-        }
-    },
-    scales: {
-        x: {
-            title: {
-                display: true,
-                text: 'Date (DD/MM/YY)'
-            }
-        },
-        y: {
-            title: {
-                display: true,
-                text: 'Rainfall (mm)'
-            }
-        }
-    }
-};
+// const options = {
+//     responsive: true,
+//     plugins: {
+//         legend: {
+//             position: 'top' as const
+//         },
+//         title: {
+//             display: true,
+//             text: 'Rainfall Data'
+//         }
+//     },
+//     scales: {
+//         x: {
+//             title: {
+//                 display: true,
+//                 text: 'Date (DD/MM/YY)'
+//             }
+//         },
+//         y: {
+//             title: {
+//                 display: true,
+//                 text: 'Rainfall (mm)'
+//             }
+//         }
+//     }
+// };
 
 const labels = ['08/05/23', '09/05/23', '10/05/23', '11/05/23', '12/05/23', '13/05/23', '14/05/23'];
 
@@ -156,9 +156,9 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
         <div className={style.page}>
             <h2>Water Level History</h2>
 
-            <div className={style2.graph}>
+            {/* <div className={style2.graph}>
                 <Bar options={options} data={data} />
-            </div>
+            </div> */}
 
             <div>
                 <form className={style.aligned} onSubmit={(handleSubmit(onSubmit) as any)}>
