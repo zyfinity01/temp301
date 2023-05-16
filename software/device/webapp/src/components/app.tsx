@@ -31,6 +31,8 @@ import {useContext} from "preact/hooks";
 import { getNotyfContext } from "../util/notyfContext";
 import { FetchApiProvider } from "../util/apiClient";
 
+import { CsvDataFetcher } from "../services/watershed";
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
     // tslint:disable-next-line:no-var-requires
@@ -96,6 +98,7 @@ const App: FunctionalComponent = () => {
      * Fetch config from API and set state
      */
     const fetchConfig = () => {
+        new CsvDataFetcher([5851,5967]).fetchData();
         //  notify user
         notyf.open({type: 'info', message: 'Retrieving latest config...'})
 

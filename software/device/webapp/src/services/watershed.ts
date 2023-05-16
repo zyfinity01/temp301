@@ -10,7 +10,7 @@ interface Watershed {
     TBRain_5Min: number;
 }
 
-class CsvDataFetcher {
+export class CsvDataFetcher {
     private resultIds: number[];
 
     constructor(resultIds: number[]) {
@@ -29,12 +29,15 @@ class CsvDataFetcher {
             return new Promise((resolve, reject) => {
                 stream
                     .pipe(csv())
-                    .on('data', (data: Watershed) => results.push(data))
+                    .on('data', (data: Watershed) => {
+                        console.log(data);
+                        results.push(data);
+                    })
                     .on('end', () => resolve(results))
                     .on('error', (error: any) => reject(error));
             });
         } catch (error) {
-            throw new Error(`Axios request failed: ${error.message}`);
+            throw new Error(`Axios request failed`);
         }
     }
 }
