@@ -43,6 +43,7 @@ export type deviceConfigType = {
 
 // For History Tab - first edition, need to update these values at a later date, inputs relate to the history/index.ts page
 export type deviceHistoryType = {
+    graph_input: string;
     device_name: string;
     device_id: string;
     rain_gauge: string;
