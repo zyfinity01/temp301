@@ -151,9 +151,8 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Graph Display</label>
                         <select name = "graph_inputs" id = "inputs">
-                            <option value = "selection_menu">Select a Unit</option>
-                            <option value = "temp_data">Temperature</option>
                             <option value = "precipitation_data">Precipitation</option>
+                            <option value = "temp_data">Temperature</option>
                         </select>
                         {/* <input  type = "text"
                                 className="aligned-name"
