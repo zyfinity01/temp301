@@ -30,9 +30,10 @@ if len(sys.path) > 0 and sys.path[0] == "":
 
 import logging
 
-#threading module is used to enable concurent execution of the time synchronizing process, by creating a seperate thread for the sync task. Thus, code can keep running other tasks without sync to complete. Hence, the device will stay responsive
+# threading module is used to enable concurent execution of the time synchronizing process, by creating a seperate thread for the sync task. Thus, code can keep running other tasks without sync to complete. Hence, the device will stay responsive
 import threading
-#importing rtc(Real time clock) from drivers for needed functions in time module
+
+# importing rtc(Real time clock) from drivers for needed functions in time module
 from drivers import rtc as rtc_driver
 
 # Set global log level
@@ -175,17 +176,23 @@ def sync_time(modem):
     """Function to calibrate local time using modem or external RTC"""
     rtc = rtc_driver.rtc()
 
-    def sync_rtc(): #new function that encapsulates existing time function and is designed to run on a seperate thread
+    def sync_rtc():  # new function that encapsulates existing time function and is designed to run on a seperate thread
         while True:
             try:
-                current_timezone = time.timezone // 3600  # Get the current timezone in hours
+                current_timezone = (
+                    time.timezone // 3600
+                )  # Get the current timezone in hours
                 if current_timezone == 12:
                     if modem.has_network:
                         network_time = modem.get_network_time()
                         time_start = time.ticks_ms()
                         network_mktime = time.mktime(network_time)
-                        internal_RTC_offset = time.mktime(rtc.get_local_time()) - network_mktime
-                        external_RTC_offset = time.mktime(rtc.get_ex_rtc_time()) - network_mktime
+                        internal_RTC_offset = (
+                            time.mktime(rtc.get_local_time()) - network_mktime
+                        )
+                        external_RTC_offset = (
+                            time.mktime(rtc.get_ex_rtc_time()) - network_mktime
+                        )
                         print("Internal RTC offset {:+d} s".format(internal_RTC_offset))
                         if abs(internal_RTC_offset) > 1:
                             rtc.set_local_time(network_time)
@@ -196,17 +203,21 @@ def sync_time(modem):
                             print("Synchronized external RTC with network time")
                     else:
                         print("Synchronizing time with external RTC module")
-                        internal_RTC_offset = time.mktime(rtc.get_local_time()) - time.mktime(
-                            rtc.get_ex_rtc_time()
+                        internal_RTC_offset = time.mktime(
+                            rtc.get_local_time()
+                        ) - time.mktime(rtc.get_ex_rtc_time())
+                        print(
+                            "Internal RTC offset from external RTC module {:+d} s".format(
+                                internal_RTC_offset
+                            )
                         )
-                        print("Internal RTC offset from external RTC module {:+d} s".format(internal_RTC_offset))
                         if abs(internal_RTC_offset) > 0:
                             rtc.sync_rtc_time()
                 else:
                     print("Device timezone is not set to UTC+12")
             except OSError:
                 print("Failed to set time (OSError)")
-            
+
             # Sleep for 1 hour before running the synchronization again
             time.sleep(3600)
 
