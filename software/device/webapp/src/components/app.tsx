@@ -72,6 +72,7 @@ const App: FunctionalComponent = () => {
     });
 
     const [deviceHistory, setDeviceHistory] = React.useState<deviceHistoryType>({
+        graph_input: "",
         device_name: LOADING_NOTICE,
         device_id: LOADING_NOTICE,
         first_send_at_date: "",

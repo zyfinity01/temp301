@@ -85,6 +85,7 @@ const data = {
 const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
     const {register, handleSubmit, watch, reset} = useForm<deviceHistoryType>({
         defaultValues: {
+            graph_input: props.graph_input,
             device_name: props.device_name,
             device_id: props.device_id,
             rain_gauge: props.rain_gauge,
@@ -147,6 +148,18 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
             <div>
                 <form className={style.aligned} onSubmit={(handleSubmit(onSubmit) as any)}>
                     {/*<fieldset>*/}
+                    <div className={style.alignGroup}>
+                        <label htmlFor="aligned-name">Graph Display</label>
+                        <select name = "graph_inputs" id = "inputs">
+                            <option value = "precipitation_data">Precipitation</option>
+                            <option value = "temp_data">Temperature</option>
+                        </select>
+                        {/* <input  type = "text"
+                                className="aligned-name"
+                                name="graph_input_data"
+                                ref={register}
+                        /> */}
+                    </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Device Name</label>
                         <input type="text"
