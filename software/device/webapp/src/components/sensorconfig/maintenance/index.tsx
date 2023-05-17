@@ -53,7 +53,7 @@ const MaintenanceBlock: FunctionalComponent<Props> = (props) => {
                 </div>
                 <div style={{float: "right", width: "80%"}}>
                     <label>Enable Maintenance Mode</label><br/>
-                    <small>Do you wish to enable maitenance mode?</small>
+                    <small>Do you wish to enable maintenance mode?</small>
                 </div>
             </div>
             <Popup open = {showPopup} onClose={() => setShowPopup(false)} modal>
