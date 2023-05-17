@@ -31,4 +31,8 @@ r=send_cmd(sdi, "?!")
 
 r will contain the returned addresses in the second return value
 
+## Results of script
+
+We found the Rain Gauge has the address 1, and the Water Level has the address 0. We could get the addresses when both were connected, or when each was connected individually.
+
 ---
