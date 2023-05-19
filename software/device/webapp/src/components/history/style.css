@@ -7,14 +7,28 @@
 .filter{
     margin-bottom: 0.5em;
     display: flex;
-    width: 11cm;
-    float: left;
 }
 
 .filter label {
-    text-align: right;
-    display: inline-block;
-    vertical-align: bottom;
-    width: 10em;
-    margin: 0 1em 0 0;
+    text-align: left;
+    width: 6em;
+}
+
+.bigButton {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 10px !important;
+    box-shadow: none;
+    background-color: #0d99a5;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+.bigButton:hover {
+    background-color: #0d82a6;
 }

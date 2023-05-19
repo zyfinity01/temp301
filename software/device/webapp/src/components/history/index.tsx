@@ -143,7 +143,11 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
             <div>
                 <form className={style.aligned} onSubmit={(handleSubmit(onSubmit) as any)}>
                     {/*<fieldset>*/}
-                    <Popup trigger={<button className={style.bigButton}>Filter</button>} modal>
+                    <Popup
+                        trigger={<button className={style.bigButton}>Filter</button>}
+                        modal
+                        contentStyle={{width: "21em", borderRadius: "5px", padding: "15px"}}
+                    >
                     {
                         close => (
                             <div className='modal'>
@@ -180,7 +184,7 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                                     />
                                 </div>
                                 <div>
-                                    <button className={style.bigButton} onClick={() => close()}>
+                                    <button className={style2.bigButton} onClick={() => close()}>
                                         Apply
                                     </button>
                                 </div>
