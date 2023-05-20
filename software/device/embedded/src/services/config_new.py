@@ -481,6 +481,10 @@ class DataConfig:
         self.file_name = file_name
         self.config = config
 
+    def save(self):
+        """Save the data config"""
+        save_config(self.file_name, self.config)
+
     @property
     def last_updated(self) -> int:
         """Get the last_updated config"""
