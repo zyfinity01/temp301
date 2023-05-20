@@ -556,3 +556,10 @@ def read_data(file_name: str = DYNAMIC_DATA_FILE) -> DataConfig:
         contents = handle.read()
         data = json.loads(contents)
         return DataConfig(data)
+
+def save_config(file_name: str, config):
+    """Saves the config dictionary as json to the given file"""
+    
+    with open(file_name, 'w') as handle:
+        contents = json.dumps(config)
+        handle.write(contents)
