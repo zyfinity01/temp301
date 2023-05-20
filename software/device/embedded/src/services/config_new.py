@@ -31,6 +31,7 @@ class ReadingConfig:
     def reading(self, value: str):
         """Set the reading config"""
         self.config[self.__reading] = value
+        self.save()
 
     @property
     def index(self) -> int:
@@ -41,6 +42,7 @@ class ReadingConfig:
     def index(self, value: int):
         """Set the index config"""
         self.config[self.__index] = value
+        self.save()
 
     @property
     def multiplier(self) -> int:
@@ -51,6 +53,7 @@ class ReadingConfig:
     def multiplier(self, value: int):
         """Set the multiplier config"""
         self.config[self.__multiplier] = value
+        self.save()
 
     @property
     def offset(self) -> int:
@@ -61,6 +64,7 @@ class ReadingConfig:
     def offset(self, value: int):
         """Set the offset config"""
         self.config[self.__offset] = value
+        self.save()
 
     @property
     def unit(self) -> str:
@@ -71,6 +75,7 @@ class ReadingConfig:
     def unit(self, value: str):
         """Set the unit config"""
         self.config[self.__unit] = value
+        self.save()
 
     @property
     def uuid(self) -> str:
@@ -81,6 +86,7 @@ class ReadingConfig:
     def uuid(self, value: str):
         """Set the UUID config"""
         self.config[self.__uuid] = value
+        self.save()
 
 
 class WaterSensorConfig:
