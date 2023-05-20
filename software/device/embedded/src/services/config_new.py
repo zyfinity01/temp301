@@ -314,7 +314,7 @@ class BaseConfig:
 
     def __init__(self, file_name: str, config):
         self.file_name = file_name
-        self.config = config        
+        self.config = config
 
     def save(self):
         """Save the base config"""
@@ -444,7 +444,7 @@ class BaseConfig:
     @property
     def mmw_settings(self) -> MmwConfig:
         """Get the MMW settings"""
-        return MmwConfig(self.save, self.config[ self.__mmw_settings])
+        return MmwConfig(self.save, self.config[self.__mmw_settings])
 
     @mmw_settings.setter
     def mmw_settings(self, value: MmwConfig):
@@ -593,6 +593,7 @@ def read_config(file_name: str = CONFIG_FILE) -> BaseConfig:
         data = json.loads(contents)
         return BaseConfig(file_name, data)
 
+
 def read_data(file_name: str = DYNAMIC_DATA_FILE) -> DataConfig:
     """Returns an instance of the data config class"""
 
@@ -601,9 +602,10 @@ def read_data(file_name: str = DYNAMIC_DATA_FILE) -> DataConfig:
         data = json.loads(contents)
         return DataConfig(file_name, data)
 
+
 def save_config(file_name: str, config):
     """Saves the config dictionary as json to the given file"""
-    
-    with open(file_name, 'w') as handle:
+
+    with open(file_name, "w") as handle:
         contents = json.dumps(config, indent=4)
         handle.write(contents)
