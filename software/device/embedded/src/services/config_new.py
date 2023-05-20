@@ -494,6 +494,7 @@ class DataConfig:
     def last_updated(self, value: int):
         """Set the last_updated config"""
         self.config[self.__last_updated] = value
+        self.save()
 
     @property
     def last_transmitted(self) -> int:
@@ -504,6 +505,7 @@ class DataConfig:
     def last_transmitted(self, value: int):
         """Set the last_transmitted config"""
         self.config[self.__last_transmitted] = value
+        self.save()
 
     @property
     def battery_level(self) -> int:
@@ -514,6 +516,7 @@ class DataConfig:
     def battery_level(self, value: int):
         """Set the battery_level config"""
         self.config[self.__battery_level] = value
+        self.save()
 
     @property
     def coverage_level(self) -> int:
@@ -524,6 +527,7 @@ class DataConfig:
     def coverage_level(self, value: int):
         """Set the coverage_level config"""
         self.config[self.__coverage_level] = value
+        self.save()
 
     @property
     def messages_sent(self) -> int:
@@ -534,6 +538,7 @@ class DataConfig:
     def messages_sent(self, value: int):
         """Set the messages_sent config"""
         self.config[self.__messages_sent] = value
+        self.save()
 
     @property
     def failed_transmissions(self) -> int:
@@ -544,6 +549,7 @@ class DataConfig:
     def failed_transmissions(self, value: int):
         """Set the failed_transmissions config"""
         self.config[self.__failed_transmissions] = value
+        self.save()
 
     @property
     def free_sd_space(self) -> int:
@@ -554,6 +560,7 @@ class DataConfig:
     def free_sd_space(self, value: int):
         """Set the free_sd_space config"""
         self.config[self.__free_sd_space] = value
+        self.save()
 
     @property
     def rainfall(self) -> typing.List(int):
@@ -564,6 +571,7 @@ class DataConfig:
     def rainfall(self, value: typing.List(int)):
         """Set the rainfall config"""
         self.config[self.__rainfall] = value
+        self.save()
 
     @property
     def date_time(self) -> typing.List(int):
@@ -574,6 +582,7 @@ class DataConfig:
     def date_time(self, value: typing.List(int)):
         """Set the date_time config"""
         self.config[self.__date_time] = value
+        self.save()
 
 
 def read_config(file_name: str = CONFIG_FILE) -> BaseConfig:
