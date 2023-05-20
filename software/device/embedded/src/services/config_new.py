@@ -477,7 +477,8 @@ class DataConfig:
     __rainfall = "rainfall"
     __date_time = "date_time"
 
-    def __init__(self, config):
+    def __init__(self, file_name: str, config):
+        self.file_name = file_name
         self.config = config
 
     @property
@@ -585,7 +586,7 @@ def read_data(file_name: str = DYNAMIC_DATA_FILE) -> DataConfig:
     with open(file_name, encoding="utf-8") as handle:
         contents = handle.read()
         data = json.loads(contents)
-        return DataConfig(data)
+        return DataConfig(file_name, data)
 
 def save_config(file_name: str, config):
     """Saves the config dictionary as json to the given file"""
