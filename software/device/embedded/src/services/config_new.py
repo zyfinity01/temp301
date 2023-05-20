@@ -298,7 +298,6 @@ class BaseConfig:
     __mqtt_settings = "mqtt_settings"
     __mmw_settings = "mmw_settings"
     __sdi12_sensors = "sdi12_sensors"
-    __water_sensor = "water_sensor"
 
     def __init__(self, file_name: str, config):
         self.file_name = file_name
@@ -449,17 +448,6 @@ class BaseConfig:
     def sdi12_sensors(self, value: Sdi12Config):
         """Set the SDI12 settings"""
         self.config[self.__sdi12_sensors] = value.config
-        self.save()
-
-    @property
-    def water_sensor(self) -> WaterSensorConfig:
-        """Get the water_sensor settings"""
-        return WaterSensorConfig(self.config[self.__water_sensor])
-
-    @water_sensor.setter
-    def water_sensor(self, value: WaterSensorConfig):
-        """Set the water_sensor settings"""
-        self.config[self.__water_sensor] = value.config
         self.save()
 
 
