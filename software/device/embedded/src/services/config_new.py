@@ -246,7 +246,8 @@ class MmwConfig:
     __auth_token = "auth_token"
     __sampling_feature = "sampling_feature"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
@@ -420,7 +421,7 @@ class BaseConfig:
     @property
     def mmw_settings(self) -> MmwConfig:
         """Get the MMW settings"""
-        return MmwConfig(self.config[self.__mmw_settings])
+        return MmwConfig(self.save, self.config[ self.__mmw_settings])
 
     @mmw_settings.setter
     def mmw_settings(self, value: MmwConfig):
