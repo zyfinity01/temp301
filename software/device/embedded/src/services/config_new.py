@@ -18,7 +18,8 @@ class ReadingConfig:
     __unit = "unit"
     __uuid = "uuid"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
@@ -155,7 +156,7 @@ class WaterSensorConfig:
     def readings(self) -> typing.List[ReadingConfig]:
         """Get the readings config array"""
         readings = self.config[self.__readings]
-        return [ReadingConfig(reading) for reading in readings]
+        return [ReadingConfig(self.save, reading) for reading in readings]
 
     @readings.setter
     def readings(self, values: typing.List[ReadingConfig]):
