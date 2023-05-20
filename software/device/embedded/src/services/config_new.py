@@ -288,8 +288,13 @@ class BaseConfig:
     __sdi12_sensors = "sdi12_sensors"
     __water_sensor = "water_sensor"
 
-    def __init__(self, config):
-        self.config = config
+    def __init__(self, file_name: str, config):
+        self.file_name = file_name
+        self.config = config        
+
+    def save(self):
+        """Save the base config"""
+        save_config(self.file_name, self.config)
 
     @property
     def version(self) -> str:
@@ -546,8 +551,7 @@ def read_config(file_name: str = CONFIG_FILE) -> BaseConfig:
     with open(file_name, encoding="utf-8") as handle:
         contents = handle.read()
         data = json.loads(contents)
-        return BaseConfig(data)
-
+        return BaseConfig(file_name, data)
 
 def read_data(file_name: str = DYNAMIC_DATA_FILE) -> DataConfig:
     """Returns an instance of the data config class"""
