@@ -105,6 +105,7 @@ class WaterSensorConfig:
     def enabled(self, value: bool):
         """Set the enabled config"""
         self.config[self.__enabled] = value
+        self.save()
 
     @property
     def address(self) -> int:
@@ -115,6 +116,7 @@ class WaterSensorConfig:
     def address(self, value: int):
         """Set the address config"""
         self.config[self.__address] = value
+        self.save()
 
     @property
     def bootup_time(self) -> int:
@@ -125,6 +127,7 @@ class WaterSensorConfig:
     def bootup_time(self, value: int):
         """Set the bootup_time config"""
         self.config[self.__bootup_time] = value
+        self.save()
 
     @property
     def record_interval(self) -> int:
@@ -135,6 +138,7 @@ class WaterSensorConfig:
     def record_interval(self, value: int):
         """Set the record_interval config"""
         self.config[self.__record_interval] = value
+        self.save()
 
     @property
     def first_record_at(self) -> int:
@@ -145,6 +149,7 @@ class WaterSensorConfig:
     def first_record_at(self, value: int):
         """Get the first_record_at config"""
         self.config[self.__first_record_at] = value
+        self.save()
 
     @property
     def readings(self) -> typing.List[ReadingConfig]:
@@ -157,6 +162,7 @@ class WaterSensorConfig:
         """Set the readings config array"""
         configs = [value.config for value in values]
         self.config[self.__readings] = configs
+        self.save()
 
 
 class Sdi12Config:
