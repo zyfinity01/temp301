@@ -199,6 +199,7 @@ class MqttConfig:
     def host(self, value: str):
         """Set the host config"""
         self.config[self.__host] = value
+        self.save()
 
     @property
     def port(self) -> int:
@@ -209,6 +210,7 @@ class MqttConfig:
     def port(self, value: int):
         """Set the port config"""
         self.config[self.__port] = value
+        self.save()
 
     @property
     def username(self) -> str:
@@ -219,6 +221,7 @@ class MqttConfig:
     def username(self, value: str):
         """Set the username config"""
         self.config[self.__username] = value
+        self.save()
 
     @property
     def password(self) -> str:
@@ -229,6 +232,7 @@ class MqttConfig:
     def password(self, value: str):
         """Set the password config"""
         self.config[self.__password] = value
+        self.save()
 
     @property
     def parent_topic(self) -> str:
@@ -239,6 +243,7 @@ class MqttConfig:
     def parent_topic(self, value: str):
         """Set the parent_topic config"""
         self.config[self.__parent_topic] = value
+        self.save()
 
 
 class MmwConfig:
