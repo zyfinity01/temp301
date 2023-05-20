@@ -561,5 +561,5 @@ def save_config(file_name: str, config):
     """Saves the config dictionary as json to the given file"""
     
     with open(file_name, 'w') as handle:
-        contents = json.dumps(config)
+        contents = json.dumps(config, indent=4)
         handle.write(contents)
