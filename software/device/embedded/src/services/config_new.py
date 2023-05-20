@@ -186,7 +186,8 @@ class MqttConfig:
     __password = "password"
     __parent_topic = "parent_topic"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
@@ -412,7 +413,7 @@ class BaseConfig:
     @property
     def mqtt_settings(self) -> MqttConfig:
         """Get the MQTT settings"""
-        return MqttConfig(self.config[self.__mqtt_settings])
+        return MqttConfig(self.save, self.config[self.__mqtt_settings])
 
     @mqtt_settings.setter
     def mqtt_settings(self, value: MqttConfig):
