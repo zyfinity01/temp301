@@ -18,7 +18,8 @@ class ReadingConfig:
     __unit = "unit"
     __uuid = "uuid"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
@@ -30,6 +31,7 @@ class ReadingConfig:
     def reading(self, value: str):
         """Set the reading config"""
         self.config[self.__reading] = value
+        self.save()
 
     @property
     def index(self) -> int:
@@ -40,6 +42,7 @@ class ReadingConfig:
     def index(self, value: int):
         """Set the index config"""
         self.config[self.__index] = value
+        self.save()
 
     @property
     def multiplier(self) -> int:
@@ -50,6 +53,7 @@ class ReadingConfig:
     def multiplier(self, value: int):
         """Set the multiplier config"""
         self.config[self.__multiplier] = value
+        self.save()
 
     @property
     def offset(self) -> int:
@@ -60,6 +64,7 @@ class ReadingConfig:
     def offset(self, value: int):
         """Set the offset config"""
         self.config[self.__offset] = value
+        self.save()
 
     @property
     def unit(self) -> str:
@@ -70,6 +75,7 @@ class ReadingConfig:
     def unit(self, value: str):
         """Set the unit config"""
         self.config[self.__unit] = value
+        self.save()
 
     @property
     def uuid(self) -> str:
@@ -80,6 +86,7 @@ class ReadingConfig:
     def uuid(self, value: str):
         """Set the UUID config"""
         self.config[self.__uuid] = value
+        self.save()
 
 
 class WaterSensorConfig:
@@ -92,7 +99,8 @@ class WaterSensorConfig:
     __first_record_at = "first_record_at"
     __readings = "readings"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
@@ -104,6 +112,7 @@ class WaterSensorConfig:
     def enabled(self, value: bool):
         """Set the enabled config"""
         self.config[self.__enabled] = value
+        self.save()
 
     @property
     def address(self) -> int:
@@ -114,6 +123,7 @@ class WaterSensorConfig:
     def address(self, value: int):
         """Set the address config"""
         self.config[self.__address] = value
+        self.save()
 
     @property
     def bootup_time(self) -> int:
@@ -124,6 +134,7 @@ class WaterSensorConfig:
     def bootup_time(self, value: int):
         """Set the bootup_time config"""
         self.config[self.__bootup_time] = value
+        self.save()
 
     @property
     def record_interval(self) -> int:
@@ -134,6 +145,7 @@ class WaterSensorConfig:
     def record_interval(self, value: int):
         """Set the record_interval config"""
         self.config[self.__record_interval] = value
+        self.save()
 
     @property
     def first_record_at(self) -> int:
@@ -144,18 +156,20 @@ class WaterSensorConfig:
     def first_record_at(self, value: int):
         """Get the first_record_at config"""
         self.config[self.__first_record_at] = value
+        self.save()
 
     @property
     def readings(self) -> typing.List[ReadingConfig]:
         """Get the readings config array"""
         readings = self.config[self.__readings]
-        return [ReadingConfig(reading) for reading in readings]
+        return [ReadingConfig(self.save, reading) for reading in readings]
 
     @readings.setter
     def readings(self, values: typing.List[ReadingConfig]):
         """Set the readings config array"""
         configs = [value.config for value in values]
         self.config[self.__readings] = configs
+        self.save()
 
 
 class Sdi12Config:
@@ -163,18 +177,20 @@ class Sdi12Config:
 
     __water_sensor = "water_sensor"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
     def water_sensor(self) -> WaterSensorConfig:
         """Get the water sensor config"""
-        return WaterSensorConfig(self.config[self.__water_sensor])
+        return WaterSensorConfig(self.save, self.config[self.__water_sensor])
 
     @water_sensor.setter
     def water_sensor(self, value: WaterSensorConfig):
         """Set the water sensor config"""
         self.config[self.__water_sensor] = value.config
+        self.save()
 
 
 class MqttConfig:
@@ -186,7 +202,8 @@ class MqttConfig:
     __password = "password"
     __parent_topic = "parent_topic"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
@@ -198,6 +215,7 @@ class MqttConfig:
     def host(self, value: str):
         """Set the host config"""
         self.config[self.__host] = value
+        self.save()
 
     @property
     def port(self) -> int:
@@ -208,6 +226,7 @@ class MqttConfig:
     def port(self, value: int):
         """Set the port config"""
         self.config[self.__port] = value
+        self.save()
 
     @property
     def username(self) -> str:
@@ -218,6 +237,7 @@ class MqttConfig:
     def username(self, value: str):
         """Set the username config"""
         self.config[self.__username] = value
+        self.save()
 
     @property
     def password(self) -> str:
@@ -228,6 +248,7 @@ class MqttConfig:
     def password(self, value: str):
         """Set the password config"""
         self.config[self.__password] = value
+        self.save()
 
     @property
     def parent_topic(self) -> str:
@@ -238,6 +259,7 @@ class MqttConfig:
     def parent_topic(self, value: str):
         """Set the parent_topic config"""
         self.config[self.__parent_topic] = value
+        self.save()
 
 
 class MmwConfig:
@@ -246,7 +268,8 @@ class MmwConfig:
     __auth_token = "auth_token"
     __sampling_feature = "sampling_feature"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
@@ -258,6 +281,7 @@ class MmwConfig:
     def auth_token(self, value: str):
         """Set the auth_token config"""
         self.config[self.__auth_token] = value
+        self.save()
 
     @property
     def sampling_feature(self) -> str:
@@ -268,6 +292,7 @@ class MmwConfig:
     def sampling_feature(self, value: str):
         """Set the sampling_feature config"""
         self.config[self.__sampling_feature] = value
+        self.save()
 
 
 class BaseConfig:
@@ -286,10 +311,14 @@ class BaseConfig:
     __mqtt_settings = "mqtt_settings"
     __mmw_settings = "mmw_settings"
     __sdi12_sensors = "sdi12_sensors"
-    __water_sensor = "water_sensor"
 
-    def __init__(self, config):
+    def __init__(self, file_name: str, config):
+        self.file_name = file_name
         self.config = config
+
+    def save(self):
+        """Save the base config"""
+        save_config(self.file_name, self.config)
 
     @property
     def version(self) -> str:
@@ -300,6 +329,7 @@ class BaseConfig:
     def version(self, value: str):
         """Set the version setting"""
         self.config[self.__version] = value
+        self.save()
 
     @property
     def device_name(self) -> str:
@@ -310,6 +340,7 @@ class BaseConfig:
     def device_name(self, value: str):
         """Set the device name setting"""
         self.config[self.__device_name] = value
+        self.save()
 
     @property
     def device_id(self) -> str:
@@ -320,6 +351,7 @@ class BaseConfig:
     def device_id(self, value: str):
         """Set the device id setting"""
         self.config[self.__device_id] = value
+        self.save()
 
     @property
     def hw_revision(self) -> str:
@@ -330,6 +362,7 @@ class BaseConfig:
     def hw_revision(self, value: str):
         """Set the hardware revision setting"""
         self.config[self.__hw_revision] = value
+        self.save()
 
     @property
     def send_interval(self) -> int:
@@ -340,6 +373,7 @@ class BaseConfig:
     def send_interval(self, value: int):
         """Set the send interval setting"""
         self.config[self.__send_interval] = value
+        self.save()
 
     @property
     def first_send_at(self) -> str:
@@ -350,6 +384,7 @@ class BaseConfig:
     def first_send_at(self, value: str):
         """Set the first send at setting"""
         self.config[self.__first_send_at] = value
+        self.save()
 
     @property
     def wifi_ssid(self) -> str:
@@ -360,6 +395,7 @@ class BaseConfig:
     def wifi_ssid(self, value: str):
         """Set the wifi ssid setting"""
         self.config[self.__wifi_ssid] = value
+        self.save()
 
     @property
     def wifi_password(self) -> str:
@@ -370,6 +406,7 @@ class BaseConfig:
     def wifi_password(self, value: str):
         """Set the wifi password setting"""
         self.config[self.__wifi_password] = value
+        self.save()
 
     @property
     def maintenance_mode(self) -> bool:
@@ -380,6 +417,7 @@ class BaseConfig:
     def maintenance_mode(self, value: bool):
         """Set the maintenance mode setting"""
         self.config[self.__maintenance_mode] = value
+        self.save()
 
     @property
     def test_mode(self) -> bool:
@@ -390,47 +428,40 @@ class BaseConfig:
     def test_mode(self, value: bool):
         """Set the test_mode config"""
         self.config[self.__test_mode] = value
+        self.save()
 
     @property
     def mqtt_settings(self) -> MqttConfig:
         """Get the MQTT settings"""
-        return MqttConfig(self.config[self.__mqtt_settings])
+        return MqttConfig(self.save, self.config[self.__mqtt_settings])
 
     @mqtt_settings.setter
     def mqtt_settings(self, value: MqttConfig):
         """Set the MQTT settings"""
         self.config[self.__mqtt_settings] = value.config
+        self.save()
 
     @property
     def mmw_settings(self) -> MmwConfig:
         """Get the MMW settings"""
-        return MmwConfig(self.config[self.__mmw_settings])
+        return MmwConfig(self.save, self.config[self.__mmw_settings])
 
     @mmw_settings.setter
     def mmw_settings(self, value: MmwConfig):
         """Set the MMW settings"""
         self.config[self.__mmw_settings] = value.config
+        self.save()
 
     @property
     def sdi12_sensors(self) -> Sdi12Config:
         """Get the SDI12 settings"""
-        return Sdi12Config(self.config[self.__sdi12_sensors])
+        return Sdi12Config(self.save, self.config[self.__sdi12_sensors])
 
     @sdi12_sensors.setter
     def sdi12_sensors(self, value: Sdi12Config):
         """Set the SDI12 settings"""
-
         self.config[self.__sdi12_sensors] = value.config
-
-    @property
-    def water_sensor(self) -> WaterSensorConfig:
-        """Get the water_sensor settings"""
-        return WaterSensorConfig(self.config[self.__water_sensor])
-
-    @water_sensor.setter
-    def water_sensor(self, value: WaterSensorConfig):
-        """Set the water_sensor settings"""
-        self.config[self.__water_sensor] = value.config
+        self.save()
 
 
 class DataConfig:
@@ -446,8 +477,13 @@ class DataConfig:
     __rainfall = "rainfall"
     __date_time = "date_time"
 
-    def __init__(self, config):
+    def __init__(self, file_name: str, config):
+        self.file_name = file_name
         self.config = config
+
+    def save(self):
+        """Save the data config"""
+        save_config(self.file_name, self.config)
 
     @property
     def last_updated(self) -> int:
@@ -458,6 +494,7 @@ class DataConfig:
     def last_updated(self, value: int):
         """Set the last_updated config"""
         self.config[self.__last_updated] = value
+        self.save()
 
     @property
     def last_transmitted(self) -> int:
@@ -468,6 +505,7 @@ class DataConfig:
     def last_transmitted(self, value: int):
         """Set the last_transmitted config"""
         self.config[self.__last_transmitted] = value
+        self.save()
 
     @property
     def battery_level(self) -> int:
@@ -478,6 +516,7 @@ class DataConfig:
     def battery_level(self, value: int):
         """Set the battery_level config"""
         self.config[self.__battery_level] = value
+        self.save()
 
     @property
     def coverage_level(self) -> int:
@@ -488,6 +527,7 @@ class DataConfig:
     def coverage_level(self, value: int):
         """Set the coverage_level config"""
         self.config[self.__coverage_level] = value
+        self.save()
 
     @property
     def messages_sent(self) -> int:
@@ -498,6 +538,7 @@ class DataConfig:
     def messages_sent(self, value: int):
         """Set the messages_sent config"""
         self.config[self.__messages_sent] = value
+        self.save()
 
     @property
     def failed_transmissions(self) -> int:
@@ -508,6 +549,7 @@ class DataConfig:
     def failed_transmissions(self, value: int):
         """Set the failed_transmissions config"""
         self.config[self.__failed_transmissions] = value
+        self.save()
 
     @property
     def free_sd_space(self) -> int:
@@ -518,6 +560,7 @@ class DataConfig:
     def free_sd_space(self, value: int):
         """Set the free_sd_space config"""
         self.config[self.__free_sd_space] = value
+        self.save()
 
     @property
     def rainfall(self) -> typing.List(int):
@@ -528,6 +571,7 @@ class DataConfig:
     def rainfall(self, value: typing.List(int)):
         """Set the rainfall config"""
         self.config[self.__rainfall] = value
+        self.save()
 
     @property
     def date_time(self) -> typing.List(int):
@@ -538,6 +582,7 @@ class DataConfig:
     def date_time(self, value: typing.List(int)):
         """Set the date_time config"""
         self.config[self.__date_time] = value
+        self.save()
 
 
 def read_config(file_name: str = CONFIG_FILE) -> BaseConfig:
@@ -546,7 +591,7 @@ def read_config(file_name: str = CONFIG_FILE) -> BaseConfig:
     with open(file_name, encoding="utf-8") as handle:
         contents = handle.read()
         data = json.loads(contents)
-        return BaseConfig(data)
+        return BaseConfig(file_name, data)
 
 
 def read_data(file_name: str = DYNAMIC_DATA_FILE) -> DataConfig:
@@ -555,4 +600,12 @@ def read_data(file_name: str = DYNAMIC_DATA_FILE) -> DataConfig:
     with open(file_name, encoding="utf-8") as handle:
         contents = handle.read()
         data = json.loads(contents)
-        return DataConfig(data)
+        return DataConfig(file_name, data)
+
+
+def save_config(file_name: str, config):
+    """Saves the config dictionary as json to the given file"""
+
+    with open(file_name, "w") as handle:
+        contents = json.dumps(config, indent=4)
+        handle.write(contents)
