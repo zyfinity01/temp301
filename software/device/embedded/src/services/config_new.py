@@ -305,6 +305,7 @@ class BaseConfig:
     def version(self, value: str):
         """Set the version setting"""
         self.config[self.__version] = value
+        self.save()
 
     @property
     def device_name(self) -> str:
@@ -315,6 +316,7 @@ class BaseConfig:
     def device_name(self, value: str):
         """Set the device name setting"""
         self.config[self.__device_name] = value
+        self.save()
 
     @property
     def device_id(self) -> str:
@@ -325,6 +327,7 @@ class BaseConfig:
     def device_id(self, value: str):
         """Set the device id setting"""
         self.config[self.__device_id] = value
+        self.save()
 
     @property
     def hw_revision(self) -> str:
@@ -335,6 +338,7 @@ class BaseConfig:
     def hw_revision(self, value: str):
         """Set the hardware revision setting"""
         self.config[self.__hw_revision] = value
+        self.save()
 
     @property
     def send_interval(self) -> int:
@@ -345,6 +349,7 @@ class BaseConfig:
     def send_interval(self, value: int):
         """Set the send interval setting"""
         self.config[self.__send_interval] = value
+        self.save()
 
     @property
     def first_send_at(self) -> str:
@@ -355,6 +360,7 @@ class BaseConfig:
     def first_send_at(self, value: str):
         """Set the first send at setting"""
         self.config[self.__first_send_at] = value
+        self.save()
 
     @property
     def wifi_ssid(self) -> str:
@@ -365,6 +371,7 @@ class BaseConfig:
     def wifi_ssid(self, value: str):
         """Set the wifi ssid setting"""
         self.config[self.__wifi_ssid] = value
+        self.save()
 
     @property
     def wifi_password(self) -> str:
@@ -375,6 +382,7 @@ class BaseConfig:
     def wifi_password(self, value: str):
         """Set the wifi password setting"""
         self.config[self.__wifi_password] = value
+        self.save()
 
     @property
     def maintenance_mode(self) -> bool:
@@ -385,6 +393,7 @@ class BaseConfig:
     def maintenance_mode(self, value: bool):
         """Set the maintenance mode setting"""
         self.config[self.__maintenance_mode] = value
+        self.save()
 
     @property
     def test_mode(self) -> bool:
@@ -395,6 +404,7 @@ class BaseConfig:
     def test_mode(self, value: bool):
         """Set the test_mode config"""
         self.config[self.__test_mode] = value
+        self.save()
 
     @property
     def mqtt_settings(self) -> MqttConfig:
@@ -405,6 +415,7 @@ class BaseConfig:
     def mqtt_settings(self, value: MqttConfig):
         """Set the MQTT settings"""
         self.config[self.__mqtt_settings] = value.config
+        self.save()
 
     @property
     def mmw_settings(self) -> MmwConfig:
@@ -415,6 +426,7 @@ class BaseConfig:
     def mmw_settings(self, value: MmwConfig):
         """Set the MMW settings"""
         self.config[self.__mmw_settings] = value.config
+        self.save()
 
     @property
     def sdi12_sensors(self) -> Sdi12Config:
@@ -424,8 +436,8 @@ class BaseConfig:
     @sdi12_sensors.setter
     def sdi12_sensors(self, value: Sdi12Config):
         """Set the SDI12 settings"""
-
         self.config[self.__sdi12_sensors] = value.config
+        self.save()
 
     @property
     def water_sensor(self) -> WaterSensorConfig:
@@ -436,6 +448,7 @@ class BaseConfig:
     def water_sensor(self, value: WaterSensorConfig):
         """Set the water_sensor settings"""
         self.config[self.__water_sensor] = value.config
+        self.save()
 
 
 class DataConfig:
