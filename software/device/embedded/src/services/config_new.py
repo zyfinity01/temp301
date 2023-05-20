@@ -259,6 +259,7 @@ class MmwConfig:
     def auth_token(self, value: str):
         """Set the auth_token config"""
         self.config[self.__auth_token] = value
+        self.save()
 
     @property
     def sampling_feature(self) -> str:
@@ -269,6 +270,7 @@ class MmwConfig:
     def sampling_feature(self, value: str):
         """Set the sampling_feature config"""
         self.config[self.__sampling_feature] = value
+        self.save()
 
 
 class BaseConfig:
