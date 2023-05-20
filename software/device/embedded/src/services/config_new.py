@@ -163,7 +163,8 @@ class Sdi12Config:
 
     __water_sensor = "water_sensor"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
@@ -440,7 +441,7 @@ class BaseConfig:
     @property
     def sdi12_sensors(self) -> Sdi12Config:
         """Get the SDI12 settings"""
-        return Sdi12Config(self.config[self.__sdi12_sensors])
+        return Sdi12Config(self.save, self.config[self.__sdi12_sensors])
 
     @sdi12_sensors.setter
     def sdi12_sensors(self, value: Sdi12Config):
