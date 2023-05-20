@@ -92,7 +92,8 @@ class WaterSensorConfig:
     __first_record_at = "first_record_at"
     __readings = "readings"
 
-    def __init__(self, config):
+    def __init__(self, save: typing.Callable[[], None], config):
+        self.save = save
         self.config = config
 
     @property
@@ -170,7 +171,7 @@ class Sdi12Config:
     @property
     def water_sensor(self) -> WaterSensorConfig:
         """Get the water sensor config"""
-        return WaterSensorConfig(self.config[self.__water_sensor])
+        return WaterSensorConfig(self.save, self.config[self.__water_sensor])
 
     @water_sensor.setter
     def water_sensor(self, value: WaterSensorConfig):
