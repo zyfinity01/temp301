@@ -176,6 +176,7 @@ class Sdi12Config:
     def water_sensor(self, value: WaterSensorConfig):
         """Set the water sensor config"""
         self.config[self.__water_sensor] = value.config
+        self.save()
 
 
 class MqttConfig:
