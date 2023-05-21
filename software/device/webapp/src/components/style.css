@@ -14,8 +14,8 @@ form input, textarea, select {
     vertical-align: middle;
     box-sizing: border-box;
     flex-grow: 1;
-    background-color: var(--mid-color);
-    color: var(--fg-color);
+    background-color: var(--mid-colour);
+    color: var(--fg-colour);
 }
 
 
@@ -173,13 +173,14 @@ fieldset {
 
   .switchTheme{
     position: absolute;
-    bottom: 1em;
+    top: 1em;
     right: 1em;
     display: block;
     width: fit-content;
     cursor: pointer;
-    background: var(--card-color);
+    background: var(--light-accent-colour);
     border-radius: 30em;
-    font-size: 0.7em;
-    padding: 1.2em 2em;
+    padding: 1em 1em;
+    font-size: 0.75em;
+
 }

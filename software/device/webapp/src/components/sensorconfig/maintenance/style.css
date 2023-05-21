@@ -1,9 +1,9 @@
 .maintenanceBlock {
     padding: .75rem 1.25rem;
-    border: 1px solid #b8daff;
+    border: 1px solid var(--accent-color);;
     border-radius: .25rem;
-    color: #004085;
-    background-color: #cce5ff;
+    color: var(--accent-color);
+    background-color: var(--accent-color);
     margin-bottom: 10px;
     margin-top: 10px;
     display: flex;
