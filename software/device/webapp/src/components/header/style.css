@@ -1,10 +1,11 @@
 .header {
-    background: url(/assets/images/bg-map-terrain.svg) center/200% #515050;
+    background: url(/assets/images/bg-map-terrain.svg) center/150% var(--accent-colour);
+    position: relative;
     padding: 40px 0;
 }
 
 .header h1, .header h3 {
     text-align: center;
     margin: 0;
-    color: white;
+    color: var(--fg-colour);
 }

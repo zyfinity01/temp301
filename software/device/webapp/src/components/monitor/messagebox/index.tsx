@@ -48,7 +48,7 @@ const wrapperStyle = {
     "marginBottom": "10px",
     "height": "100%",
     "borderRadius": "4px",
-    "color": "white"
+    "color": "var(--fg-colour)"
 }
 
 const headerStyle = {
@@ -59,9 +59,9 @@ const headerStyle = {
 
 const MessagesSentStyle = {
     "minHeight": "20px",
-    "backgroundColor": "#313131",
+    "backgroundColor": "var(--mid-colour)",
     "fontFamily": "\"Courier New\", Courier, monospace",
-    "color": "white",
+    "color": "var(--fg-colour)",
     "overflow": "scroll",
     "height": "calc(100% - 40px)",
     "padding": "5px",
