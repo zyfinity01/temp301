@@ -1,6 +1,6 @@
 # Transient Protection Docs
 
-## Subheading
+## Explanation
 
 Added transient protection circuit from  SDI-12 Protocol [docs]( https://www.sdi-12.org/current_specification/SDI-12_version-1_4-Jan-30-2021.pdf)
 Included the circuit reguarding "sensor or data recorder interface with transient protection", created the spark gap symbol in KiCad and saved to the repo schemcatic library. All value of components taken
