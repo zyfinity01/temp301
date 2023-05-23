@@ -85,7 +85,7 @@ const data = {
 };
 
 const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
-    const {register, watch, reset} = useForm<deviceHistoryType>({
+    const {register, handleSubmit, watch, reset} = useForm<deviceHistoryType>({
         defaultValues: {
             device_name: props.device_name,
             device_id: props.device_id,
@@ -141,7 +141,7 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
             </div>
 
             <div>
-                <form className={style.aligned}>
+                <form className={style.aligned} onSubmit={(handleSubmit(onSubmit) as any)}>
                     {/*<fieldset>*/}
                     <Popup
                         trigger={<button className={style.bigButton}>Filter</button>}
