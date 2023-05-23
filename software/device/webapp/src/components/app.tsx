@@ -78,7 +78,9 @@ const App: FunctionalComponent = () => {
         first_send_at_date: "",
         first_send_at_time: "",
         first_send_at: 0,
-        send_interval: 0,
+        last_send_at_date: "",
+        last_send_at_time: "",
+        last_send_at: 0,
         rain_gauge: LOADING_NOTICE,
         water_level: 50,
     });
