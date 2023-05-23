@@ -206,18 +206,6 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                         /> */}
                     </div>
                     <div className={style.alignGroup}>
-                        <label htmlFor="aligned-name">Graph Display</label>
-                        <select name = "graph_inputs" id = "inputs">
-                            <option value = "precipitation_data">Precipitation</option>
-                            <option value = "temp_data">Temperature</option>
-                        </select>
-                        {/* <input  type = "text"
-                                className="aligned-name"
-                                name="graph_input_data"
-                                ref={register}
-                        /> */}
-                    </div>
-                    <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Device Name</label>
                         <input type="text"
                                className="aligned-name"
