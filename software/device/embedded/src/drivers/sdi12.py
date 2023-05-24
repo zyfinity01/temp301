@@ -222,6 +222,32 @@ async def run_command(command: str, sdi: dict, wake_time: int = 0) -> str:
     return await _send_cmd(command, sensor, sdi, wake_time)
 
 
+def run_unaddressed_command(command: str, sdi: dict) -> str:
+    """
+    Run any command, and does not require an address unlike run_command(). Can be used to query addresses of all sensors, which nessecitates no address being sent. Will also turn on all the sensors.
+
+    Args:
+        command (str): the command to be sent/
+        sdi (dict): The SDI-12 structure.
+    Returns:
+        str: The raw response from the sensor.
+    """
+    # Wakes all sensors
+    _wake_sensors(sdi)
+    # Sets direction to transmitting
+    sdi["dir_"](TX_DIR)
+    uart = sdi["uart"]
+    # Clears the buffer
+    uart.read()
+    # Sends the command
+    uart.write(command)
+    # Waits for the command to send
+    time.sleep_us(8333 * len(command))
+    # Reads the response
+    r = uart.read()
+    return r1
+
+
 def _wake_sensors(sdi: dict):
     """Send a break/mark sequence to wake all connected sensors so they are ready to receive data. This should be used before sending a command.
 
