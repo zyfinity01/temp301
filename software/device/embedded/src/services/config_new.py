@@ -563,23 +563,23 @@ class DataConfig:
         self.save()
 
     @property
-    def rainfall(self) -> typing.List(int):
+    def rainfall(self) -> typing.List[int]:
         """Get the rainfall config"""
         return self.config[self.__rainfall]
 
     @rainfall.setter
-    def rainfall(self, value: typing.List(int)):
+    def rainfall(self, value: typing.List[int]):
         """Set the rainfall config"""
         self.config[self.__rainfall] = value
         self.save()
 
     @property
-    def date_time(self) -> typing.List(int):
+    def date_time(self) -> typing.List[int]:
         """Get the date_time config"""
         return self.config[self.__date_time]
 
     @date_time.setter
-    def date_time(self, value: typing.List(int)):
+    def date_time(self, value: typing.List[int]):
         """Set the date_time config"""
         self.config[self.__date_time] = value
         self.save()
