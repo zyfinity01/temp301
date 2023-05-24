@@ -79,7 +79,7 @@ const data = {
         {
             label: 'Rainfall Data',
             data: [6, 1.5, 3, 0, 2, 1, 7],
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            backgroundColor: 'rgb(135, 201, 198, 0.5)',
         }
     ]
 };
