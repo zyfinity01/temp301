@@ -73,5 +73,6 @@ https://react-popup.elazizi.com/component-api
 @media only screen and (max-width: 768px) {
     .popup-content {
         width: 95% !important;
+        background-color: blue;
     }
 }

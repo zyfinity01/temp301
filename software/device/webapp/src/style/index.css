@@ -6,7 +6,7 @@ html, body {
 	background: var(--bg-colour);
 	font-family: 'Helvetica Neue', arial, sans-serif;
 	font-weight: 400;
-	color: #444;
+	color: var(--text-colour);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -31,6 +31,9 @@ h1, h2, h3 {
 	--bg-colour: #ffffff;
 	--accent-colour: #469ea7;
 	--light-accent-colour: #53b4bc;
+	--text-colour: #444;
+	--shadow-colour: #ddd;
+	--graph-colour: #87c9c6;
 }
 
 [colour-theme="dark"] {
@@ -41,4 +44,7 @@ h1, h2, h3 {
 	--bg-colour: #191c1c;
 	--accent-colour: #145257;
 	--light-accent-colour: #2e6e73;
+	--text-colour: #c6c6c6;
+	--shadow-colour: #000000;
+	--graph-colour: #5a8280;
 }

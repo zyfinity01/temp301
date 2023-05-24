@@ -5,7 +5,7 @@ form input, textarea, select {
     padding: 0.5em 0.6em;
     display: inline-block;
     border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
+    box-shadow: inset 0 1px 3px var(--shadow-colour);
     border-radius: 4px;
     border: 0;
     padding: 0.8em;
@@ -21,7 +21,7 @@ form input, textarea, select {
 
 form input:focus {
     outline: 0;
-    border-color: #129FEA;
+    border-color: var(--accent-colour);
 }
 
 fieldset {
@@ -53,8 +53,8 @@ fieldset {
     margin-top: 10px; */
     padding: 0.5em 0.6em;
     display: inline-block;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
+    border: 1px solid #747474;
+    box-shadow: inset 0 1px 3px var(--shadow-colour);
     border-radius: 4px;
     vertical-align: middle;
     box-sizing: border-box;
@@ -83,7 +83,7 @@ fieldset {
     border: none;
     border-radius: 10px !important;
     box-shadow: none;
-    background-color: #0d99a5;
+    background-color: var(--accent-colour);
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -91,7 +91,7 @@ fieldset {
 }
 
 .bigButton:hover {
-    background-color: #0d82a6;
+    background-color: var(--light-accent-colour);
 }
 
 /* APP LAYOUT */
