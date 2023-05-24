@@ -76,9 +76,7 @@ class TestModem(unittest.TestCase):
 
     def test_publish(self):
         """Test publish mqtt message"""
-        topic = "test/environmentMonitoring/{}".format(
-            self.device_config.device_name
-        )
+        topic = "test/environmentMonitoring/{}".format(self.device_config.device_name)
         payload = '{"DateTime": "2021-12-08T10:12:33", "temperature": 0.0, "rainfall": 0, "flow": 0.0}'
         result = self.modem.mqtt_publish(topic, payload)
         self.assertTrue(result, "Unable to publish message")
