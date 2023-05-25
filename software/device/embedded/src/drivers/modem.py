@@ -92,6 +92,10 @@ MODEM_DEFAULT_BAUD = 115200
 # HTTP temporary file on modem for POSTing MonitorMyWatershed data
 HTTP_POST_DATA_FILE = "post_data.tmp"
 
+# 2023 Data Recorder Webhook
+MATTERMOST_WEBHOOK = "https://mattermost.ecs.vuw.ac.nz/hooks/3g7p6bm3ojfijpigdoers15awr"
+
+MATTERMOST_SERVER = "https://mattermost.ecs.vuw.ac.nz"
 
 class ModemTimeout(Exception):
     """Raised when modem commands time out"""
@@ -897,6 +901,26 @@ class Modem:
         err = self.send_command_check("+UMQTTNV=2")
 
         return err
+        
+
+    def set_http_connection(self, server: str):
+        """Set http connections
+
+        Arguments:
+            server (str): server that is passed in, either mattermost or MMW
+        """
+
+        self.http_connect(server)
+        # command = '{}"{}"'.format("+UMQTT=0,", client_id)
+        # self.send_command_check(command)
+
+        # command = '{}"{}"'.format("+UMQTT=2,", server)
+        # self.send_command_check(command)
+
+        # # Store current MQTT client profile parameters to NVM
+        # err = self.send_command_check("+UMQTTNV=2")
+
+        return err
 
     def mqtt_connect(self):
         """Connect to MQTT broker
@@ -944,6 +968,25 @@ class Modem:
             command, command_timeout=MODEM_MQTT_CONNECT_TIMEOUT
         )
         return err
+    
+    #sending directly to mattermost
+    def http_publish(self, topic, message):
+        """publish a mqtt message
+        Attributes:
+            topic (str): a topic is the destination of the message
+            we use topic to classify different types of data
+            message (str): a message can be anything as long as it is a string
+
+        Returns:
+            bool: False for unable to send
+            True for send successful
+        """
+        #command = '{}"{}","{}"'.format("+UMQTTC=2,0,0,", topic, message)
+        command = '{}"{}","{}"'.format("+UMQTTC=2,0,0,", topic, message)
+        err = self.send_command_check(
+            command, command_timeout=MODEM_MQTT_CONNECT_TIMEOUT
+        )
+        return err
 
     def mqtt_disconnect(self):
         """Disconnect from the mqtt broker
@@ -963,6 +1006,10 @@ class Modem:
             server (str): hostname of server to connect to. If not provided, defaults to MonitorMyWatershed server.
         """
         # connect to server
+        if server == MATTERMOST_SERVER:
+            self.send_command_read('+UHTTP=1,1,"{0}"'.format(server))
+            return self.send_command_read('+UHTTP=1,6') # Setting up HTTPS on this mattermost profile
+        
         return self.send_command_read('+UHTTP=0,1,"{0}"'.format(server))
 
     def http_send(
