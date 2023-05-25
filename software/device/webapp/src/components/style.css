@@ -88,6 +88,25 @@ fieldset {
     background-color: #0d82a6;
 }
 
+/* MODEM BUTTON */
+.bigButtonRed {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 10px !important;
+    box-shadow: none;
+    background-color: #a50d0d;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
+}
+
+.bigButtonRed:hover {
+    background-color: #a60d0d;
+}
+
 /* APP LAYOUT */
 
 .topHeader {
