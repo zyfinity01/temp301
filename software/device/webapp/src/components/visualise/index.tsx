@@ -14,6 +14,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import {FunctionalComponent, h} from "preact";
+import { useState } from "preact/hooks";
 import InfoItem from "./infoitem";
 import {FaSignal, FaBatteryFull, FaCheck, FaClock, FaSdCard, FaExclamation, FaDownload} from "react-icons/fa"
 import {deviceDataType} from "../interfaces";
@@ -33,9 +34,21 @@ const visualise: React.FunctionComponent<deviceDataType> = (props) => {
     const [updatedDate, updatedTime] = formatDateTime(timestampToDate(props.last_transmitted));
     const last_updated = `${updatedDate} ${updatedTime}`;
 
+    const [modemOn, toggleModem] = useState(false);
+    const handleButtonClick = () => {
+        toggleModem(!modemOn);
+        //Modem.onOffSwitch();
+    }
+
     return (
         <div className={style.page}>
             <h2>Visualise</h2>
+
+            <button className = {[style.bigButton, modemOn ? style.bigButtonRed : ""].join(" ")}
+                   onClick={handleButtonClick} >
+                {modemOn ? "Turn Modem Off" : "Turn Modem On"}
+            </button>
+
             <InfoItem icon={<FaSignal/>} name="Signal" value={`${props.coverage_level}%`}
                       alert_level={signalAlertLevel}/>
             <InfoItem icon={<FaBatteryFull/>} name="Battery Level" value={`${props.battery_level}%`}
