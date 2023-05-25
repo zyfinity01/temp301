@@ -97,6 +97,7 @@ MATTERMOST_WEBHOOK = "https://mattermost.ecs.vuw.ac.nz/hooks/3g7p6bm3ojfijpigdoe
 
 MATTERMOST_SERVER = "https://mattermost.ecs.vuw.ac.nz"
 
+
 class ModemTimeout(Exception):
     """Raised when modem commands time out"""
 
@@ -903,7 +904,6 @@ class Modem:
         err = self.send_command_check("+UMQTTNV=2")
 
         return err
-        
 
     def set_http_connection(self, server: str):
         """Set http connections
@@ -970,8 +970,8 @@ class Modem:
             command, command_timeout=MODEM_MQTT_CONNECT_TIMEOUT
         )
         return err
-    
-    #sending directly to mattermost
+
+    # sending directly to mattermost
     def http_publish(self, topic, message):
         """publish a mqtt message
         Attributes:
@@ -983,7 +983,7 @@ class Modem:
             bool: False for unable to send
             True for send successful
         """
-        #command = '{}"{}","{}"'.format("+UMQTTC=2,0,0,", topic, message)
+        # command = '{}"{}","{}"'.format("+UMQTTC=2,0,0,", topic, message)
         command = '{}"{}","{}"'.format("+UMQTTC=2,0,0,", topic, message)
         err = self.send_command_check(
             command, command_timeout=MODEM_MQTT_CONNECT_TIMEOUT
@@ -1003,15 +1003,16 @@ class Modem:
 
     def http_connect(self, server="data.envirodiy.org"):
         """
-
         Attributes:
             server (str): hostname of server to connect to. If not provided, defaults to MonitorMyWatershed server.
         """
         # connect to server
         if server == MATTERMOST_SERVER:
             self.send_command_read('+UHTTP=1,1,"{0}"'.format(server))
-            return self.send_command_read('+UHTTP=1,6') # Setting up HTTPS on this mattermost profile
-        
+            return self.send_command_read(
+                "+UHTTP=1,6"
+            )  # Setting up HTTPS on this mattermost profile
+
         return self.send_command_read('+UHTTP=0,1,"{0}"'.format(server))
 
     def http_send(
