@@ -95,9 +95,12 @@ class TestModem(unittest.TestCase):
         timestamp = isoformat(time.localtime()) + "+12:00"
         data = {"66019fe3-6e8e-4143-bbf8-f7acbc131829": 100}
 
-        # connect to server
+        # connect to server mmw
         connect = self.modem.http_connect()
         self.assertIn("OK", connect)
+
+        connect_mattermost = self.modem.http_connect(modem_driver.MATTERMOST_SERVER)
+        self.assertIn("OK", connect_mattermost)
 
         # send data to test endpoint
         post = self.modem.http_send(

@@ -243,6 +243,7 @@ def set_client():
     server = device_config["mqtt_settings"]["host"]
     modem.mqtt_reset()
     modem.mqtt_set_client(client_id, server)
+    modem.set_http_connection(modem_driver.MATTERMOST_SERVER)# Modem connects to mattermost
     modem.power_off()
 
 
