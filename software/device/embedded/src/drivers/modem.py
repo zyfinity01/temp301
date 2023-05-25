@@ -870,8 +870,8 @@ class Modem:
         """Reset MQTT client profile"""
         self.send_command_check("+UMQTTNV=0")
 
-    def onOffSwitch(self):
-        """Turn off the modem"""
+    def on_off_switch(self):
+        """Turn the modem off/on"""
         if self.has_serial:
             self.has_serial = self.poweroff()
             self.send_command_check("+CPWROFF")
