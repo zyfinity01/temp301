@@ -57,8 +57,8 @@ const MaintenanceBlock: FunctionalComponent<Props> = (props) => {
                 </div>
             </div>
             <Popup open = {showPopup} onClose={() => setShowPopup(false)} modal>
-                <div>
-                    <h3>Maitenance Mode Note</h3>
+                <div className={style.maintenancePopUp}>
+                    <h3 className={style.titleText}>Maitenance Mode Note</h3>
                     <p>Do you wish to continue?</p>
                     <p>This will power on the SDI-12 sensors and increase power consumption.</p>
                     <input type={"submit"}

@@ -114,6 +114,11 @@ fieldset {
     background-color: #a60d0d;
 }
 
+.addSensor{
+    background-color: rgba(185, 213, 215, 0.5);
+    color: rgb(73, 77, 77);
+}
+
 /* APP LAYOUT */
 
 .topHeader {

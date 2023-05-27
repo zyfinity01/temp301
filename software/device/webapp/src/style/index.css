@@ -25,6 +25,7 @@ h1, h2, h3 {
 
 :root{
 	--fg-colour: #000000;
+	--h1-colour: #000000;
 	--light-colour: #bbd6d8;
 	--mid-colour: #b0ced1;
 	--card-colour: #a2c4c7;
@@ -38,6 +39,7 @@ h1, h2, h3 {
 
 [colour-theme="dark"] {
 	--fg-colour: #cbcbcb;
+	--h1-colour: #ffffff;
 	--light-colour: #72989b;
 	--mid-colour: #222d2f;
 	--card-colour: #213336;

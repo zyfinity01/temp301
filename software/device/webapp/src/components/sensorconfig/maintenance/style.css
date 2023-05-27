@@ -10,7 +10,15 @@
 }
 
 .maintenancePopUp{
-    background: var(--bg-colour);
+    background: rgba(185, 213, 215, 0.5);
+    color: rgb(73, 77, 77);
+    padding: 5px;
+}
+
+.titleText{
+    font-weight: bold;
+    font-size: 1.17em;
+    margin-top: 0px;
 }
 
 /* .bigButton {
@@ -30,7 +38,7 @@
     border: none;
     border-radius: 10px !important;
     box-shadow: none;
-    background-color: #0d99a5;
+    background-color: #2e6e73;
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -38,5 +46,5 @@
 }
 
 .bigButton:hover {
-    background-color: #0d82a6;
+    background-color: #145257;
 }
