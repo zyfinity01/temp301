@@ -7,5 +7,5 @@
 .header h1, .header h3 {
     text-align: center;
     margin: 0;
-    color: var(--fg-colour);
+    color: var(--h1-colour);
 }
