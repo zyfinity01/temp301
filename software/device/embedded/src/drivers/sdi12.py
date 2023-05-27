@@ -46,9 +46,7 @@ SDI_TX = const(22)  # IO22 (physical pin 36)
 SDI_EN = const(2)  # IO2 (physical pin 24)
 SDI_FOUT = const(25)  # IO25 (physical pin 10)
 
-ADDR_QUERY_CMD = const(
-    "?!"
-)  # Can be sent with run_unaddressed_command() to query addresses of
+ADDR_QUERY_CMD = "?!"  # Can be sent with run_unaddressed_command() to query addresses of connected sensors
 
 log = logging.getLogger("sdi12")
 # Enable the following to set a log level specific to this module:
