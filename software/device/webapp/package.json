@@ -25,7 +25,8 @@
     "react-hook-form": "^6.0.4",
     "react-icons": "^3.10.0",
     "reactjs-popup": "^1.5.0",
-    "source-map-explorer": "^2.4.2"
+    "source-map-explorer": "^2.4.2",
+    "webpack": "^4.28.4"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.5",
@@ -41,7 +42,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
-    "jest": "^25.1.0",
+    "jest": "^24.9.0",
     "jest-preset-preact": "^1.0.0",
     "lint-staged": "^10.0.7",
     "preact-cli": "^3.0.0-next.19",
