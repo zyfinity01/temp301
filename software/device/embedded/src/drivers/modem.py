@@ -97,6 +97,8 @@ MATTERMOST_WEBHOOK = "https://mattermost.ecs.vuw.ac.nz/hooks/3g7p6bm3ojfijpigdoe
 
 MATTERMOST_SERVER = "https://mattermost.ecs.vuw.ac.nz"
 
+MATTERMOST_CHANNEL_PATH = "/engr301-2023/channels/group-3-data-recorder"
+
 
 class ModemTimeout(Exception):
     """Raised when modem commands time out"""
@@ -972,7 +974,7 @@ class Modem:
         return err
 
     # sending directly to mattermost
-    def http_publish(self, topic, message):
+    def http_publish(self, message):
         """publish a mqtt message
         Attributes:
             topic (str): a topic is the destination of the message
@@ -984,7 +986,12 @@ class Modem:
             True for send successful
         """
         # command = '{}"{}","{}"'.format("+UMQTTC=2,0,0,", topic, message)
-        command = '{}"{}","{}"'.format("+UMQTTC=2,0,0,", topic, message)
+        command = '{}"{}","{}"'.format(
+            "+UHTTPC=1,5,",
+            MATTERMOST_CHANNEL_PATH,
+            "telemetryData",
+            "Doms Straight to mattermost test",
+        )
         err = self.send_command_check(
             command, command_timeout=MODEM_MQTT_CONNECT_TIMEOUT
         )

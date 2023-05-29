@@ -556,7 +556,9 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
         bool: whether the transmission was successful
     """
     if modem.has_serial:
+        returnValue = True
         log.info("Start transmitting data...")
+
         modem.get_signal_power()
         modem.acquire_network()  # Proceed even if an IP address has not been acquired
         # Update the Cellular network RSSI
@@ -583,12 +585,28 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
             config_services.write_data_file(device_data)
         else:
             log.error("Failed to connect to the MQTT broker")
-            return False
+            returnValue = False
+
+        if modem.set_http_connection(
+            modem_driver.MATTERMOST_SERVER
+        ):  # If mattermost connected
+
+            modem.http_publish(str(json_result))
+            time.sleep(1)
+            # modem.mqtt_disconnect()   not sure if need to disconnect http connection
+
+            # Reset rainfall data buffer
+            device_data["rainfall"] = []
+            device_data["date_time"] = []
+            config_services.write_data_file(device_data)
+        else:
+            log.error("Failed to connect to Mattermost")
+            returnValue = False
     else:
         log.info("Modem has no network or no response. No transmission")
         return False
 
-    return True
+    return returnValue
 
 
 from services.webserver import WebServer
