@@ -452,15 +452,6 @@ async def pipeline(device_config: dict, device_data: dict):
     # Convert Datetime to ISO8601 compliant string
     sensor_merged_results["DateTime"] = isoformat(sensor_merged_results["DateTime"])
 
-    # FIXME Redundant code
-    # rain_gauge_results = [
-    #     {"r": device_data["rainfall"][i], "t": device_data["date_time"][i]}
-    #     for i in range(len(device_data["rainfall"]))
-    # ]
-
-    # # Make MQTT payload
-    # payload = {"wa": sensor_merged_results, "ra": rain_gauge_results}
-
     rainfall_data = 0
     for i in device_data["rainfall"]:
         rainfall_data += i
