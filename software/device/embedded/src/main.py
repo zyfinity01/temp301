@@ -573,9 +573,7 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
                 device_config["device_name"],
             )
             modem.mqtt_publish(topic, str(json_result))
-            # mqtt_services.publish(modem, topic, str(json_result))
             time.sleep(1)
-            # mqtt_services.disconnect(modem)
             modem.mqtt_disconnect()
             # Reset rainfall data buffer
             device_data["rainfall"] = []
