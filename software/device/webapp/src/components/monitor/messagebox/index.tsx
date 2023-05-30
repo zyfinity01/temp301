@@ -52,7 +52,7 @@ const wrapperStyle = {
 }
 
 const headerStyle = {
-    "backgroundColor": "#5c5c5c",
+    "backgroundColor": "var(--accent-colour)",
     "padding": "10px",
     "fontSize": "18px"
 }
