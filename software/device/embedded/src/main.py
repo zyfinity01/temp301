@@ -592,7 +592,7 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
             modem_driver.MATTERMOST_SERVER
         ):  # If mattermost connected
 
-            modem.http_publish(str(json_result))
+            modem.http_publish_mattermost(str(json_result))
             time.sleep(1)
             # modem.mqtt_disconnect()   not sure if need to disconnect http connection
 
