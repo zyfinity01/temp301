@@ -99,10 +99,14 @@ class TestModem(unittest.TestCase):
         connect = self.modem.http_connect()
         self.assertIn("OK", connect)
 
+        # connecting to mattermost through http
         connect_mattermost = self.modem.http_connect(modem_driver.MATTERMOST_SERVER)
         self.assertIn("OK", connect_mattermost)
+        # send data to test endpoint mattermost
+        postMatterMost = self.modem.http_publish_mattermost()
+        self.assertTrue(postMatterMost, "failed to send data")
 
-        # send data to test endpoint
+        # send data to test endpoint mmw
         post = self.modem.http_send(
             registration_token, sampling_feature, timestamp, data
         )

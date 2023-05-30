@@ -972,7 +972,7 @@ class Modem:
         return err
 
     # sending directly to mattermost
-    def http_publish(self, message):
+    def http_publish_mattermost(self, message):
         """publish a mqtt message
         Attributes:
             topic (str): a topic is the destination of the message
