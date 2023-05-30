@@ -249,8 +249,9 @@ def run_unaddressed_command(command: str, sdi: dict) -> str:
     # Waits for the command to send
     time.sleep_us(8333 * len(command))
     # Reads the response
+    sdi["dir_"](RX_DIR)
     r = uart.read()
-    return r1
+    return r
 
 
 def _wake_sensors(sdi: dict):
