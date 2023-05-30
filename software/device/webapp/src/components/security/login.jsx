@@ -1,6 +1,8 @@
 import { h } from 'preact';
 import { useState } from 'preact/hooks';
 
+import * as style from './style.css'
+
 export const Login = () => {
     const [username, setUsername] = useState('');
     const [pass, setPass] = useState('');
@@ -12,16 +14,23 @@ export const Login = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label for="username">Username:</label>
-            <input value={username} type="username" placeholder="Enter username..." id="username" name="username"/>
+        <div className={style.wholePage}>
+            <div className={style.loginContainter}>
+            <form className={style.loginForm} onSubmit={handleSubmit}>
+                <h1> Login </h1>
+                <label htmlFor="username">Username:</label>
+                <input value={username} type="username" placeholder="Enter username..." id="username" name="username"/>
 
-            <label for="password">Password:</label>
-            <input value={pass} type="password" placeholder="*******" id="password" name="password"/>
+                <label htmlFor="password">Password:</label>
+                <input value={pass} type="password" placeholder="*******" id="password" name="password"/>
 
-            <button>Log In</button>
+                <button>Log In</button>
 
-        </form>
+            </form>
+        </div>
+
+        </div>
+
     )
 
 }
