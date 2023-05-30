@@ -48,6 +48,8 @@ const App: FunctionalComponent = () => {
     const [currentTab, setCurrentTab] = React.useState(0);
     const [width, height] = useWindowSize();
 
+    const [isLoggedIn, setLoggedIn] = useState(false);
+
     const notyf = getNotyfContext();
 
     // Set up side-effect hooks which get data from the webserver.
@@ -144,6 +146,12 @@ const App: FunctionalComponent = () => {
     // just reset it back to the visualise screen if that happens.
     else if (currentTab == 4) {
         setCurrentTab(0);
+    }
+
+    if (!isLoggedIn) {
+        return (
+            <Login></Login>
+        )
     }
 
     return (
