@@ -31,6 +31,9 @@ import {useContext} from "preact/hooks";
 import { getNotyfContext } from "../util/notyfContext";
 import { FetchApiProvider } from "../util/apiClient";
 
+import { Login } from "./security/login"
+import { Register } from "./security/register"
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
     // tslint:disable-next-line:no-var-requires
