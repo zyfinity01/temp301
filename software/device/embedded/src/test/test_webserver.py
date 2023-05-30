@@ -107,7 +107,7 @@ class MonitorTests(unittest.TestCase):
 
     """
 
-    sdi = sdi12.init_sdi()
+    sdi = sdi12.init_sdi(0)
     device_config = config.read_config_file(
         "test/integration/device-config.test.json", sd=False
     )

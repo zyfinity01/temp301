@@ -53,10 +53,13 @@ log = logging.getLogger("sdi12")
 # log.setLevel(logging.DEBUG)
 
 
-def init_sdi() -> dict:
+def init_sdi(sensors_on: int) -> dict:
     """
     Creates an SDI-12 structure which contains the pins needed to communicate
     with the sensors.
+
+    Args:
+        sensors_on (int): whether the sensors should be switched on or off. 0 or 1
 
     The returned dict contains the keys:
     - uart: the UART driver
@@ -85,8 +88,8 @@ def init_sdi() -> dict:
         "en": Pin(SDI_EN, mode=Pin.OUT),
         "lock": asyn.Lock(),
     }
-    # make sure the sensors are asleep by default
-    sdi["en"].value(SLEEP)
+    # sets the sensors being on or off do the value requested
+    sdi["en"].value(sensors_on)
 
     return sdi
 

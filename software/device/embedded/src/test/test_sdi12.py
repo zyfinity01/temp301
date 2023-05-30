@@ -38,7 +38,7 @@ class TestSDI(unittest.TestCase):
     def __init__(self):
         """Init test"""
         super().__init__()
-        self.sdi = sdi12_driver.init_sdi()
+        self.sdi = sdi12_driver.init_sdi(0)
 
     @staticmethod
     def gen_sensor_data(
