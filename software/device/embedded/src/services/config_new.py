@@ -605,6 +605,6 @@ def read_data(file_name=DYNAMIC_DATA_FILE):
 def save_config(file_name, config):
     """Saves the config dictionary as json to the given file"""
 
-    with open(file_name, "w", encoding='utf-8') as handle:
+    with open(file_name, "w", encoding="utf-8") as handle:
         contents = json.dumps(config, indent=4)
         handle.write(contents)
