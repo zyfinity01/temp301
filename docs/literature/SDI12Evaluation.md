@@ -40,4 +40,14 @@ The 12V voltage line is required to provide between 9.6 and 16 volts, with respe
 
 There is no specified connector for SDI12 compliance, the current header we are using on the PCB allows for easy switching of sensors connected to the heading and is easy to extend to allow multiple sensor connections.
 
-## Communications Protocol
+## Communications Protocol/Software
+
+Two changes were made to the software as part of the SDI-12 evaluation.
+
+### Function to send arbitrary commands
+
+A function was added to the driver `sdi12.py` which could send any command on the SDI-12 line. The existing function for sending commands includes checks to make sure the command was prefixed with a sensor address. This means it couldn't be used to send the command "?!" which queried all sensors on the line for their addresses. The function being added means this command can be sent.
+
+### Stopping 12V line turning off during SDI-12 initialization
+
+The `init_sdi()` function was found to always turn off the sensors when it was called by turning off the 12V line. To keep the sensors powered, a constant 12V must be provided at all times. Furthermore, the `pipeline()` function in `main.py` was found to turn the sensors back on several lines after calling `init_sdi()`. The `init_sdi()` function was modified so that it could be passed a 0 or 1 to turn the 12V line and thus the sensors on or off. Wherever the `init_sdi()` function was called was replaced with `init_sdi(0)` to keep the behaviour the same, except for `pipeline()` where it was changed to `init_sdi(1)` to turn the sensors on from the start.
