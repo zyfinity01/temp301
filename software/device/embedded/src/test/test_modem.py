@@ -20,7 +20,7 @@ Test AT commands and network for modem
 
 import unittest
 from drivers import modem as modem_driver
-from services import config as config_services
+from services import config_new
 from util.time import isoformat
 
 import time
@@ -32,7 +32,7 @@ class TestModem(unittest.TestCase):
     def __init__(self):
         super().__init__()
         self.modem = modem_driver.Modem()
-        self.device_config = config_services.read_test_config_file()
+        self.device_config = config_new.read_config(config_new.TEST_CONFIG_FILE)
 
     def test_power_on(self):
         """Test if the power pin can wake up the modem."""
@@ -63,8 +63,8 @@ class TestModem(unittest.TestCase):
 
     def test_mqtt_setup_client(self):
         """Test setting up mqtt client"""
-        client_id = self.device_config["mqtt_settings"]["username"]
-        server = self.device_config["mqtt_settings"]["host"]
+        client_id = self.device_config.mqtt_settings.username
+        server = self.device_config.mqtt_settings.host
         self.modem.mqtt_reset()
         result = self.modem.mqtt_set_client(client_id, server)
         self.assertTrue(result, "Unable to set client")
@@ -76,9 +76,7 @@ class TestModem(unittest.TestCase):
 
     def test_publish(self):
         """Test publish mqtt message"""
-        topic = "test/environmentMonitoring/{}".format(
-            self.device_config["device_name"]
-        )
+        topic = "test/environmentMonitoring/{}".format(self.device_config.device_name)
         payload = '{"DateTime": "2021-12-08T10:12:33", "temperature": 0.0, "rainfall": 0, "flow": 0.0}'
         result = self.modem.mqtt_publish(topic, payload)
         self.assertTrue(result, "Unable to publish message")
