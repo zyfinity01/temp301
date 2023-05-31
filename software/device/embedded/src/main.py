@@ -388,7 +388,7 @@ async def pipeline(device_config: dict, device_data: dict, current_time: int):
     modem.initialise()
     sync_time(modem)
     # Initialise SDI-12 UART
-    sdi = sdi12_driver.init_sdi()
+    sdi = sdi12_driver.init_sdi(1)
     # Enable the following debug statement only when troubleshooting
     # SDI-12 driver problems:
     # log.debug("SDI-12 Driver: {0}".format(sdi))
@@ -404,7 +404,7 @@ async def pipeline(device_config: dict, device_data: dict, current_time: int):
 
     # filter sensors to ones that are "enabled"
     sensors_filtered = {name: data for name, data in sensors.items() if data["enabled"]}
-    wake_time = sdi12_driver.turn_on_sensors(sdi)
+    wake_time = time.time()
 
     log.debug("Wake time (seconds since epoch): {0}".format(wake_time))
 
@@ -608,7 +608,7 @@ def configure_mode():
 
     # start AP mode
     wlan_services.start_ap_mode(ssid="GWRC-{0}".format(device_config["device_id"]))
-    sdi = sdi12.init_sdi()
+    sdi = sdi12.init_sdi(0)
 
     # disable maintenance mode
     device_config["maintenance_mode"] = False

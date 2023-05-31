@@ -46,15 +46,20 @@ SDI_TX = const(22)  # IO22 (physical pin 36)
 SDI_EN = const(2)  # IO2 (physical pin 24)
 SDI_FOUT = const(25)  # IO25 (physical pin 10)
 
+ADDR_QUERY_CMD = "?!"  # Can be sent with run_unaddressed_command() to query addresses of connected sensors
+
 log = logging.getLogger("sdi12")
 # Enable the following to set a log level specific to this module:
 # log.setLevel(logging.DEBUG)
 
 
-def init_sdi() -> dict:
+def init_sdi(sensors_on: int) -> dict:
     """
     Creates an SDI-12 structure which contains the pins needed to communicate
     with the sensors.
+
+    Args:
+        sensors_on (int): whether the sensors should be switched on or off. 0 or 1
 
     The returned dict contains the keys:
     - uart: the UART driver
@@ -83,8 +88,8 @@ def init_sdi() -> dict:
         "en": Pin(SDI_EN, mode=Pin.OUT),
         "lock": asyn.Lock(),
     }
-    # make sure the sensors are asleep by default
-    sdi["en"].value(SLEEP)
+    # sets the sensors being on or off do the value requested
+    sdi["en"].value(sensors_on)
 
     return sdi
 
@@ -220,6 +225,34 @@ async def run_command(command: str, sdi: dict, wake_time: int = 0) -> str:
     sensor = {"bootup_time": 5}
 
     return await _send_cmd(command, sensor, sdi, wake_time)
+
+
+def run_unaddressed_command(command: str, sdi: dict) -> str:
+    """
+    Run any command, and does not require an address unlike run_command(). Can be used to query addresses of all sensors, which nessecitates no address being sent. Will also turn on all the sensors.
+
+    Args:
+        command (str): the command to be sent/
+        sdi (dict): The SDI-12 structure.
+    Returns:
+        str: The raw response from the sensor.
+    """
+    # Wakes all sensors
+    _wake_sensors(sdi)
+    # Sets direction to transmitting
+    sdi["dir_"](TX_DIR)
+    uart = sdi["uart"]
+    # Clears the buffer
+    uart.read()
+    # Sends the command
+    uart.write(command)
+    # Waits for the command to send
+    time.sleep_us(8333 * len(command))
+    # Reads the response
+    sdi["dir_"](RX_DIR)
+    time.sleep_ms(1000)
+    r = uart.read()
+    return r
 
 
 def _wake_sensors(sdi: dict):
