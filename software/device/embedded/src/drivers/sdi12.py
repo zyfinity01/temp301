@@ -250,6 +250,7 @@ def run_unaddressed_command(command: str, sdi: dict) -> str:
     time.sleep_us(8333 * len(command))
     # Reads the response
     sdi["dir_"](RX_DIR)
+    time.sleep_ms(1000)
     r = uart.read()
     return r
 
