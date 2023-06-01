@@ -56,6 +56,8 @@ const App: FunctionalComponent = () => {
         coverage_level: 100,
         failed_transmissions: 0,
         free_sd_space: 0,
+        rainfall: [],
+        date_time: []
     });
 
     const [deviceConfig, setDeviceConfig] = React.useState<deviceConfigType>({
@@ -78,7 +80,9 @@ const App: FunctionalComponent = () => {
         first_send_at_date: "",
         first_send_at_time: "",
         first_send_at: 0,
-        send_interval: 0,
+        last_send_at_date: "",
+        last_send_at_time: "",
+        last_send_at: 0,
         rain_gauge: LOADING_NOTICE,
         water_level: 50,
     });

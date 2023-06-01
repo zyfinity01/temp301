@@ -21,6 +21,8 @@ export type deviceDataType = {
     coverage_level: number;
     failed_transmissions: number;
     free_sd_space: number;
+    rainfall: number[];
+    date_time: number[];
 }
 
 export type deviceConfigType = {
@@ -48,12 +50,15 @@ export type deviceHistoryType = {
     device_id: string;
     rain_gauge: string;
     water_level: number;
-    send_interval: number;
 
     // Store date+time as string in frontend
     first_send_at_date: string;
     first_send_at_time: string;
     first_send_at: number;
+
+    last_send_at_date: string;
+    last_send_at_time: string;
+    last_send_at: number;
 }
 
 export type SDISensorType = {

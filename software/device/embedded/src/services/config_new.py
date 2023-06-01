@@ -286,7 +286,6 @@ class BaseConfig:
     __mqtt_settings = "mqtt_settings"
     __mmw_settings = "mmw_settings"
     __sdi12_sensors = "sdi12_sensors"
-    __water_sensor = "water_sensor"
 
     def __init__(self, config):
         __default_config = {

@@ -44,9 +44,10 @@ const AddSensorModal: FunctionalComponent = (props) => {
         <Popup trigger={<button className={style.bigButton}>Add SDI-12 Sensor</button>}
                position="top center"
                closeOnDocumentClick>
-            <div>
-                <h3>Create New Sensor</h3>
-                <small>(Letters, numbers and underscores only)</small>
+            <div className={style.addSensor}>
+                <h3 style="margin-top: 3px;">Create New Sensor</h3>
+                <small style="padding: 5px;">(Letters, numbers and underscores only)</small>
+                <p></p>
                 <form onSubmit={handleSubmit}>
                     <input className={componentStyle.name}
                            type="text"

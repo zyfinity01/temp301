@@ -15,6 +15,7 @@
 
 import { FunctionalComponent, h } from "preact";
 import * as style from "./style.css";
+import DarkModeToggle from "./dark_mode_toggle";
 
 type PropTypes = {
     deviceName: string;
@@ -26,6 +27,7 @@ const Header: FunctionalComponent<PropTypes> = ({deviceName, deviceID}) => {
 
     return (
         <div class={style.header}>
+            <DarkModeToggle />
             <h1>{deviceName}</h1>
             <h3>{deviceID}</h3>
         </div>
