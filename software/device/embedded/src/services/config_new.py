@@ -602,6 +602,18 @@ def read_data(file_name=DYNAMIC_DATA_FILE):
         return DataConfig(file_name, data)
 
 
+def compare_config(default_config, new_config):
+    """Compares the default config with the new config and updates the default config with the new config"""
+    for key, value in new_config.items():
+        if isinstance(value, dict):
+            if key not in default_config:
+                default_config[key] = {}
+            compare_config(default_config[key], value)
+        else:
+            default_config[key] = value
+    return default_config
+
+
 def save_config(file_name, config):
     """Saves the config dictionary as json to the given file"""
 
