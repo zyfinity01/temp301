@@ -362,7 +362,7 @@ class BaseConfig:
                 },
             },
         }
-        self.config = compare_config(__default_config, config)
+        self.config = merge_config(__default_config, config)
         self.file_name = file_name
 
     def save(self):
@@ -652,13 +652,13 @@ def read_data(file_name=DYNAMIC_DATA_FILE):
         return DataConfig(file_name, data)
 
 
-def compare_config(default_config, new_config):
-    """Compares the default config with the new config and updates the default config with the new config"""
+def merge_config(default_config, new_config):
+    """Merges the default config with the new config recursively"""
     for key, value in new_config.items():
         if isinstance(value, dict):
             if key not in default_config:
                 default_config[key] = {}
-            compare_config(default_config[key], value)
+            merge_config(default_config[key], value)
         else:
             default_config[key] = value
     return default_config
