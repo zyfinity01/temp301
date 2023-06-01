@@ -313,36 +313,36 @@ class BaseConfig:
 
     def __init__(self, file_name, config):
         __default_config = {
-            __version: "2.0.0",
-            __device_name: "Data Recorder",
-            __device_id: "00000000-0000-0000-0000-000000000000",
-            __hw_revision: "4.0",
-            __send_interval: 60,
-            __first_send_at: 0,
-            __wifi_ssid: "ssid",
-            __wifi_password: "password",
-            __maintenance_mode: False,
-            __test_mode: False,
-            __mqtt_settings: {
+            self.__version: "2.0.0",
+            self.__device_name: "Data Recorder",
+            self.__device_id: "00000000-0000-0000-0000-000000000000",
+            self.__hw_revision: "4.0",
+            self.__send_interval: 60,
+            self.__first_send_at: 0,
+            self.__wifi_ssid: "ssid",
+            self.__wifi_password: "password",
+            self.__maintenance_mode: False,
+            self.__test_mode: False,
+            self.__mqtt_settings: {
                 MqttConfig.__host: "test.mosquitto.org",
                 MqttConfig.__port: 1883,
                 MqttConfig.__username: "username",
                 MqttConfig.__password: "password",
                 MqttConfig.__parent_topic: "test/environmentMonitoring",
             },
-            __mmw_settings: {
+            self.__mmw_settings: {
                 MmwConfig.__auth_token: "abcdef",
                 MmwConfig.__sampling_feature: "abcdef",
             },
-            __sdi12_sensors: {
-                __water_sensor: [
-                    {
-                        WaterSensorConfig.__enabled: True,
-                        WaterSensorConfig.__address: "1",
-                        WaterSensorConfig.__bootup_time: "0",
-                        WaterSensorConfig.__record_interval: "10",
-                        WaterSensorConfig.__first_record_at: "0",
-                        WaterSensorConfig.__readings: {
+            self.__sdi12_sensors: {
+                self.__water_sensor: {
+                    WaterSensorConfig.__enabled: True,
+                    WaterSensorConfig.__address: "1",
+                    WaterSensorConfig.__bootup_time: "0",
+                    WaterSensorConfig.__record_interval: "10",
+                    WaterSensorConfig.__first_record_at: "0",
+                    WaterSensorConfig.__readings: [
+                        {
                             ReadingConfig.__reading: "flow",
                             ReadingConfig.__index: "1",
                             ReadingConfig.__multiplier: "1",
@@ -350,20 +350,20 @@ class BaseConfig:
                             ReadingConfig.__unit: "mm/s",
                             ReadingConfig.__uuid: "uuid",
                         },
-                    },
-                    {
-                        ReadingConfig.__reading: "temperature",
-                        ReadingConfig.__index: "2",
-                        ReadingConfig.__multiplier: "1",
-                        ReadingConfig.__offset: "0",
-                        ReadingConfig.__unit: "c",
-                        ReadingConfig.__uuid: "uuid",
-                    },
-                ]
+                        {
+                            ReadingConfig.__reading: "temperature",
+                            ReadingConfig.__index: "2",
+                            ReadingConfig.__multiplier: "1",
+                            ReadingConfig.__offset: "0",
+                            ReadingConfig.__unit: "c",
+                            ReadingConfig.__uuid: "uuid",
+                        },
+                    ],
+                },
             },
         }
+        self.config = compare_config(__default_config, config)
         self.file_name = file_name
-        self.config = config
 
     def save(self):
         """Save the base config"""
