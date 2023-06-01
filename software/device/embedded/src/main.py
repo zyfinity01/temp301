@@ -243,6 +243,9 @@ def set_client():
     modem.power_off()
 
 
+import asyncio
+
+
 def regular_mode(device_config=None, device_data=None):
     """
     Enter Regular Mode.
@@ -254,63 +257,47 @@ def regular_mode(device_config=None, device_data=None):
         device_config (dict): device configuration dictionary
     """
     current_time = time.time()
-
     log.info("Entering Regular Mode")
 
     # Turn on red LED while in Regular Mode
     Pin(LED_RED_PIN, Pin.OUT, value=0)
 
-    if device_config is None:
-        device_config = config_services.read_config_file()
-        # Enable the following debug statement only when troubleshooting
-        # config.json problems:
-        # log.debug("Config loaded: {0}".format(device_config))
-
-    if device_data is None:
-        device_data = config_services.read_data_file()
-        # Enable the following debug statement only when troubleshooting
-        # data.json problems:
-        # log.debug("Data loaded: {0}".format(device_data))
+    # Fetch device configuration if not provided
+    device_config = device_config or config_services.read_config_file()
+    # Fetch device data if not provided
+    device_data = device_data or config_services.read_data_file()
 
     # Create a Counter object
     rain_counter = counter_driver.Counter()
-
     rainfall = rain_counter.get_rainfall()
 
     # Check schedule (if raining change interval to 5 minutes else 60 minutes)
-    if rainfall > 0:
-        device_data["rainfall"].append(rainfall)
-        device_data["date_time"].append(time.time())
-        # Enable the following debug statement only when troubleshooting
-        # data.json problems:
-        # log.debug("Data amended with rainfall count: {0}".format(device_data))
-        should_transmit = scheduler_services.should_transmit(
-            current_time,
-            device_data["last_transmitted"],
-            device_config["send_interval"] * FIVE_MINUTES,
-        )
-    else:
-        should_transmit = scheduler_services.should_transmit(
-            current_time,
-            device_data["last_transmitted"],
-            device_config["send_interval"] * SIXTY_MINUTES,
-        )
+    interval_minutes = 5 if rainfall > 0 else 60
+    interval_seconds = interval_minutes * 60
+
+    # Append rainfall and current time to device data
+    device_data["rainfall"].append(rainfall)
+    device_data["date_time"].append(current_time)
+
+    # Determine if transmission should occur based on schedule
+    should_transmit = scheduler_services.should_transmit(
+        current_time,
+        device_data["last_transmitted"],
+        device_config["send_interval"] * interval_seconds,
+    )
 
     if should_transmit:
-        # The following should be moved to the pipeline() function (#650)
-        # Set last send time
+        # Run the pipeline asynchronously to transmit data
         loop = asyncio.get_event_loop()
         try:
             loop.run_until_complete(pipeline(device_config, device_data, current_time))
-        # catch any errors here to ensure the event loop doesn't stop
         except (RuntimeError, TypeError, ValueError) as e:
             if not device_config["test_mode"]:
+                # Log the error and handle exceptions
                 log.critical("An error occurred in the pipeline: {0}".format(e))
                 if not PRODUCTION:
                     try:
-                        # Sleep for a few seconds to give an opportunity to cancel
-                        # deep sleep. Console-only message, do not write to
-                        # the log.
+                        # Provide an opportunity to cancel deep sleep
                         print(
                             "\nDeep sleeping in {0} seconds.".format(
                                 DEEP_SLEEP_WAIT_PERIOD
@@ -321,6 +308,7 @@ def regular_mode(device_config=None, device_data=None):
                         )
                         time.sleep(DEEP_SLEEP_WAIT_PERIOD)
                     except KeyboardInterrupt:
+                        # Prompt user with options upon interruption
                         print("Enter `regular_mode()` to take a sensor reading.")
                         print("Enter `configure_mode()` to start the webserver.")
                         print(
@@ -333,29 +321,25 @@ def regular_mode(device_config=None, device_data=None):
                     )
                 )
                 deepsleep(DEEP_SLEEP_PERIOD)
-            pass
     else:
-        # !!! Note: pipeline() also turns off the LED and enters deep sleep.
-        # !!! Rationalise via #658.
         # Turn off red LED
         Pin(LED_RED_PIN, Pin.IN, None)
         if not PRODUCTION:
             try:
-                # Sleep for a few seconds to give an opportunity to cancel
-                # deep sleep. Console-only message, do not write to
-                # the log.
+                # Provide an opportunity to cancel deep sleep
                 print("\nDeep sleeping in {0} seconds.".format(DEEP_SLEEP_WAIT_PERIOD))
                 print(
                     "Press Ctrl-C to exit to the MicroPython interactive shell instead.\n"
                 )
                 time.sleep(DEEP_SLEEP_WAIT_PERIOD)
             except KeyboardInterrupt:
+                # Prompt user with options upon interruption
                 print("Enter `regular_mode()` to take a sensor reading.")
                 print("Enter `configure_mode()` to start the webserver.")
                 print("Enter `deepsleep(ms)` to deep sleep for `ms` milliseconds.\n")
                 sys.exit()
 
-        # Sleep for enough time to make the next reading
+        # Calculate sleep time based on schedule and available sensors
         sleep_time = scheduler_services.calculate_sleep_time(
             int(time.time()), config_services.get_sensors(device_config)
         )
