@@ -21,6 +21,8 @@ export type deviceDataType = {
     coverage_level: number;
     failed_transmissions: number;
     free_sd_space: number;
+    rainfall: number[];
+    date_time: number[];
 }
 
 export type deviceConfigType = {
