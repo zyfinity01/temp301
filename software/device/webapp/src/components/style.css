@@ -1,20 +1,27 @@
 /*CSS shared by multiple components and app.tsx styles goes here*/
 
 
-form input, textarea{
+form input, textarea, select {
     padding: 0.5em 0.6em;
     display: inline-block;
     border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
+    box-shadow: inset 0 1px 3px var(--shadow-colour);
     border-radius: 4px;
+    border: 0;
+    padding: 0.8em;
+    /* box-shadow: inset 0 1px 3px #ddd; */
+    border-radius: 8px;
     vertical-align: middle;
     box-sizing: border-box;
     flex-grow: 1;
+    background-color: var(--mid-colour);
+    color: var(--fg-colour);
 }
+
 
 form input:focus {
     outline: 0;
-    border-color: #129FEA;
+    border-color: var(--accent-colour);
 }
 
 fieldset {
@@ -46,8 +53,8 @@ fieldset {
     margin-top: 10px; */
     padding: 0.5em 0.6em;
     display: inline-block;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 3px #ddd;
+    border: 1px solid #747474;
+    box-shadow: inset 0 1px 3px var(--shadow-colour);
     border-radius: 4px;
     vertical-align: middle;
     box-sizing: border-box;
@@ -76,7 +83,7 @@ fieldset {
     border: none;
     border-radius: 10px !important;
     box-shadow: none;
-    background-color: #0d99a5;
+    background-color: var(--accent-colour);
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -85,7 +92,12 @@ fieldset {
 }
 
 .bigButton:hover {
-    background-color: #0d82a6;
+    background-color: var(--light-accent-colour);
+}
+
+.addSensor{
+    background-color: rgba(185, 213, 215, 0.5);
+    color: rgb(73, 77, 77);
 }
 
 /* MODEM BUTTON */
@@ -163,3 +175,17 @@ fieldset {
     background-color: #e6e6e6;
     border-color: #999;
   }
+
+  .switchTheme{
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    display: block;
+    width: fit-content;
+    cursor: pointer;
+    background: var(--light-accent-colour);
+    border-radius: 30em;
+    padding: 1em 1em;
+    font-size: 0.75em;
+
+}

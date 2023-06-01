@@ -3,10 +3,10 @@ html, body {
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	background: #FAFAFA;
+	background: var(--bg-colour);
 	font-family: 'Helvetica Neue', arial, sans-serif;
 	font-weight: 400;
-	color: #444;
+	color: var(--text-colour);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -21,4 +21,32 @@ html, body {
 
 h1, h2, h3 {
 	text-align: center;
+}
+
+:root{
+	--fg-colour: #000000;
+	--h1-colour: #000000;
+	--light-colour: #bbd6d8;
+	--mid-colour: #b0ced1;
+	--card-colour: #a2c4c7;
+	--bg-colour: #ffffff;
+	--accent-colour: #469ea7;
+	--light-accent-colour: #53b4bc;
+	--text-colour: #444;
+	--shadow-colour: #ddd;
+	--graph-colour: #87c9c6;
+}
+
+[colour-theme="dark"] {
+	--fg-colour: #cbcbcb;
+	--h1-colour: #ffffff;
+	--light-colour: #72989b;
+	--mid-colour: #222d2f;
+	--card-colour: #213336;
+	--bg-colour: #191c1c;
+	--accent-colour: #145257;
+	--light-accent-colour: #2e6e73;
+	--text-colour: #c6c6c6;
+	--shadow-colour: #000000;
+	--graph-colour: #5a8280;
 }

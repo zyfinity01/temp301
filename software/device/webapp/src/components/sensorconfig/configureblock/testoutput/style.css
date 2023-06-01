@@ -14,7 +14,7 @@
     padding: 10px;
     border: none;
     box-shadow: none;
-    background-color: #0d99a5;
+    background-color: var(--accent-color);
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -25,10 +25,10 @@
 .testButton {
     float: left;
     padding: 10px;
-    border: #0d99a5 1px solid;
+    border: var(--accent-color) 1px solid;
     box-shadow: none;
-    background-color: white;
-    color: #0d99a5;
+    background-color: var(--light-color);
+    color: var(--accent-color);
     font-size: 18px;
     cursor: pointer;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
