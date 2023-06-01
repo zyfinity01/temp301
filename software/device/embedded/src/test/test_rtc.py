@@ -54,13 +54,13 @@ class TestRTC(unittest.TestCase):
         """Test get network time from modem."""
         result = self.modem.get_network_time()
         print("Time from network rtc: ", result)
-            
+
     def compare_local_to_network_before_sync(self):
         """compare local time to network time"""
         local = self.ex_rtc.get_local_time()
-        modem = self.modem.get_network_time() 
-        difference = local-modem
-        if (abs(difference) > 1):
+        modem = self.modem.get_network_time()
+        difference = local - modem
+        if abs(difference) > 1:
             print("Difference is outside of acceptable error margin")
             print("Local time minus modem time is", difference)
 
@@ -70,16 +70,16 @@ class TestRTC(unittest.TestCase):
         self.ex_rtc.set_local_time(network_time)
         result = self.ex_rtc.get_local_time()
         print("Time from local rtc now is : ", result)
-        
+
     def compare_local_to_network_after_sync(self):
         """compare local time to network time"""
         local = self.ex_rtc.get_local_time()
-        modem = self.modem.get_network_time() 
-        difference = local-modem
-        if (abs(difference) > 1):
+        modem = self.modem.get_network_time()
+        difference = local - modem
+        if abs(difference) > 1:
             print("Difference is outside of acceptable error margin")
             print("Local time minus modem time is", difference)
-        
+
     def test_sync_external_rtc_w_network(self):
         """sync the external rtc with network time ."""
         network_time = self.modem.get_network_time()
@@ -92,7 +92,7 @@ class TestRTC(unittest.TestCase):
         self.ex_rtc.sync_rtc_time()
         result = self.ex_rtc.get_local_time()
         print("Time from local rtc now is : ", result)
-		
+
     def test_timezone(self):
         """test the timezone of rtc clock"""
         seconds = utime.timezone()
