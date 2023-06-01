@@ -60,7 +60,7 @@ class TestRTC(unittest.TestCase):
         self.ex_rtc.set_local_time(network_time)
         result = self.ex_rtc.get_local_time()
         print("Time from local rtc now is : ", result)
-
+        
     def test_sync_external_rtc_w_network(self):
         """sync the external rtc with network time ."""
         network_time = self.modem.get_network_time()
@@ -73,6 +73,12 @@ class TestRTC(unittest.TestCase):
         self.ex_rtc.sync_rtc_time()
         result = self.ex_rtc.get_local_time()
         print("Time from local rtc now is : ", result)
+		
+    def test_timezone(self):
+        """test the timezone of rtc clock"""
+        seconds = utime.timezone()
+        hours = seconds / 3600
+        print("Timezone is utc+", hours)
 
 
 if __name__ == "__main__":
