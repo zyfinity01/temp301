@@ -90,6 +90,7 @@ from services import wlan as wlan_services
 
 from util.time import isoformat
 from util.buildinfo import log_build_info
+from util import helpers
 
 # TRACE-level debugging only:
 # log.debug("Completed module and library imports")
@@ -110,6 +111,8 @@ SERVER_STOP_WAIT_PERIOD = 5000
 
 # Recovery constants
 RECOVERY_TRANSMISSION_COUNT = 3
+MAX_RETRANSMIT_CACHE_SIZE = 1000 * 1000
+
 
 # Allocate emergency ISR buffer - https://docs.micropython.org/en/latest/reference/isr_rules.html
 alloc_emergency_exception_buf(100)
@@ -459,6 +462,18 @@ async def pipeline(device_config: dict, device_data: dict, current_time: int):
     ):
         # attempt to transmit some failed transmissions
         for itt in range(RECOVERY_TRANSMISSION_COUNT):
+            # if the file is too big
+            if (
+                helpers.get_file_size(
+                    sdcard_driver.REQUEUE_FILE + sdcard_driver.FILETYPE
+                )
+                > MAX_RETRANSMIT_CACHE_SIZE
+            ):
+                log.warning(
+                    "Transmission cache full! Transmissions will have to be read manually!\n\t"
+                )
+                break
+
             # get failed transmission if any are remaining
             failed_transmission = sdcard_driver.read_failed_transmission()
             if failed_transmission is None:
