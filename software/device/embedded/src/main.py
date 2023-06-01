@@ -587,9 +587,8 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
             log.error("Failed to connect to the MQTT broker")
             returnValue = False
 
-        if modem.set_http_connection(
-            modem_driver.MATTERMOST_SERVER
-        ):  # If mattermost connected
+        # If mattermost connected
+        if modem.set_http_connection(modem_driver.MATTERMOST_SERVER):
 
             modem.http_publish_mattermost(str(json_result))
             time.sleep(1)
@@ -601,9 +600,12 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
             config_services.write_data_file(device_data)
         else:
             log.error("Failed to connect to Mattermost")
-            returnValue = False
-    else:
+            # Add this line when comfortable it works, or else might screw up everything
+            # returnValue = False
+
         log.info("Modem has no network or no response. No transmission")
+
+    else:
         return False
 
     return returnValue
