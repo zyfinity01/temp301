@@ -106,20 +106,31 @@ const App: FunctionalComponent = () => {
             const dataPromise = fetchDeviceData()
                 .then(data => {
                     setDeviceData(data);
+                })
+                .catch(err => {
+                    console.error(err);
                 });
 
             const configPromise = fetchDeviceConfig()
                 .then(config => {
                     setDeviceConfig(config);
+                })
+                .catch(err => {
+                    console.error(err);
                 });
 
-            await Promise.all([dataPromise, configPromise]);
-
-            setLoading(false);
+            try {
+                await Promise.all([dataPromise, configPromise]);
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
         }
 
         fetchDataAndConfig();
     }, []);
+
 
 
     const tabClick = (tab: number) => {
