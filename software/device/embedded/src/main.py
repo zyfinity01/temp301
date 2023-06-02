@@ -18,7 +18,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Executed on startup directly after boot.py
 """
 import sys
-from typing import Any, Callable
 
 # Change the module search order by modifying `sys.path`. The entry
 # `""` specifies frozen bytecode. By moving this entry to the end
@@ -30,6 +29,12 @@ if len(sys.path) > 0 and sys.path[0] == "":
     sys.path.append(sys.path.pop(0))
 
 import logging
+
+# threading module is used to enable concurent execution of the time synchronizing process, by creating a seperate thread for the sync task. Thus, code can keep running other tasks without sync to complete. Hence, the device will stay responsive
+import threading
+
+# importing rtc(Real time clock) from drivers for needed functions in time module
+from drivers import rtc as rtc_driver
 
 # Set global log level
 # logging._level = logging.INFO
@@ -85,6 +90,7 @@ from services import wlan as wlan_services
 
 from util.time import isoformat
 from util.buildinfo import log_build_info
+from util import helpers
 
 # TRACE-level debugging only:
 # log.debug("Completed module and library imports")
@@ -105,6 +111,8 @@ SERVER_STOP_WAIT_PERIOD = 5000
 
 # Recovery constants
 RECOVERY_TRANSMISSION_COUNT = 3
+MAX_RETRANSMIT_CACHE_SIZE = 1000 * 1000
+
 
 # Allocate emergency ISR buffer - https://docs.micropython.org/en/latest/reference/isr_rules.html
 alloc_emergency_exception_buf(100)
@@ -169,42 +177,57 @@ async def stop_server(server, sensors):
 
 def sync_time(modem):
     """Function to calibrate local time using modem or external RTC"""
-    from drivers import rtc as rtc_driver
-
     rtc = rtc_driver.rtc()
 
-    try:
-        if modem.has_network:
-            network_time = modem.get_network_time()
-            time_start = time.ticks_ms()
-            network_mktime = time.mktime(network_time)
-            internal_RTC_offset = time.mktime(rtc.get_local_time()) - network_mktime
-            external_RTC_offset = time.mktime(rtc.get_ex_rtc_time()) - network_mktime
-            log.debug("Internal RTC offset {:+d} s".format(internal_RTC_offset))
-            if abs(internal_RTC_offset) > 1:
-                rtc.set_local_time(network_time)
-                log.info("Synchronised internal RTC with network time")
-            log.debug("External RTC offset {:+d} s".format(external_RTC_offset))
-            if abs(external_RTC_offset) > 1:
-                rtc.set_ex_rtc_time(network_time)
-                log.info("Synchronised external RTC with network time")
-        else:
-            log.info("Synchronising time with external RTC module")
-            internal_RTC_offset = time.mktime(rtc.get_local_time()) - time.mktime(
-                rtc.get_ex_rtc_time()
-            )
-            log.debug(
-                "Internal RTC offset from external RTC module {:+d} s".format(
-                    internal_RTC_offset
-                )
-            )
-            if abs(internal_RTC_offset) > 0:
-                rtc.sync_rtc_time()
-    except OSError:
-        log.info("Failed to set time (OSError)")
+    def sync_rtc():  # new function that encapsulates existing time function and is designed to run on a seperate thread
+        while True:
+            try:
+                current_timezone = (
+                    time.timezone // 3600
+                )  # Get the current timezone in hours
+                if current_timezone == 12:
+                    if modem.has_network:
+                        network_time = modem.get_network_time()
+                        time_start = time.ticks_ms()
+                        network_mktime = time.mktime(network_time)
+                        internal_RTC_offset = (
+                            time.mktime(rtc.get_local_time()) - network_mktime
+                        )
+                        external_RTC_offset = (
+                            time.mktime(rtc.get_ex_rtc_time()) - network_mktime
+                        )
+                        print("Internal RTC offset {:+d} s".format(internal_RTC_offset))
+                        if abs(internal_RTC_offset) > 1:
+                            rtc.set_local_time(network_time)
+                            print("Synchronized internal RTC with network time")
+                        print("External RTC offset {:+d} s".format(external_RTC_offset))
+                        if abs(external_RTC_offset) > 1:
+                            rtc.set_ex_rtc_time(network_time)
+                            print("Synchronized external RTC with network time")
+                    else:
+                        print("Synchronizing time with external RTC module")
+                        internal_RTC_offset = time.mktime(
+                            rtc.get_local_time()
+                        ) - time.mktime(rtc.get_ex_rtc_time())
+                        print(
+                            "Internal RTC offset from external RTC module {:+d} s".format(
+                                internal_RTC_offset
+                            )
+                        )
+                        if abs(internal_RTC_offset) > 0:
+                            rtc.sync_rtc_time()
+                else:
+                    print("Device timezone is not set to UTC+12")
+            except OSError:
+                print("Failed to set time (OSError)")
 
-    # Don't really need this because the log datestamp shows the local time
-    # log.info("Local time: {0} NZST".format(isoformat(time.localtime(), sep=" ")))
+            # Sleep for 1 hour before running the synchronization again
+            time.sleep(3600)
+
+    # Create a thread to run the synchronization process
+    sync_thread = threading.Thread(target=sync_rtc)
+    sync_thread.daemon = True  # Allow the program to exit even if the thread is running
+    sync_thread.start()
 
 
 def set_client():
@@ -223,6 +246,9 @@ def set_client():
     modem.power_off()
 
 
+import asyncio
+
+
 def regular_mode(device_config=None, device_data=None):
     """
     Enter Regular Mode.
@@ -234,66 +260,47 @@ def regular_mode(device_config=None, device_data=None):
         device_config (dict): device configuration dictionary
     """
     current_time = time.time()
-
     log.info("Entering Regular Mode")
 
     # Turn on red LED while in Regular Mode
     Pin(LED_RED_PIN, Pin.OUT, value=0)
 
-    if device_config is None:
-        device_config = config_services.read_config_file()
-        # Enable the following debug statement only when troubleshooting
-        # config.json problems:
-        # log.debug("Config loaded: {0}".format(device_config))
-
-    if device_data is None:
-        device_data = config_services.read_data_file()
-        # Enable the following debug statement only when troubleshooting
-        # data.json problems:
-        # log.debug("Data loaded: {0}".format(device_data))
+    # Fetch device configuration if not provided
+    device_config = device_config or config_services.read_config_file()
+    # Fetch device data if not provided
+    device_data = device_data or config_services.read_data_file()
 
     # Create a Counter object
     rain_counter = counter_driver.Counter()
-
     rainfall = rain_counter.get_rainfall()
 
     # Check schedule (if raining change interval to 5 minutes else 60 minutes)
-    if rainfall > 0:
-        device_data["rainfall"].append(rainfall)
-        device_data["date_time"].append(time.time())
-        # Enable the following debug statement only when troubleshooting
-        # data.json problems:
-        # log.debug("Data amended with rainfall count: {0}".format(device_data))
-        should_transmit = scheduler_services.should_transmit(
-            current_time,
-            device_data["last_transmitted"],
-            device_config["send_interval"] * FIVE_MINUTES,
-        )
-    else:
-        should_transmit = scheduler_services.should_transmit(
-            current_time,
-            device_data["last_transmitted"],
-            device_config["send_interval"] * SIXTY_MINUTES,
-        )
+    interval_minutes = 5 if rainfall > 0 else 60
+    interval_seconds = interval_minutes * 60
+
+    # Append rainfall and current time to device data
+    device_data["rainfall"].append(rainfall)
+    device_data["date_time"].append(current_time)
+
+    # Determine if transmission should occur based on schedule
+    should_transmit = scheduler_services.should_transmit(
+        current_time,
+        device_data["last_transmitted"],
+        device_config["send_interval"] * interval_seconds,
+    )
 
     if should_transmit:
-        # The following should be moved to the pipeline() function (#650)
-        # Set last send time
-        device_data["last_transmitted"] = current_time
-        config_services.write_data_file(device_data)
-        log.debug("Set last_transmitted {:d}".format(current_time))
+        # Run the pipeline asynchronously to transmit data
         loop = asyncio.get_event_loop()
         try:
-            loop.run_until_complete(pipeline(device_config, device_data))
-        # catch any errors here to ensure the event loop doesn't stop
+            loop.run_until_complete(pipeline(device_config, device_data, current_time))
         except (RuntimeError, TypeError, ValueError) as e:
             if not device_config["test_mode"]:
+                # Log the error and handle exceptions
                 log.critical("An error occurred in the pipeline: {0}".format(e))
                 if not PRODUCTION:
                     try:
-                        # Sleep for a few seconds to give an opportunity to cancel
-                        # deep sleep. Console-only message, do not write to
-                        # the log.
+                        # Provide an opportunity to cancel deep sleep
                         print(
                             "\nDeep sleeping in {0} seconds.".format(
                                 DEEP_SLEEP_WAIT_PERIOD
@@ -304,6 +311,7 @@ def regular_mode(device_config=None, device_data=None):
                         )
                         time.sleep(DEEP_SLEEP_WAIT_PERIOD)
                     except KeyboardInterrupt:
+                        # Prompt user with options upon interruption
                         print("Enter `regular_mode()` to take a sensor reading.")
                         print("Enter `configure_mode()` to start the webserver.")
                         print(
@@ -316,29 +324,25 @@ def regular_mode(device_config=None, device_data=None):
                     )
                 )
                 deepsleep(DEEP_SLEEP_PERIOD)
-            pass
     else:
-        # !!! Note: pipeline() also turns off the LED and enters deep sleep.
-        # !!! Rationalise via #658.
         # Turn off red LED
         Pin(LED_RED_PIN, Pin.IN, None)
         if not PRODUCTION:
             try:
-                # Sleep for a few seconds to give an opportunity to cancel
-                # deep sleep. Console-only message, do not write to
-                # the log.
+                # Provide an opportunity to cancel deep sleep
                 print("\nDeep sleeping in {0} seconds.".format(DEEP_SLEEP_WAIT_PERIOD))
                 print(
                     "Press Ctrl-C to exit to the MicroPython interactive shell instead.\n"
                 )
                 time.sleep(DEEP_SLEEP_WAIT_PERIOD)
             except KeyboardInterrupt:
+                # Prompt user with options upon interruption
                 print("Enter `regular_mode()` to take a sensor reading.")
                 print("Enter `configure_mode()` to start the webserver.")
                 print("Enter `deepsleep(ms)` to deep sleep for `ms` milliseconds.\n")
                 sys.exit()
 
-        # Sleep for enough time to make the next reading
+        # Calculate sleep time based on schedule and available sensors
         sleep_time = scheduler_services.calculate_sleep_time(
             int(time.time()), config_services.get_sensors(device_config)
         )
@@ -350,7 +354,7 @@ def regular_mode(device_config=None, device_data=None):
         deepsleep((1000 * sleep_time) + 500)
 
 
-async def pipeline(device_config: dict, device_data: dict):
+async def pipeline(device_config: dict, device_data: dict, current_time: int):
     """
     Run the regular-mode pipeline of steps from reading data to sending it.
 
@@ -360,11 +364,18 @@ async def pipeline(device_config: dict, device_data: dict):
     from drivers import sdi12 as sdi12_driver
     from drivers import modem as modem_driver
 
+    # Code moved from regular_mode() #650 to here to enable testing
+    # Set last send time
+    device_data["last_transmitted"] = current_time
+    config_services.write_data_file(device_data)
+    # Enable the following debug statement only when troubleshooting
+    log.debug("Set last_transmitted {:d}".format(current_time))
+
     modem = modem_driver.Modem()
     modem.initialise()
     sync_time(modem)
     # Initialise SDI-12 UART
-    sdi = sdi12_driver.init_sdi()
+    sdi = sdi12_driver.init_sdi(1)
     # Enable the following debug statement only when troubleshooting
     # SDI-12 driver problems:
     # log.debug("SDI-12 Driver: {0}".format(sdi))
@@ -380,7 +391,7 @@ async def pipeline(device_config: dict, device_data: dict):
 
     # filter sensors to ones that are "enabled"
     sensors_filtered = {name: data for name, data in sensors.items() if data["enabled"]}
-    wake_time = sdi12_driver.turn_on_sensors(sdi)
+    wake_time = time.time()
 
     log.debug("Wake time (seconds since epoch): {0}".format(wake_time))
 
@@ -432,15 +443,6 @@ async def pipeline(device_config: dict, device_data: dict):
     # Convert Datetime to ISO8601 compliant string
     sensor_merged_results["DateTime"] = isoformat(sensor_merged_results["DateTime"])
 
-    # FIXME Redundant code
-    # rain_gauge_results = [
-    #     {"r": device_data["rainfall"][i], "t": device_data["date_time"][i]}
-    #     for i in range(len(device_data["rainfall"]))
-    # ]
-
-    # # Make MQTT payload
-    # payload = {"wa": sensor_merged_results, "ra": rain_gauge_results}
-
     rainfall_data = 0
     for i in device_data["rainfall"]:
         rainfall_data += i
@@ -460,6 +462,18 @@ async def pipeline(device_config: dict, device_data: dict):
     ):
         # attempt to transmit some failed transmissions
         for itt in range(RECOVERY_TRANSMISSION_COUNT):
+            # if the file is too big
+            if (
+                helpers.get_file_size(
+                    sdcard_driver.REQUEUE_FILE + sdcard_driver.FILETYPE
+                )
+                > MAX_RETRANSMIT_CACHE_SIZE
+            ):
+                log.warning(
+                    "Transmission cache full! Transmissions will have to be read manually!\n\t"
+                )
+                break
+
             # get failed transmission if any are remaining
             failed_transmission = sdcard_driver.read_failed_transmission()
             if failed_transmission is None:
@@ -558,9 +572,7 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
                 device_config["device_name"],
             )
             modem.mqtt_publish(topic, str(json_result))
-            # mqtt_services.publish(modem, topic, str(json_result))
             time.sleep(1)
-            # mqtt_services.disconnect(modem)
             modem.mqtt_disconnect()
             # Reset rainfall data buffer
             device_data["rainfall"] = []
@@ -595,7 +607,7 @@ def configure_mode():
 
     # start AP mode
     wlan_services.start_ap_mode(ssid="GWRC-{0}".format(device_config["device_id"]))
-    sdi = sdi12.init_sdi()
+    sdi = sdi12.init_sdi(0)
 
     # disable maintenance mode
     device_config["maintenance_mode"] = False

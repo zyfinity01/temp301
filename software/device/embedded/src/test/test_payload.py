@@ -47,7 +47,7 @@ class TestPayload(unittest.TestCase):
         super().__init__()
         ex_io = pcf8574.PCF8574(I2C(0), 0x38)
         self.rain_counter = counter_driver.init_counter(ex_io)
-        self.sdi = sdi12_driver.init_sdi()
+        self.sdi = sdi12_driver.init_sdi(0)
         # load device data to get rainfall data
         self.device_data = config_services.read_data_file()
         self.device_config = config_services.read_config_file(

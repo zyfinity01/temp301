@@ -108,7 +108,6 @@ class Modem:
         tx_pin=MODEM_TX_PIN,
         rx_pin=MODEM_RX_PIN,
     ) -> None:
-
         self.serial = UART(1, baud, bits=8, parity=None, stop=1, tx=tx_pin, rx=rx_pin)
         self.has_serial = False
         self.has_network = False
@@ -138,7 +137,6 @@ class Modem:
 
         # Connect to network
         if self.has_serial:
-
             # Testing indicates that TCP/IP communication is _not_ dependent on
             # the acquisition of an IP address. Try deferring or even omitting
             # the wait-for-IP-address loop.
@@ -871,6 +869,15 @@ class Modem:
     def mqtt_reset(self):
         """Reset MQTT client profile"""
         self.send_command_check("+UMQTTNV=0")
+
+    def on_off_switch(self):
+        """Turn the modem off/on"""
+        if self.has_serial:
+            self.has_serial = self.poweroff()
+            self.send_command_check("+CPWROFF")
+        else:
+            self.has_serial = self.poweron()
+            self.send_command_check("+CPWRON")
 
     def mqtt_set_client(self, client_id, server):
         """Set MQTT client profile and save to NVM

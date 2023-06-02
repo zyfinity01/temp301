@@ -15,10 +15,10 @@
 
 import "preact/debug";
 import {FunctionalComponent, h, PreactContext} from "preact";
-import React, {useLayoutEffect, useState} from "react";
+import React, {useState, useEffect} from "react";
 import {deviceDataType, deviceConfigType, deviceHistoryType} from "./interfaces";
 import {useWindowSize} from "../util";
-import * as style from './style.css'
+import * as style from './style.css';
 
 import VisualisePage from "./visualise";
 import DeviceConfigPage from "./deviceconfig";
@@ -37,17 +37,28 @@ if ((module as any).hot) {
     require("preact/debug");
 }
 
-const App: FunctionalComponent = () => {
-    const mobileWidth = 768;
-    const API_URL = process.env.API_URL;
-    const LOADING_NOTICE = "loading...";
+// Moved constants outside the component
+const mobileWidth = 768;
+const API_URL = process.env.API_URL;
+const LOADING_NOTICE = "loading...";
 
+// Moved API calls to separate functions
+async function fetchDeviceData() {
+    const res = await fetch(`${API_URL}data`);
+    return res.json();
+}
+
+async function fetchDeviceConfig() {
+    const res = await fetch(`${API_URL}config`);
+    return res.json();
+}
+
+const App: FunctionalComponent = () => {
     const [currentTab, setCurrentTab] = React.useState(0);
     const [width, height] = useWindowSize();
-
     const notyf = getNotyfContext();
+    const [loading, setLoading] = useState(true); // Added a loading state
 
-    // Set up side-effect hooks which get data from the webserver.
     const [deviceData, setDeviceData] = React.useState<deviceDataType>({
         last_transmitted: 0,
         last_updated: 0,
@@ -56,6 +67,8 @@ const App: FunctionalComponent = () => {
         coverage_level: 100,
         failed_transmissions: 0,
         free_sd_space: 0,
+        rainfall: [],
+        date_time: []
     });
 
     const [deviceConfig, setDeviceConfig] = React.useState<deviceConfigType>({
@@ -72,116 +85,101 @@ const App: FunctionalComponent = () => {
     });
 
     const [deviceHistory, setDeviceHistory] = React.useState<deviceHistoryType>({
+        graph_input: "",
         device_name: LOADING_NOTICE,
         device_id: LOADING_NOTICE,
         first_send_at_date: "",
         first_send_at_time: "",
         first_send_at: 0,
-        send_interval: 0,
+        last_send_at_date: "",
+        last_send_at_time: "",
+        last_send_at: 0,
         rain_gauge: LOADING_NOTICE,
         water_level: 50,
     });
 
-    /**
-     * Fetch Data from the API and set state
-     */
-    const fetchData = () => {
-        fetch(`${API_URL}data`)
-            .then(res => res.json())
-            .then(res => setDeviceData(res))
-            .catch(err => console.log(err));
-    }
 
-    /**
-     * Fetch config from API and set state
-     */
-    const fetchConfig = () => {
-        //  notify user
-        notyf.open({type: 'info', message: 'Retrieving latest config...'})
+    useEffect(() => {
+        async function fetchDataAndConfig() {
+            notyf.open({type: 'info', message: 'Retrieving latest config...'});
 
-        fetch(`${API_URL}config`)
-            .then(res => res.json())
-            .then(res => setDeviceConfig(res))
-            .catch(err => console.log(err));
-    }
+            const dataPromise = fetchDeviceData()
+                .then(data => {
+                    setDeviceData(data);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
 
-    React.useEffect(() => {
-        fetchConfig()
+            const configPromise = fetchDeviceConfig()
+                .then(config => {
+                    setDeviceConfig(config);
+                })
+                .catch(err => {
+                    console.error(err);
+                });
+
+            try {
+                await Promise.all([dataPromise, configPromise]);
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchDataAndConfig();
     }, []);
-    React.useEffect(() => {
-        fetchData()
-    }, []);
 
-    /**
-     * Callback function from tabs that sets the currently active screen
-     * @param tab
-     */
+
+
     const tabClick = (tab: number) => {
         setCurrentTab(tab);
     };
 
     const tabs = [
         <VisualisePage {...deviceData}/>,
-        // Don't render device config page until the data has loaded, because react-hook-form sets the defaults on only first render.
-        // At first render, the device is still waiting for the API to return the config.
-        // This is such a hacky workaround I'm sorry
         deviceConfig.device_name !== LOADING_NOTICE ? <DeviceConfigPage {...deviceConfig}/> : <div/>,
         <SensorConfigPage {...deviceConfig}/>,
         <HistoryPage {...deviceHistory}/>,
-    ]
+    ];
 
-    // Add monitor as another tab if mobile size
+
     if (width < mobileWidth) {
         tabs.push(<MonitorPage/>)
-    }
-    // handle the edge case of resizing the screen if the current tab is the monitor.
-    // just reset it back to the visualise screen if that happens.
-    else if (currentTab == 4) {
+    } else if (currentTab === 4) {
         setCurrentTab(0);
     }
 
     return (
-        <FetchApiProvider value={fetchConfig}>
-        <div id="app">
-            <div className={style.topHeader}>
-                <Header
-                    deviceName={deviceConfig.device_name}
-                    deviceID={deviceConfig.device_id}
-                />
-            </div>
-            <Tabs click={tabClick} active={currentTab} fullscreen={width > mobileWidth}/>
-
-            <div className={style.mainContent}>
-                {/*Display left side if fullscreen, or current tab if mobile*/}
-                <div className={style.col}>
-
-                    { /*Rather than just rendering the active tab, every tab is rendered.
-                        This is so that state is preserved if the user changes tab.
-                        Implemented by setting 'display: none' on each component
-                        * */}
-                    {tabs.map((tab, i) => (
-                        <VisibleWrapper active={currentTab === i} key={i} wrapped={tab}/>
-                    ))}
+        <FetchApiProvider value={fetchDeviceConfig}>
+        {loading ? <div>Loading...</div> : (
+            <div id="app">
+                <div className={style.topHeader}>
+                    <Header
+                        deviceName={deviceConfig.device_name}
+                        deviceID={deviceConfig.device_id}
+                    />
                 </div>
-
-                {/*Always display monitor in widescreen mode*/}
-                {width > mobileWidth ? (
+                <Tabs click={tabClick} active={currentTab} fullscreen={width > mobileWidth}/>
+                <div className={style.mainContent}>
                     <div className={style.col}>
-                        <MonitorPage/>
+                        {tabs.map((tab, i) => (
+                            <VisibleWrapper active={currentTab === i} key={i} wrapped={tab}/>
+                        ))}
                     </div>
-                ) : null}
+                    {width > mobileWidth ? (
+                        <div className={style.col}>
+                            <MonitorPage/>
+                        </div>
+                    ) : null}
+                </div>
             </div>
-        </div>
+        )}
         </FetchApiProvider>
     );
 };
 
-/**
- * Wrapper element for a page.
- * props: active = whether or not to show the page
- *        wrapped = wrapped page
- * @constructor
- */
 const VisibleWrapper = (props: { active: boolean, wrapped: any }) => (
     <div style={props.active ? undefined : {display: "none"}}>
         {props.wrapped}
