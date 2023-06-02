@@ -35,6 +35,8 @@ h1, h2, h3 {
 	--text-colour: #444;
 	--shadow-colour: #ddd;
 	--graph-colour: #87c9c6;
+	--red-button-colour: #b92e2e;
+	--red-hover-colour: #a50d0d;
 }
 
 [colour-theme="dark"] {
@@ -49,4 +51,6 @@ h1, h2, h3 {
 	--text-colour: #c6c6c6;
 	--shadow-colour: #000000;
 	--graph-colour: #5a8280;
+	--red-button-colour: #8b0b0b;
+	--red-hover-colour: #600606;
 }
