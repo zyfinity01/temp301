@@ -95,6 +95,11 @@ fieldset {
     background-color: var(--light-accent-colour);
 }
 
+.addSensor{
+    background-color: rgba(185, 213, 215, 0.5);
+    color: rgb(73, 77, 77);
+}
+
 /* MODEM BUTTON */
 .bigButtonRed {
     display: block;
@@ -103,7 +108,7 @@ fieldset {
     border: none;
     border-radius: 10px !important;
     box-shadow: none;
-    background-color: #a50d0d;
+    background-color: var(--red-button-colour);
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -111,7 +116,7 @@ fieldset {
 }
 
 .bigButtonRed:hover {
-    background-color: #a60d0d;
+    background-color: var(--red-hover-colour);
 }
 
 .addSensor{
