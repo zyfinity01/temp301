@@ -5,6 +5,7 @@ export const configBlock: string;
 export const updateButton: string;
 export const bigButton: string;
 export const addSensor: string;
+export const bigButtonRed: string;
 export const topHeader: string;
 export const mainContent: string;
 export const col: string;

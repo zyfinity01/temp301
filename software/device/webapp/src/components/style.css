@@ -108,7 +108,7 @@ fieldset {
     border: none;
     border-radius: 10px !important;
     box-shadow: none;
-    background-color: #a50d0d;
+    background-color: var(--red-button-colour);
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -116,7 +116,7 @@ fieldset {
 }
 
 .bigButtonRed:hover {
-    background-color: #a60d0d;
+    background-color: var(--red-hover-colour);
 }
 
 /* APP LAYOUT */
