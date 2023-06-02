@@ -128,12 +128,12 @@ class TestModem(unittest.TestCase):
         """Test if the power pin can wake up the modem."""
         # if modem is on turn off
         if self.modem.command_at:
-            self.modem.onOffSwitch(self)
+            self.modem.on_off_switch()
             result = self.modem.command_at()
             self.assertFalse(result, "Modem failed to turn off")
         # if modem is off turn on
         else:
-            self.modem.onOffSwitch(self)
+            self.modem.on_off_switch()
             result = self.modem.command_at()
             self.assertTrue(result, "Modem failed to turn on")
 

@@ -801,6 +801,8 @@ class Modem:
         else:
             log.info("Power-off confirmed")
 
+        return responsive
+
     def get_network_time(self):
         """
         Get current time from the modem and convert to seconds since J2000 in
@@ -873,10 +875,10 @@ class Modem:
     def on_off_switch(self):
         """Turn the modem off/on"""
         if self.has_serial:
-            self.has_serial = self.poweroff()
+            self.has_serial = self.power_off()
             self.send_command_check("+CPWROFF")
         else:
-            self.has_serial = self.poweron()
+            self.has_serial = self.power_on()
             self.send_command_check("+CPWRON")
 
     def mqtt_set_client(self, client_id, server):
