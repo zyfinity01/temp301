@@ -78,3 +78,15 @@ It does this using a custom Docker image that works similarly to the Docker test
 The image contains all the necessary scripts and style files required to build the reports.
 The primary benefit of CI-based typesetting is that the client, project supervisor and team members can always read the latest compiled version of a report for review.
 This comes at a small performance decrease - the LaTeX files are always built, regardless of the commit type - but they only take a matter of seconds to build, so are considered acceptable.
+
+## Discord Bot
+
+This is a copy of a dicord bot that we have been using to send our message-logs from discord to mattermost. It is saved as discord_bot.py
+
+It takes the messages from the discord server it was added to, and accesses the users Discord nick-name(Set name in the discord server) and sends the message to mattermost under that name followed by "- Discord".
+
+The benifits of utilizing this software are as follows: The communication is done on a platfrom that is more comfortable for the developers; as a result of this the use of the tool is far more consistent, and the developers are more engaged in the project.
+
+However the benifits of using discord come with the costs of using this as opposed to pure mattermost. These are as follows: The features and tools that make mattermost an appealing choice are not accessible from discord; The links to issues, aswell as the ability to create issues from mattermost are not replicable in discord. There are gaps in communication; There are gaps in the messages on discord where issues are discussed with stake-holders on mattermost. This leads to a discrepency in recorded communication.
+
+Despite these drawbacks the sheer frequency of engagement is so much greater due to the use of this bot that it over-rides any disadvantages listed above when using this in a 300 level environment. If we compare the engagement in the hard-ware mattermost channel to the web or embedded teams that were utilizing this mattermost bot, it is clear to see that the trade-offs are worth taking.
