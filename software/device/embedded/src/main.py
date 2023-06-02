@@ -604,6 +604,42 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
             # Add this line when comfortable it works, or else might screw up everything
             # returnValue = False
 
+        # connect to server mmw
+        if modem.http_connect():
+
+            # time.sleep(1)
+            # modem.http_disconnect()
+
+            # Reset rainfall data buffer
+            device_data["rainfall"] = []
+            device_data["date_time"] = []
+            config_services.write_data_file(device_data)
+
+        # If connected to the Monitor My Watershed sever
+        if modem.set_http_connection(modem_driver.MMW_SERVER):
+            # modem.http_publish_mmw(str(json_result))
+            # time.sleep(1)
+            # modem.mqtt_disconnect()   not sure if need to disconnect http connection
+
+            registration_token = "ba43dda3-7fba-48e7-be7b-2d1b5e41e4f1"
+            sampling_feature = "d25589b1-6db3-4b4b-9b87-cf6a410f0cd9"
+            # sensor_token = "e3883dfb-0326-4f1d-b016-e11198711de7"
+            timestamp = isoformat(time.localtime()) + "+12:00"
+            # data = {"66019fe3-6e8e-4143-bbf8-f7acbc131829": 100}
+
+            modem.http_send(
+                registration_token, sampling_feature, timestamp, json_result
+            )
+
+            # Reset rainfall data buffer
+            device_data["rainfall"] = []
+            device_data["date_time"] = []
+            config_services.write_data_file(device_data)
+        else:
+            log.error("Failed to connect to MMW")
+            # Add this line when comfortable it works, or else might screw up everything
+            # returnValue = False
+
         log.info("Modem has no network or no response. No transmission")
 
     else:

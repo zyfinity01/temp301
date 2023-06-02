@@ -99,6 +99,8 @@ MATTERMOST_SERVER = "https://mattermost.ecs.vuw.ac.nz"
 
 MATTERMOST_CHANNEL_PATH = "/engr301-2023/channels/group-3-data-recorder"
 
+MMW_SERVER = "hdata.envirodiy.org"
+
 
 class ModemTimeout(Exception):
     """Raised when modem commands time out"""
