@@ -98,6 +98,9 @@ class TestRTC(unittest.TestCase):
         seconds = utime.timezone()
         hours = seconds / 3600
         print("Timezone is utc+", hours)
+        # The if statement goes allows values between 12.01 and 11.99 to account for floating point error
+        if hours > 12.01 or hours < 11.99:
+            print("Timezone is not correct (needs to be utc+12)")
 
 
 if __name__ == "__main__":
