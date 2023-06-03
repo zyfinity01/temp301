@@ -10,29 +10,8 @@ Tabs
 }
 .tabs {
   overflow: hidden;
-  /* border: 1px solid #ccc; */
   background-color: #f1f1f1;
 }
-/* Style the buttons that are used to open the tab content
-.tabs button {
-  background-color: inherit;
-  float: center;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-/* .tabs button:hover {
-  background-color: #ddd;
-} */
-
-/* Create an active/current tablink class */
-/* .tabs button.active {
-  background-color: #ccc;
-} */
 
 .tabs p {
     text-align: center;
@@ -40,9 +19,6 @@ Tabs
 
 /* Style the tab content */
 .tabcontent {
-  /* display: none; */
-  /* padding: 6px 12px; */
-  /* border: 1px solid #ccc; */
   border-top: none;
   animation: fadeEffect 1s; /* Fading effect takes 1 second */
   -webkit-animation: fadeEffect 0.2s;
@@ -51,7 +27,6 @@ Tabs
 .button-container {
     margin: auto;
     width: 50%;
-
 }
 
 /* Go from zero to full opacity */
