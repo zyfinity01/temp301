@@ -13,14 +13,14 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {h, FunctionalComponent} from 'preact';
+import { h, FunctionalComponent } from 'preact';
 import React from "react";
 import Popup from 'reactjs-popup';
 import * as style from '../../style.css';
 import * as componentStyle from './style.css';
-import {useContext} from "preact/hooks";
+import { useContext } from "preact/hooks";
 import { getNotyfContext } from "../../../util/notyfContext";
-import {fetchApiContext, request} from "../../../util/apiClient";
+import { fetchApiContext, request } from "../../../util/apiClient";
 
 const AddSensorModal: FunctionalComponent = (props) => {
 

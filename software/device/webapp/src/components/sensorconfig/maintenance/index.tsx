@@ -13,11 +13,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {FunctionalComponent, h} from "preact";
+import { FunctionalComponent, h } from "preact";
 import Popup from "reactjs-popup";
-import {useState, useContext} from "preact/hooks";
+import { useState } from "preact/hooks";
 import * as style from "./style.css";
-import {FaCheckSquare, FaRegCheckSquare} from "react-icons/fa";
+import { FaCheckSquare, FaRegCheckSquare } from "react-icons/fa";
 
 export interface Props {
     enabled: boolean
@@ -79,14 +79,6 @@ const MaintenanceBlock: FunctionalComponent<Props> = (props) => {
                 </div>
             </Popup>
         </div>
-                /* <div style={{float: "left", width: "20%"}}>
-                    {pressed ? <FaCheckSquare size={48}/> : <FaRegCheckSquare size={48}/>}
-                </div>
-                <div style={{float: "right", width: "80%"}}>
-                    <label>Enable Maintenance Mode</label><br/>
-                    <small>Note: This will power on the SDI-12 sensors and increase power consumption.</small>
-                </div>
-            </div> */
     )
 }
 export default MaintenanceBlock;

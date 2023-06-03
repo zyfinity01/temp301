@@ -13,20 +13,17 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {Component, FunctionalComponent, h} from "preact";
+import { FunctionalComponent, h } from "preact";
 import * as style from "../style.css";
-import {deviceConfigType, SDISensorType} from "../interfaces";
-import SDISensorConfigBlock, {Props} from "./configureblock";
-import {useForm} from "react-hook-form";
+import { deviceConfigType } from "../interfaces";
+import SDISensorConfigBlock from "./configureblock";
 import MaintenanceBlock from "./maintenance";
 import AddSensorModal from "./addsensor";
-import {useContext} from "preact/hooks";
-import {request} from "../../util/apiClient";
-import {getNotyfContext} from "../../util/notyfContext";
+import { request } from "../../util/apiClient";
+import { getNotyfContext } from "../../util/notyfContext";
 
 const SensorConfigPage: FunctionalComponent<deviceConfigType> = (props) => {
 
-    const {register, handleSubmit, watch, errors} = useForm<SDISensorType>();
     const notyf = getNotyfContext();
 
     /**
