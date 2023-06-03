@@ -2,7 +2,20 @@ import { resolve } from "path";
 import { config } from "dotenv-safe";
 
 const { parsed } = config();
+const crypto = require("crypto");
 
+/**
+ * md4 algorithm is not available anymore in NodeJS 17+ (because of lib SSL 3).
+ * In that case, silently replace md4 by md5 algorithm.
+ */
+try {
+  crypto.createHash('md4');
+} catch (e) {
+  const origCreateHash = crypto.createHash;
+  crypto.createHash = (alg, opts) => {
+    return origCreateHash(alg === 'md4' ? 'md5' : alg, opts);
+  };
+}
 export default {
     /**
      * Function that mutates the original webpack config.
