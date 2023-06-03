@@ -74,7 +74,7 @@ except ImportError:
 import asyn
 from aswitch import Pushbutton
 
-import time
+import utime as time
 import json
 
 # code imports
@@ -590,7 +590,7 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
 
 from services.webserver import WebServer
 from services import config
-from drivers import sdi12
+from drivers import sdi12gi
 
 
 def configure_mode():
