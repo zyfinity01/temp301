@@ -13,9 +13,9 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {createContext} from "preact";
-import {MockNotyfContext} from "./notyfContext";
-import {Notyf} from "notyf";
+import { createContext } from "preact";
+import { MockNotyfContext } from "./notyfContext";
+import { Notyf } from "notyf";
 
 export const fetchApiContext = createContext(
     () => {}
