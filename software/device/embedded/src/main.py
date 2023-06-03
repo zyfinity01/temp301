@@ -588,46 +588,48 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
     return True
 
 
+from services.webserver import WebServer
+from services import config
+from drivers import sdi12
+
+
 def configure_mode():
     """
     Enter Configure Mode.
 
-    Spins up a tinyweb server for visualisation and configuration of the device.
+    Spins up a tinyweb server for visualization and configuration of the device.
 
     """
     log.info("Entering Configure Mode")
-    import time
-    from services.webserver import WebServer
-    from services import config
-    from drivers import sdi12
 
+    # Read device configuration and data
     device_config = config.read_config_file()
     sensors = config.get_sensors(device_config)
     device_data = config.read_data_file()
 
-    # start AP mode
+    # Start AP mode
     wlan_services.start_ap_mode(ssid="GWRC-{0}".format(device_config["device_id"]))
+
+    # Initialize SDI-12
     sdi = sdi12.init_sdi(0)
 
-    # disable maintenance mode
+    # Disable maintenance mode
     device_config["maintenance_mode"] = False
 
     log.info("Starting Web Server")
     web_server = WebServer(device_config, device_data, sdi)
 
-    # initialise button
+    # Initialize button
     button = Pushbutton(button_pin)
     button.long_func(stop_server, args=(web_server, sensors))
 
-    # Start server and asyncio loop
     try:
+        # Start server and asyncio loop
         loop = asyncio.get_event_loop()
         loop.create_task(start_server(web_server))
         loop.run_forever()
     except KeyboardInterrupt:
-        # This call to async function stop_server() does not appear to succeed.
-        # stop_server(web_server, sensors)
-        # Instead, duplicate the relevant lines of stop_server() here
+        # Stop server and enter deep sleep
         log.info(
             "Stopping Web Server and entering deep sleep in {0} s".format(
                 SERVER_STOP_WAIT_PERIOD / 1000
@@ -641,9 +643,9 @@ def configure_mode():
         print("Enter `deepsleep(ms)` to deep sleep for `ms` milliseconds.\n")
         return  # don't deep sleep
 
-    # !!! Unreachable code block !!!
-    # !!! stop_server() executes deep_sleep(sensors) as its final statement,
-    # !!! halting code execution prior to reaching this point
+    # Unreachable code block
+    # stop_server() executes deep_sleep(sensors) as its final statement,
+    # halting code execution prior to reaching this point
     #
     # TODO: if the device was supposed to read during configure mode, do regular mode instead of deep sleeping
     # If can't get the event loop to cooperate, just make it sleep for 0 seconds to do a reboot
