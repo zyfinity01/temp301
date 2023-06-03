@@ -162,14 +162,14 @@ fieldset {
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
-  }
+}
 
-  .toggleButton:hover {
+.toggleButton:hover {
     background-color: #e6e6e6;
     border-color: #999;
-  }
+}
 
-  .switchTheme{
+.switchTheme{
     position: absolute;
     top: 1em;
     left: 1em;
@@ -180,5 +180,4 @@ fieldset {
     border-radius: 30em;
     padding: 1em 1em;
     font-size: 0.75em;
-
 }
