@@ -1,25 +1,11 @@
-.tabbar {
-    /* background-color: #e6e6e6; */
-}
 .tabs {
     text-align: center;
-    /*position: sticky;*/
-    /*top: 0;*/
-    /*z-index: 100;*/
-    /*border-bottom: #3E4349 1px solid;*/
 }
 
 .button {
- /*   margin: 10px 10px;*/
- /*    font-family:inherit;*/
- font-size:100%;
- padding:.5em 1em;
- /*color:rgba(0,0,0,.8);*/
- /*border:none transparent;*/
- /*background-color:#e6e6e6;*/
- text-decoration:none;
- /*border-radius:2px;*/
- /*outline: thin;*/
+    font-size: 100%;
+    padding: .5em 1em;
+    text-decoration: none;
     margin: 10px;
     border-bottom: #b5b5b5 1px solid;
 }

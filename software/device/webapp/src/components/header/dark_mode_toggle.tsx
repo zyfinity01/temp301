@@ -1,6 +1,5 @@
 import { h, FunctionComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import React from 'react';
 import * as styleSheet from '../style.css';
 
 // ThemeToggle component

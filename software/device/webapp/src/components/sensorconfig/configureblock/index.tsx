@@ -14,16 +14,16 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import React from "react";
-import {useForm} from "react-hook-form";
-import {FunctionalComponent, h} from "preact";
-import {SDISensorType} from "../../interfaces";
+import { useForm } from "react-hook-form";
+import { FunctionalComponent, h } from "preact";
+import { SDISensorType } from "../../interfaces";
 import * as style from "../../style.css";
 import * as componentstyle from "./style.css";
-import {FaArrowDown, FaArrowUp, FaEdit, FaTrash, FaHashtag} from "react-icons/fa"
+import { FaArrowDown, FaArrowUp, FaTrash } from "react-icons/fa"
 import TestOutput from "./testoutput";
-import {useContext} from "preact/hooks";
-import {fetchApiContext, request} from "../../../util/apiClient";
-import {getNotyfContext} from "../../../util/notyfContext";
+import { useContext } from "preact/hooks";
+import { fetchApiContext, request } from "../../../util/apiClient";
+import { getNotyfContext } from "../../../util/notyfContext";
 import NumSensorsModal from "./numsensors";
 import RenameModal from "./rename";
 
@@ -33,7 +33,7 @@ export interface Props {
 }
 
 const ConfigureBlock: FunctionalComponent<Props> = (props) => {
-    const {register, handleSubmit, watch, errors} = useForm<SDISensorType>({
+    const {register, handleSubmit} = useForm<SDISensorType>({
         defaultValues: {
             enabled: props.sensor.enabled,
             address: props.sensor.address,
@@ -117,7 +117,7 @@ const ConfigureBlock: FunctionalComponent<Props> = (props) => {
     return (
         <div className={componentstyle.block}>
             <div className={componentstyle.header} onClick={() => setOpened(!opened)}>
-                <span className={componentstyle.headerText}> {props.name}
+                <span> {props.name}
                     <span style={{float: 'right'}}>
                         {opened ? <FaArrowUp/> : <FaArrowDown/>}
                     </span>

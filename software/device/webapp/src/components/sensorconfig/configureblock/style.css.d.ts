@@ -2,7 +2,6 @@
 export const collapsed: string;
 export const opened: string;
 export const header: string;
-export const headerText: string;
 export const block: string;
 export const buttons: string;
 export const buttonsList: string;

@@ -13,8 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {FunctionalComponent, h} from "preact";
-import {SDIMessageType} from "../../interfaces";
+import { h } from "preact";
+import { SDIMessageType } from "../../interfaces";
 
 interface propTypes {
     messages: SDIMessageType[];
@@ -44,7 +44,6 @@ const MessageBox: React.FunctionComponent<propTypes> = (props) => {
 
 const wrapperStyle = {
     "minHeight": "20px",
-    // "padding": "5px",
     "marginBottom": "10px",
     "height": "100%",
     "borderRadius": "4px",
@@ -66,4 +65,5 @@ const MessagesSentStyle = {
     "height": "calc(100% - 40px)",
     "padding": "5px",
 };
+
 export default MessageBox;

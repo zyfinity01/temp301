@@ -14,9 +14,8 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import React from "react";
-import {FunctionalComponent, h} from "preact";
+import { FunctionalComponent, h } from "preact";
 import Popup from "reactjs-popup";
-import {SDIMessageType} from "../../../interfaces";
 import * as componentstyle from "./style.css";
 
 interface propType {

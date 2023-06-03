@@ -23,8 +23,6 @@ type PropTypes = {
 }
 
 const Header: FunctionalComponent<PropTypes> = ({deviceName, deviceID}) => {
-    // TODO: fix background image
-
     return (
         <div class={style.header}>
             <DarkModeToggle />

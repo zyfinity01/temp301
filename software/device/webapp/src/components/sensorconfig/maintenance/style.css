@@ -21,16 +21,6 @@
     margin-top: 0px;
 }
 
-/* .bigButton {
-    padding: 10px;
-    background-color: #0d99a5;
-    color: white;
-    border: 2px solid black;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-} */
-
 .bigButton {
     display: inline-block;
     padding: 10px;
