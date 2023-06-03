@@ -93,7 +93,7 @@ MODEM_DEFAULT_BAUD = 115200
 HTTP_POST_DATA_FILE = "post_data.tmp"
 
 # 2023 Data Recorder Webhook
-MATTERMOST_WEBHOOK = "https://mattermost.ecs.vuw.ac.nz/hooks/3g7p6bm3ojfijpigdoers15awr"
+MATTERMOST_WEBHOOK = "/hooks/3g7p6bm3ojfijpigdoers15awr"
 
 MATTERMOST_SERVER = "https://mattermost.ecs.vuw.ac.nz"
 
@@ -907,25 +907,6 @@ class Modem:
 
         return err
 
-    def set_http_connection(self, server: str):
-        """Set http connections
-
-        Arguments:
-            server (str): server that is passed in, either mattermost or MMW
-        """
-
-        self.http_connect(server)
-        # command = '{}"{}"'.format("+UMQTT=0,", client_id)
-        # self.send_command_check(command)
-
-        # command = '{}"{}"'.format("+UMQTT=2,", server)
-        # self.send_command_check(command)
-
-        # # Store current MQTT client profile parameters to NVM
-        # err = self.send_command_check("+UMQTTNV=2")
-
-        return err
-
     def mqtt_connect(self):
         """Connect to MQTT broker
 
@@ -975,22 +956,20 @@ class Modem:
 
     # sending directly to mattermost
     def http_publish_mattermost(self, message):
-        """publish a mqtt message
+        """publish an http message
         Attributes:
-            topic (str): a topic is the destination of the message
-            we use topic to classify different types of data
-            message (str): a message can be anything as long as it is a string
+            message (str): a message can be anything as long as it is a string, data for sending
 
         Returns:
             bool: False for unable to send
             True for send successful
         """
-        # command = '{}"{}","{}"'.format("+UMQTTC=2,0,0,", topic, message)
+        # Using http profile 1
         command = '{}"{}","{}"'.format(
             "+UHTTPC=1,5,",
-            MATTERMOST_CHANNEL_PATH,
+            MATTERMOST_WEBHOOK,
             "telemetryData",
-            "Doms Straight to mattermost test",
+            message,
         )
         err = self.send_command_check(
             command, command_timeout=MODEM_MQTT_CONNECT_TIMEOUT
@@ -1015,13 +994,17 @@ class Modem:
         """
         # connect to server
         if server == MATTERMOST_SERVER:
-            self.send_command_read('+UHTTP=1,1,"{0}"'.format(server))
-            return self.send_command_read(
-                "+UHTTP=1,6"
-            )  # Setting up HTTPS on this mattermost profile
+            return self.send_command_read('+UHTTP=1,1,"{0}"'.format(server))
+
+            # TODO This is the wrong way to set https change so it can send through https
+            #
+            # return self.send_command_read(
+            #     "+UHTTP=1,6"
+            # )  # Setting up HTTPS on this mattermost profile
 
         return self.send_command_read('+UHTTP=0,1,"{0}"'.format(server))
 
+    # TODO Change this so works with mattermost too or change method name for MMW specific
     def http_send(
         self,
         registration_token: str,
