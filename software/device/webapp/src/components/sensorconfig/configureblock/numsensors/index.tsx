@@ -13,10 +13,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {h, FunctionalComponent} from "preact";
+import { h, FunctionalComponent } from "preact";
 import Popup from "reactjs-popup";
-import {FaHashtag} from "react-icons/fa";
-import {useState} from "preact/hooks";
+import { FaHashtag } from "react-icons/fa";
+import { useState } from "preact/hooks";
 import * as style from '../../../style.css';
 
 interface PropTypes {
