@@ -14,10 +14,10 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import "preact/debug";
-import {FunctionalComponent, h, PreactContext} from "preact";
-import React, {useState, useEffect} from "react";
-import {deviceDataType, deviceConfigType, deviceHistoryType} from "./interfaces";
-import {useWindowSize} from "../util";
+import { FunctionalComponent, h } from "preact";
+import React, { useState, useEffect } from "react";
+import { deviceDataType, deviceConfigType, deviceHistoryType } from "./interfaces";
+import { useWindowSize } from "../util";
 import * as style from './style.css';
 
 import VisualisePage from "./visualise";
@@ -27,7 +27,6 @@ import HistoryPage from "./history";
 import Header from "./header";
 import Tabs from "./tabs";
 import MonitorPage from "./monitor";
-import {useContext} from "preact/hooks";
 import { getNotyfContext } from "../util/notyfContext";
 import { FetchApiProvider } from "../util/apiClient";
 
@@ -55,7 +54,7 @@ async function fetchDeviceConfig() {
 
 const App: FunctionalComponent = () => {
     const [currentTab, setCurrentTab] = React.useState(0);
-    const [width, height] = useWindowSize();
+    const [width] = useWindowSize();
     const notyf = getNotyfContext();
     const [loading, setLoading] = useState(true); // Added a loading state
 
@@ -155,7 +154,7 @@ const App: FunctionalComponent = () => {
         <FetchApiProvider value={fetchDeviceConfig}>
         {loading ? <div>Loading...</div> : (
             <div id="app">
-                <div className={style.topHeader}>
+                <div>
                     <Header
                         deviceName={deviceConfig.device_name}
                         deviceID={deviceConfig.device_id}
