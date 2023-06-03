@@ -29,7 +29,6 @@ fieldset {
 }
 
 /* Aligned Form Elements  */
-
 .aligned .alignGroup {
     margin-bottom: 0.5em;
     display: flex;
@@ -97,7 +96,6 @@ fieldset {
 }
 
 /* MODEM BUTTON */
-
 .bigButtonRed {
     display: block;
     padding: 10px;
@@ -122,9 +120,7 @@ fieldset {
 }
 
 /* APP LAYOUT */
-
 /*Small screens (phones) */
-
 @media only screen and (max-width: 768px) {
     .mainContent {
         display: block;
