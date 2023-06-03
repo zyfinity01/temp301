@@ -13,20 +13,20 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {FunctionalComponent, h} from "preact";
-import {deviceConfigType, deviceDataType, SDISensorType} from "../interfaces";
+import { h } from "preact";
+import { deviceConfigType } from "../interfaces";
 import * as style from "../style.css";
-import {useForm} from "react-hook-form";
-import {ESP32_UNIX_EPOCH, formatDateTime, timestampToDate} from "../../util";
-import {useContext} from "preact/hooks";
+import { useForm } from "react-hook-form";
+import { ESP32_UNIX_EPOCH, formatDateTime, timestampToDate } from "../../util";
+import { useContext } from "preact/hooks";
 import { getNotyfContext } from "../../util/notyfContext";
-import {fetchApiContext, request} from "../../util/apiClient";
+import { fetchApiContext, request } from "../../util/apiClient";
 import { useState } from 'preact/hooks';
 
 
 
 const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
-    const {register, handleSubmit, watch, reset} = useForm<deviceConfigType>({
+    const {register, handleSubmit} = useForm<deviceConfigType>({
         defaultValues: {
             device_name: props.device_name,
             device_id: props.device_id,
@@ -37,11 +37,6 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
             send_interval: props.send_interval
         }
     });
-
-
-    // Convert the esp32-offset unix timestamp into a string-formatted date and time string
-    const first_send_at = timestampToDate(props.first_send_at);
-    const [first_send_at_date, first_send_at_time] = formatDateTime(first_send_at);
 
     const notyf = getNotyfContext();
     const getConfig = useContext(fetchApiContext);
@@ -166,18 +161,6 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
             </div>
         </div>
     )
-};
-
-// CSS stolen from bootstrap "well" component
-const MessagesSentStyle = {
-    "minHeight": "20px",
-    "padding": "19px",
-    "marginBottom": "20px",
-    "backgroundColor": "#f5f5f5",
-    "border": "1px solid #e3e3e3",
-    "borderRadius": "4px",
-    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.05)",
-    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.05)"
 };
 
 export default DeviceConfigPage;
