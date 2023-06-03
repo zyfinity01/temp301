@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import { FunctionalComponent, h } from "preact";
+import { h } from "preact";
 import * as style from "./style.css";
 
 type TabProps = {
@@ -31,7 +31,7 @@ const Tabs: React.FunctionComponent<TabProps> = ({ click, active, fullscreen }) 
     }
 
     return (
-        <div className={style.tabbar}>
+        <div>
             <p className={style.tabs}>
                 <a className={style.button} onClick={() => click(0)} style={activeOutline(0)}>VISUALISE</a>
                 <a className={style.button} onClick={() => click(1)} style={activeOutline(1)}>DEVICE</a>
