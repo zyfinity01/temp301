@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {useLayoutEffect, useState} from "preact/hooks";
+import { useLayoutEffect, useState } from "preact/hooks";
 
 /**
  * UTC timestamp of the ESP32 epoch (2020-01-01T12:00:00)

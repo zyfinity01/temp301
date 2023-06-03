@@ -13,13 +13,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {Notyf} from 'notyf';
-import {createContext, PreactContext} from "preact";
-import {useContext} from "preact/hooks";
-import notyf from "notyf/notyf";
+import { Notyf } from 'notyf';
+import { createContext } from "preact";
+import { useContext } from "preact/hooks";
 
 const notyfContextCreator = () => {
-    // return (typeof window !== "undefined") ?
     return createContext(
         new Notyf({
             duration: 5000, // Set your global Notyf configuration here
@@ -46,7 +44,6 @@ const notyfContextCreator = () => {
             ]
         })
     )
-// : createContext(NotyfStub)
 }
 
 /**
