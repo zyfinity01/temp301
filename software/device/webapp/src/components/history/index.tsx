@@ -13,15 +13,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {FunctionalComponent, h} from "preact";
-import {deviceHistoryType, deviceDataType, SDISensorType} from "../interfaces";
+import { h } from "preact";
+import { deviceHistoryType } from "../interfaces";
 import * as style from "../style.css";
 import * as style2 from "./style.css";
-import {useForm} from "react-hook-form";
-import {ESP32_UNIX_EPOCH, formatDateTime, timestampToDate} from "../../util";
-import {useContext} from "preact/hooks";
-import { getNotyfContext } from "../../util/notyfContext";
-import {fetchApiContext, request} from "../../util/apiClient";
+import { useForm } from "react-hook-form";
+import { ESP32_UNIX_EPOCH, formatDateTime, timestampToDate } from "../../util";
 import Popup from 'reactjs-popup';
 import React from 'react';
 import {
@@ -85,7 +82,7 @@ const data = {
 };
 
 const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
-    const {register, handleSubmit, watch, reset} = useForm<deviceHistoryType>({
+    const {register, handleSubmit} = useForm<deviceHistoryType>({
         defaultValues: {
             graph_input: props.graph_input,
             device_name: props.device_name,
@@ -100,13 +97,6 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
             last_send_at: props.last_send_at
         }
     });
-
-    // Convert the esp32-offset unix timestamp into a string-formatted date and time string
-    const first_send_at = timestampToDate(props.first_send_at);
-    const [first_send_at_date, first_send_at_time] = formatDateTime(first_send_at);
-
-    const last_send_at = timestampToDate(props.last_send_at);
-    const [last_send_at_date, last_send_at_time] = formatDateTime(last_send_at);
 
     /**
      * Submit updated device configuration
@@ -199,11 +189,6 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                             <option value = "precipitation_data">Precipitation</option>
                             <option value = "temp_data">Temperature</option>
                         </select>
-                        {/* <input  type = "text"
-                                className="aligned-name"
-                                name="graph_input_data"
-                                ref={register}
-                        /> */}
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Device Name</label>
@@ -241,18 +226,6 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
             </div>
         </div>
     )
-};
-
-// CSS stolen from bootstrap "well" component
-const MessagesSentStyle = {
-    "minHeight": "20px",
-    "padding": "19px",
-    "marginBottom": "20px",
-    "backgroundColor": "#f5f5f5",
-    "border": "1px solid #e3e3e3",
-    "borderRadius": "4px",
-    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.05)",
-    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.05)"
 };
 
 export default HistoryPage;
