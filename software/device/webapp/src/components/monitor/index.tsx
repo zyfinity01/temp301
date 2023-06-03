@@ -13,11 +13,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {FunctionalComponent, h} from "preact";
+import { h } from "preact";
 import MessageBox from "./messagebox";
 import CommandInput from "./commandinput";
 import React from "react";
-import {SDIMessageType} from "../interfaces";
+import { SDIMessageType } from "../interfaces";
 import * as style from '../style.css'
 
 const MonitorPage: React.FunctionComponent = () => {

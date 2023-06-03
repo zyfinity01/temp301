@@ -13,8 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import { FunctionalComponent, h } from "preact";
-import React, { useState } from "react";
+import { h } from "preact";
+import React from "react";
 import * as style from './style.css'
 
 interface propType {
