@@ -23,7 +23,7 @@ The following dependencies are **required**:
 - **git**
 - **python 3.9** or greater
 - **nodeJS v14.21.3** or greater (with **npm v8.6.0** or greater)
- - **It would be ideal to use the latest nodeJS version** (following are confirmed to be working):
+  - **It would be ideal to use the latest nodeJS version** (following are confirmed to be working):
     - Node.js 20.2.0
     - Node.js 19.9.0
     - Node.js 18.16.0
