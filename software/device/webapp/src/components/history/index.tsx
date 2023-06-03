@@ -18,7 +18,7 @@ import { deviceHistoryType } from "../interfaces";
 import * as style from "../style.css";
 import * as style2 from "./style.css";
 import { useForm } from "react-hook-form";
-import { ESP32_UNIX_EPOCH, formatDateTime, timestampToDate } from "../../util";
+import { ESP32_UNIX_EPOCH } from "../../util";
 import Popup from 'reactjs-popup';
 import React from 'react';
 import {
