@@ -43,7 +43,7 @@ const NumSensorsModal: FunctionalComponent<PropTypes> = (props) => {
             closeOnDocumentClick
             modal
         >
-            {close => (
+            {(close : any) => (
                 <div>
                     <h3>Number of Readings</h3>
                     <form onSubmit={(e) => handleSubmit(e, close)}>

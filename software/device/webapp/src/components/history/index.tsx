@@ -150,7 +150,7 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                         contentStyle={{width: "21em", borderRadius: "5px", padding: "15px"}}
                     >
                     {
-                        close => (
+                        (close : any) => (
                             <div className='modal'>
                                 <div className={style2.filter}>
                                     <label htmlFor="aligned-name">Start Date</label>

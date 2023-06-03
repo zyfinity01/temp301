@@ -39,7 +39,7 @@ const RenameModal: FunctionalComponent<PropTypes> = (props) => {
             closeOnDocumentClick
             modal
         >
-            {close => (
+            {(close : any) => (
                 <div>
                     <h3>Rename Sensor</h3>
                     <form>
