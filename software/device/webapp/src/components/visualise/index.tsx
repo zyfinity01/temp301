@@ -13,13 +13,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import {FunctionalComponent, h} from "preact";
+import { h } from "preact";
 import { useState } from "preact/hooks";
 import InfoItem from "./infoitem";
-import {FaSignal, FaBatteryFull, FaCheck, FaClock, FaSdCard, FaExclamation, FaDownload} from "react-icons/fa"
-import {deviceDataType} from "../interfaces";
+import { FaSignal, FaBatteryFull, FaCheck, FaClock, FaSdCard, FaExclamation, FaDownload } from "react-icons/fa"
+import { deviceDataType } from "../interfaces";
 import * as style from "../style.css"
-import {formatDateTime, timestampToDate} from "../../util";
+import { formatDateTime, timestampToDate } from "../../util";
 
 const visualise: React.FunctionComponent<deviceDataType> = (props) => {
 
@@ -37,7 +37,6 @@ const visualise: React.FunctionComponent<deviceDataType> = (props) => {
     const [modemOn, toggleModem] = useState(false);
     const handleButtonClick = () => {
         toggleModem(!modemOn);
-        //Modem.onOffSwitch();
     }
 
     return (
@@ -67,24 +66,8 @@ const visualise: React.FunctionComponent<deviceDataType> = (props) => {
             >
                 Download Device Data
             </button>
-            {/*<h4>Last Message Sent</h4>*/}
-            {/*<div style={MessagesSentStyle}>*/}
-            {/*    {props.kk}*/}
-            {/*</div>*/}
         </div>
     )
-};
-
-// CSS stolen from bootstrap "well" component
-const MessagesSentStyle = {
-    "minHeight": "20px",
-    "padding": "19px",
-    "marginBottom": "20px",
-    "backgroundColor": "#f5f5f5",
-    "border": "1px solid #e3e3e3",
-    "borderRadius": "4px",
-    "WebkitBoxShadow": "inset 0 1px 1px rgba(0,0,0,.05)",
-    "boxShadow": "inset 0 1px 1px rgba(0,0,0,.05)"
 };
 
 export default visualise;
