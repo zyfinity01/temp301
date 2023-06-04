@@ -208,6 +208,7 @@ const ConfigureBlock: FunctionalComponent<Props> = (props) => {
                                 <div className={style.alignGroup}>
                                     <label htmlFor="aligned-name">Offset (zero)</label>
                                     <input type="number" id="aligned-name"
+                                           name={`readings[${i}].offset`}
                                            {...register}
                                            step={"any"}
                                     />
