@@ -95,11 +95,18 @@ class TestModem(unittest.TestCase):
         timestamp = isoformat(time.localtime()) + "+12:00"
         data = {"66019fe3-6e8e-4143-bbf8-f7acbc131829": 100}
 
-        # connect to server
+        # connect to server mmw
         connect = self.modem.http_connect()
         self.assertIn("OK", connect)
 
-        # send data to test endpoint
+        # connecting to mattermost through http
+        connect_mattermost = self.modem.http_connect(modem_driver.MATTERMOST_SERVER)
+        self.assertIn("OK", connect_mattermost)
+        # send data to test endpoint mattermost
+        postMatterMost = self.modem.http_publish_mattermost()
+        self.assertTrue(postMatterMost, "failed to send data")
+
+        # send data to test endpoint mmw
         post = self.modem.http_send(
             registration_token, sampling_feature, timestamp, data
         )

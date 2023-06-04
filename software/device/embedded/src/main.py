@@ -243,6 +243,7 @@ def set_client():
     server = device_config["mqtt_settings"]["host"]
     modem.mqtt_reset()
     modem.mqtt_set_client(client_id, server)
+    modem.http_connect(modem_driver.MATTERMOST_SERVER)  # Modem connects to mattermost
     modem.power_off()
 
 
@@ -553,7 +554,9 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
         bool: whether the transmission was successful
     """
     if modem.has_serial:
+        returnValue = True
         log.info("Start transmitting data...")
+
         modem.get_signal_power()
         modem.acquire_network()  # Proceed even if an IP address has not been acquired
         # Update the Cellular network RSSI
@@ -580,12 +583,30 @@ def transmit(device_data: dict, device_config: dict, modem, json_result: str):
             config_services.write_data_file(device_data)
         else:
             log.error("Failed to connect to the MQTT broker")
-            return False
-    else:
+            returnValue = False
+
+        # If mattermost connected
+        if modem.set_http_connection(modem_driver.MATTERMOST_SERVER):
+
+            modem.http_publish_mattermost(str(json_result))
+            time.sleep(1)
+            # modem.mqtt_disconnect()   not sure if need to disconnect http connection
+
+            # Reset rainfall data buffer
+            device_data["rainfall"] = []
+            device_data["date_time"] = []
+            config_services.write_data_file(device_data)
+        else:
+            log.error("Failed to connect to Mattermost")
+            # Add this line when comfortable it works, or else might screw up everything
+            # returnValue = False
+
         log.info("Modem has no network or no response. No transmission")
+
+    else:
         return False
 
-    return True
+    return returnValue
 
 
 from services.webserver import WebServer

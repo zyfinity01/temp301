@@ -92,6 +92,13 @@ MODEM_DEFAULT_BAUD = 115200
 # HTTP temporary file on modem for POSTing MonitorMyWatershed data
 HTTP_POST_DATA_FILE = "post_data.tmp"
 
+# 2023 Data Recorder Webhook
+MATTERMOST_WEBHOOK = "/hooks/3g7p6bm3ojfijpigdoers15awr"
+
+MATTERMOST_SERVER = "https://mattermost.ecs.vuw.ac.nz"
+
+MATTERMOST_CHANNEL_PATH = "/engr301-2023/channels/group-3-data-recorder"
+
 
 class ModemTimeout(Exception):
     """Raised when modem commands time out"""
@@ -947,6 +954,28 @@ class Modem:
         )
         return err
 
+    # sending directly to mattermost
+    def http_publish_mattermost(self, message):
+        """publish an http message
+        Attributes:
+            message (str): a message can be anything as long as it is a string, data for sending
+
+        Returns:
+            bool: False for unable to send
+            True for send successful
+        """
+        # Using http profile 1
+        command = '{}"{}","{}"'.format(
+            "+UHTTPC=1,5,",
+            MATTERMOST_WEBHOOK,
+            "telemetryData",
+            message,
+        )
+        err = self.send_command_check(
+            command, command_timeout=MODEM_MQTT_CONNECT_TIMEOUT
+        )
+        return err
+
     def mqtt_disconnect(self):
         """Disconnect from the mqtt broker
 
@@ -960,13 +989,22 @@ class Modem:
 
     def http_connect(self, server="data.envirodiy.org"):
         """
-
         Attributes:
             server (str): hostname of server to connect to. If not provided, defaults to MonitorMyWatershed server.
         """
         # connect to server
+        if server == MATTERMOST_SERVER:
+            return self.send_command_read('+UHTTP=1,1,"{0}"'.format(server))
+
+            # TODO This is the wrong way to set https change so it can send through https
+            #
+            # return self.send_command_read(
+            #     "+UHTTP=1,6"
+            # )  # Setting up HTTPS on this mattermost profile
+
         return self.send_command_read('+UHTTP=0,1,"{0}"'.format(server))
 
+    # TODO Change this so works with mattermost too or change method name for MMW specific
     def http_send(
         self,
         registration_token: str,
