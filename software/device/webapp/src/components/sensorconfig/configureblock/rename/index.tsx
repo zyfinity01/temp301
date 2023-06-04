@@ -18,6 +18,7 @@ import Popup from "reactjs-popup";
 import { FaEdit } from "react-icons/fa";
 import { useState } from "preact/hooks";
 import * as style from '../../../style.css';
+import 'reactjs-popup/dist/index.css';
 
 interface PropTypes {
     name: string;
@@ -39,7 +40,7 @@ const RenameModal: FunctionalComponent<PropTypes> = (props) => {
             closeOnDocumentClick
             modal
         >
-            {close => (
+            {(close : any) => (
                 <div>
                     <h3>Rename Sensor</h3>
                     <form>

@@ -18,6 +18,7 @@ import Popup from "reactjs-popup";
 import { FaHashtag } from "react-icons/fa";
 import { useState } from "preact/hooks";
 import * as style from '../../../style.css';
+import 'reactjs-popup/dist/index.css';
 
 interface PropTypes {
     readings: number;
@@ -43,7 +44,7 @@ const NumSensorsModal: FunctionalComponent<PropTypes> = (props) => {
             closeOnDocumentClick
             modal
         >
-            {close => (
+            {(close : any) => (
                 <div>
                     <h3>Number of Readings</h3>
                     <form onSubmit={(e) => handleSubmit(e, close)}>

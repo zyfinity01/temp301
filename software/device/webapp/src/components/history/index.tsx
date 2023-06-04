@@ -20,6 +20,8 @@ import * as style2 from "./style.css";
 import { useForm } from "react-hook-form";
 import { ESP32_UNIX_EPOCH } from "../../util";
 import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 import React from 'react';
 import {
     Chart as ChartJS,
@@ -140,38 +142,34 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                         contentStyle={{width: "21em", borderRadius: "5px", padding: "15px"}}
                     >
                     {
-                        close => (
+                        (close : any) => (
                             <div className='modal'>
                                 <div className={style2.filter}>
                                     <label htmlFor="aligned-name">Start Date</label>
                                     <input type={"date"}
                                         className="aligned-name"
-                                        name="first_send_at_date"
-                                        ref={register}
+                                        {...register("first_send_at_date")}
                                     />
                                 </div>
                                 <div className={style2.filter}>
                                     <label htmlFor="aligned-name">End Date</label>
                                     <input type={"date"}
                                         className="aligned-name"
-                                        name="last_send_at_date"
-                                        ref={register}
+                                        {...register("last_send_at_date")}
                                     />
                                 </div>
                                 <div className={style2.filter}>
                                     <label htmlFor="aligned-name">Start Time</label>
                                     <input type={"time"}
                                         className="aligned-name"
-                                        name="first_send_at_time"
-                                        ref={register}
+                                        {...register("first_send_at_time")}
                                     />
                                 </div>
                                 <div className={style2.filter}>
                                     <label htmlFor="aligned-name">End Time</label>
                                     <input type={"time"}
                                         className="aligned-name"
-                                        name="last_send_at_time"
-                                        ref={register}
+                                        {...register("last_send_at_time")}
                                     />
                                 </div>
                                 <div>
@@ -194,32 +192,28 @@ const HistoryPage: React.FunctionComponent<deviceHistoryType> = (props) => {
                         <label htmlFor="aligned-name">Device Name</label>
                         <input type="text"
                                className="aligned-name"
-                               name="device_name"
-                               ref={register}
+                               {...register("device_name")}
                         />
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Device ID</label>
                         <input type="text"
                                className="aligned-name"
-                               name="device_id"
-                               ref={register}
+                               {...register("device_id")}
                         />
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Rain Gauge</label>
                         <input type="text"
                                className="aligned-name"
-                               name="rain_gauge"
-                               ref={register}
+                               {...register("rain_gauge")}
                         />
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Water Level</label>
                         <input type="text"
                                className="aligned-name"
-                               name="water_level"
-                               ref={register}
+                               {...register("water_level")}
                         />
                     </div>
                 </form>
