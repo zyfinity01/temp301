@@ -16,7 +16,6 @@ form input, textarea, select {
     color: var(--fg-colour);
 }
 
-
 form input:focus {
     outline: 0;
     border-color: var(--accent-colour);
