@@ -18,6 +18,7 @@ import Popup from "reactjs-popup";
 import { FaHashtag } from "react-icons/fa";
 import { useState } from "preact/hooks";
 import * as style from '../../../style.css';
+import 'reactjs-popup/dist/index.css';
 
 interface PropTypes {
     readings: number;

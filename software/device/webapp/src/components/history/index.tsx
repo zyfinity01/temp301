@@ -20,6 +20,8 @@ import * as style2 from "./style.css";
 import { useForm } from "react-hook-form";
 import { ESP32_UNIX_EPOCH } from "../../util";
 import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+
 import React from 'react';
 import {
     Chart as ChartJS,

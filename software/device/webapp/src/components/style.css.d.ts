@@ -11,3 +11,6 @@ export const col: string;
 export const page: string;
 export const toggleButton: string;
 export const switchTheme: string;
+export const popupContent: string;
+export const popupArrow: string;
+export const popupOverlay: string;

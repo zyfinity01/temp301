@@ -2,3 +2,6 @@
 export const graph: string;
 export const filter: string;
 export const bigButton: string;
+export const popupContent: string;
+export const popupArrow: string;
+export const popupOverlay: string;
