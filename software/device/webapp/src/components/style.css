@@ -1,5 +1,4 @@
 /*CSS shared by multiple components and app.tsx styles goes here*/
-
 form input, textarea, select {
     padding: 0.5em 0.6em;
     display: inline-block;
@@ -15,24 +14,20 @@ form input, textarea, select {
     background-color: var(--mid-colour);
     color: var(--fg-colour);
 }
-
 form input:focus {
     outline: 0;
     border-color: var(--accent-colour);
 }
-
 fieldset {
     margin: 0;
     padding: .35em 0 .75em;
     border: 0;
 }
-
 /* Aligned Form Elements  */
 .aligned .alignGroup {
     margin-bottom: 0.5em;
     display: flex;
 }
-
 .aligned .alignGroup label {
     text-align: right;
     display: inline-block;
@@ -54,7 +49,6 @@ fieldset {
     box-sizing: border-box;
     flex-grow: 1;
 }
-
 .configBlock {
     padding: 10px;
     border: 1px solid #e3e3e3;
@@ -63,13 +57,11 @@ fieldset {
     margin-bottom: 5px;
     position: relative;
 }
-
 .updateButton {
     top: 10px;
     right: 10px;
     position: absolute;
 }
-
 .bigButton {
     display: block;
     padding: 10px;
@@ -84,16 +76,13 @@ fieldset {
     margin-bottom: 10px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
 }
-
 .bigButton:hover {
     background-color: var(--light-accent-colour);
 }
-
 .addSensor{
     background-color: rgba(185, 213, 215, 0.5);
     color: rgb(73, 77, 77);
 }
-
 /* MODEM BUTTON */
 .bigButtonRed {
     display: block;
@@ -108,16 +97,13 @@ fieldset {
     cursor: pointer;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out
 }
-
 .bigButtonRed:hover {
     background-color: var(--red-hover-colour);
 }
-
 .addSensor{
     background-color: rgba(185, 213, 215, 0.5);
     color: rgb(73, 77, 77);
 }
-
 /* APP LAYOUT */
 /*Small screens (phones) */
 @media only screen and (max-width: 768px) {
@@ -129,7 +115,6 @@ fieldset {
         width: 100%;
     }
 }
-
 @media only screen and (min-width: 769px) {
     .mainContent {
         display: block;
@@ -141,14 +126,12 @@ fieldset {
         width: 50%;
     }
 }
-
 .page {
     margin: 10px;
     height: calc(100vh - 230px);
     overflow-x: hidden;
     overflow-y: auto;
 }
-
 .toggleButton {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -158,12 +141,10 @@ fieldset {
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
 }
-
 .toggleButton:hover {
     background-color: #e6e6e6;
     border-color: #999;
 }
-
 .switchTheme{
     position: absolute;
     top: 1em;
@@ -176,27 +157,22 @@ fieldset {
     padding: 1em 1em;
     font-size: 0.75em;
 }
-
 .popup-content {
     margin: auto;
     background: rgb(255, 255, 255);
     width: 50%;
     padding: 5px;
 }
-
 .popup-arrow {
     color: rgb(255, 255, 255);
 }
-
 [role='tooltip'].popup-content {
     width: 200px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
 }
-  
 .popup-overlay {
     background: rgba(0, 0, 0, 0.5);
 }
-
 [data-popup='tooltip'].popup-overlay {
     background: transparent;
 }

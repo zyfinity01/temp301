@@ -151,29 +151,25 @@ const ConfigureBlock: FunctionalComponent<Props> = (props) => {
                         <div className={style.alignGroup}>
                             <label htmlFor="aligned-name">Enabled</label>
                             <input type="checkbox"
-                                   name="enabled"
-                                   ref={register}
+                                   {...register("enabled")}
                             />
                         </div>
                         <div className={style.alignGroup}>
                             <label htmlFor="aligned-name">Address</label>
                             <input type="text"
-                                   name="address"
-                                   ref={register}
+                                   {...register("address")}
                             />
                         </div>
                         <div className={style.alignGroup}>
                             <label htmlFor="aligned-name">Bootup time (seconds)</label>
                             <input type="number" id="aligned-name"
-                                   name="bootup_time"
-                                   ref={register}
+                                   {...register("bootup_time")}
                             />
                         </div>
                         <div className={style.alignGroup}>
                             <label htmlFor="aligned-name">Record Interval (minutes)</label>
                             <input type="number" id="aligned-name"
-                                   name="record_interval"
-                                   ref={register}
+                                   {...register("record_interval")}
                             />
                         </div>
 
@@ -184,36 +180,35 @@ const ConfigureBlock: FunctionalComponent<Props> = (props) => {
                                     <label htmlFor="aligned-name">Name</label>
                                     <input type="text" id="aligned-name"
                                            name={`readings[${i}].reading`}
-                                           ref={register}
+                                           {...register}
                                     />
                                 </div>
                                 <div className={style.alignGroup}>
                                     <label htmlFor="aligned-name">Index</label>
                                     <input type="number" id="aligned-name"
                                            name={`readings[${i}].index`}
-                                           ref={register}
+                                           {...register}
                                     />
                                 </div>
                                 <div className={style.alignGroup}>
                                     <label htmlFor="aligned-name">Unit</label>
                                     <input type="text" id="aligned-name"
                                            name={`readings[${i}].unit`}
-                                           ref={register}
+                                           {...register}
                                     />
                                 </div>
                                 <div className={style.alignGroup}>
                                     <label htmlFor="aligned-name">Multiplier (span)</label>
                                     <input type="number" id="aligned-name"
                                            name={`readings[${i}].multiplier`}
-                                           ref={register}
+                                           {...register}
                                            step={"any"}
                                     />
                                 </div>
                                 <div className={style.alignGroup}>
                                     <label htmlFor="aligned-name">Offset (zero)</label>
                                     <input type="number" id="aligned-name"
-                                           name={`readings[${i}].offset`}
-                                           ref={register}
+                                           {...register}
                                            step={"any"}
                                     />
                                 </div>
