@@ -22,7 +22,7 @@
     "preact-markup": "^2.1.1",
     "preact-render-to-string": "^6.0.3",
     "react-chartjs-2": "^5.2.0",
-    "react-hook-form": "^6.15.8",
+    "react-hook-form": "^7.44.3",
     "react-icons": "^4.9.0",
     "reactjs-popup": "^2.0.5",
     "source-map-explorer": "^2.5.3",

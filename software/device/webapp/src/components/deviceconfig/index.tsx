@@ -95,32 +95,28 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
                         <label htmlFor="aligned-name">Device Name</label>
                         <input type="text"
                                className="aligned-name"
-                               name="device_name"
-                               ref={register}
+                               {...register("device_name")}
                         />
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Device ID</label>
                         <input type="text"
                                className="aligned-name"
-                               name="device_id"
-                               ref={register}
+                               {...register("device_id")}
                         />
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Wifi SSID</label>
                         <input type="text"
                                className="aligned-name"
-                               name="wifi_ssid"
-                               ref={register}
+                               {...register("wifi_ssid")}
                         />
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Wifi Password</label>
                         <input type={showPassword ? 'text' : 'password'}
                                className="aligned-name"
-                               name="wifi_password"
-                               ref={register}
+                               {...register("wifi_password")}
                         />
                         <button
                             type="button"
@@ -134,25 +130,22 @@ const DeviceConfigPage: React.FunctionComponent<deviceConfigType> = (props) => {
                         <label htmlFor="aligned-name">First Send At (Date)</label>
                         <input type={"date"}
                                className="aligned-name"
-                               name="first_send_at_date"
-                               ref={register}
+                               {...register("first_send_at_date")}
                         />
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">First Send At (Time)</label>
                         <input type={"time"}
                                className="aligned-name"
-                               name="first_send_at_time"
-                               ref={register}
+                               {...register("first_send_at_time")}
                         />
                     </div>
                     <div className={style.alignGroup}>
                         <label htmlFor="aligned-name">Send Interval (mins) </label>
                         <input type="number"
                                className="aligned-name"
-                               name="send_interval"
                                min={1}
-                               ref={register}
+                               {...register("send_interval")}
                         />
                     </div>
                     {/*</fieldset>*/}
