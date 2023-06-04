@@ -1,4 +1,5 @@
 /*CSS shared by multiple components and app.tsx styles goes here*/
+
 form input, textarea, select {
     padding: 0.5em 0.6em;
     display: inline-block;
@@ -126,6 +127,7 @@ fieldset {
         width: 50%;
     }
 }
+
 .page {
     margin: 10px;
     height: calc(100vh - 230px);
@@ -141,10 +143,12 @@ fieldset {
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
 }
+
 .toggleButton:hover {
     background-color: #e6e6e6;
     border-color: #999;
 }
+
 .switchTheme{
     position: absolute;
     top: 1em;
